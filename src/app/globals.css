@@ -1,22 +1,25 @@
 @import "tailwindcss";
 
 :root {
+  --foreground: #0a0a0a;
   --background: #ffffff;
-  --foreground: #171717;
+  --link-text: rgba(0, 0, 0, 0.7);
+  --link-hover: #000000;
+  --button-bg: var(--link-text);
+  --button-text: var(--background);
+  --button-hover-bg: #000;
+  --button-hover-text: #fff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: rgba(255, 255, 255, 0.7);
-  }
+[data-theme="dark"] {
+  --foreground: #ffffff;
+  --background: #0a0a0a;
+  --link-text: rgba(255, 255, 255, 0.7);
+  --link-hover: #fff;
+  --button-bg: var(--link-text);
+  --button-text: var(--background);
+  --button-hover-bg: #fff;
+  --button-hover-text: #000;
 }
 
 body {

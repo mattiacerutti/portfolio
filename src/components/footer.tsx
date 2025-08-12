@@ -7,7 +7,7 @@ export default function Footer() {
       <p className="text-base text-gray-500">
         &copy; {new Date().getFullYear()}
       </p>
-      <button className="text-gray-500 transition cursor-pointer hover:text-white duration-400">
+  <button className="text-gray-500 transition cursor-pointer hover:text-[var(--link-hover)] duration-400">
         <FiMoon className="w-5 h-5" />
       </button>
     </footer>

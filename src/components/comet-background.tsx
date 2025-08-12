@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, {useRef, useEffect} from "react";
 
@@ -104,8 +104,8 @@ export default function CometBackground({children}: ICometBackgroundProps) {
       ctx.globalAlpha = 0.8 * fade;
       ctx.beginPath();
       ctx.arc(comet.x, comet.y, comet.radius, 0, 2 * Math.PI);
-      ctx.fillStyle = "#fff";
-      ctx.shadowColor = "#fff";
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--link-hover") || "#0000";
+      ctx.shadowColor = getComputedStyle(document.documentElement).getPropertyValue("--link-hover") || "#0000";
       ctx.shadowBlur = 16;
       ctx.fill();
       ctx.restore();
