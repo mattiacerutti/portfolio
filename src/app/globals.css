@@ -9,6 +9,7 @@
   --button-text: var(--background);
   --button-hover-bg: #000;
   --button-hover-text: #fff;
+  --comet-color: #000000;
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,7 @@
   --button-text: var(--background);
   --button-hover-bg: #fff;
   --button-hover-text: #000;
+  --comet-color: #ffffff;
 }
 
 body {
