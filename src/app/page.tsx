@@ -1,5 +1,5 @@
-import Footer from "@/components/footer";
-import Hero from "@/components/hero";
+import Footer from "@/sections/footer";
+import Hero from "@/sections/hero";
 
 export const metadata = {
   title: "Mattia Cerutti",
