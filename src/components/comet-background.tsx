@@ -90,7 +90,7 @@ function toRGBA(rgb: {r: number; g: number; b: number}, alpha: number) {
 
 export default function CometBackground({children}: ICometBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const {theme} = useTheme();
+  const {resolvedTheme} = useTheme();
   const cometRGBRef = useRef<{r: number; g: number; b: number}>({r: 255, g: 255, b: 255});
 
   useEffect(() => {
@@ -197,7 +197,7 @@ export default function CometBackground({children}: ICometBackgroundProps) {
       cometRGBRef.current = parseColorToRGB(rawColor);
     });
     return () => cancelAnimationFrame(raf);
-  }, [theme]);
+  }, [resolvedTheme]);
 
   return (
     <section className="relative flex flex-col items-center justify-center w-full h-screen overflow-hidden">
