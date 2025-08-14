@@ -11,16 +11,15 @@ export const metadata = {
   description: "Mattia Cerutti's personal portfolio",
   keywords: ["Mattia Cerutti", "Web Developer", "Portfolio", "Fullstack Developer"],
 };
-export default function Home() {  
-
+export default function Home() {
   return (
     <>
       <Hero />
 
-      <div className="flex flex-col justify-center w-full max-w-4xl gap-16 p-8 pb-20 mx-auto sm:p-20">
+      <div className="flex flex-col justify-center w-full max-w-4xl gap-16 py-8 pb-20 mx-auto">
         <main className="flex flex-col">
           <div className="flex flex-col gap-8">
-            <VerticalReveal trigger="scroll">
+            <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <H3>Work</H3>
               <P className="text-[var(--link-text)]">
                 My most relevant work experiences.&nbsp;
@@ -34,7 +33,7 @@ export default function Home() {
               {WORK_EXPERIENCES.map(
                 (experience, index) =>
                   experience.relevant && (
-                    <VerticalReveal key={index} trigger="scroll" className="w-full">
+                    <VerticalReveal key={index} trigger="scroll" className="w-full" startY={50} duration={2}>
                       <WorkExperience
                         title={experience.title}
                         role={experience.role}

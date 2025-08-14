@@ -2,15 +2,17 @@
 
 import {useLayoutEffect, useRef, PropsWithChildren} from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 interface IVerticalRevealProps {
   delay?: number;
+  startY?: number;
+  duration?: number;
   className?: string;
   trigger?: "instant" | "scroll";
 }
 
-export default function VerticalReveal({children, delay = 0, className = "", trigger = "instant"}: PropsWithChildren<IVerticalRevealProps>) {
+export default function VerticalReveal({children, delay = 0, className = "", trigger = "instant", startY = 32, duration = 1}: PropsWithChildren<IVerticalRevealProps>) {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLSpanElement | null>(null);
 
@@ -21,7 +23,7 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
     }
     const ctx = gsap.context(() => {
       gsap.set(contentRef.current, {
-        y: 32,
+        y: startY,
         opacity: 0,
         willChange: "transform, opacity",
       });
@@ -29,7 +31,7 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
         gsap.to(contentRef.current, {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: duration,
           delay,
           ease: "power3.out",
           clearProps: "willChange",
@@ -38,7 +40,7 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
         gsap.to(contentRef.current, {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: duration,
           delay,
           ease: "power3.out",
           clearProps: "willChange",
@@ -51,7 +53,7 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
       }
     }, wrapRef);
     return () => ctx.revert();
-  }, [delay, trigger]);
+  }, [delay, trigger, startY]);
 
   return (
     <div ref={wrapRef} className={className}>

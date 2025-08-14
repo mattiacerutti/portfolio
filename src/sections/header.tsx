@@ -4,7 +4,7 @@ import React from "react";
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full px-8 py-6 text-xl border-b bg-[var(--background)]/5 border-gray-500/10 backdrop-blur-md">
-      <div className="flex justify-between max-w-4xl mx-auto">
+      <div className="flex justify-between max-w-5xl mx-auto">
         <Link href="/" className="font-semibold transition-colors duration-400 text-[var(--link-text)] hover:text-[var(--link-hover)]">
           @mattcer
         </Link>
