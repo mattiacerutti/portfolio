@@ -8,7 +8,7 @@ import CometBackground from "../components/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
 import HorizontalReveal from "../components/animations/horizontal-reveal";
 import H1 from "../components/typography/h1";
-import H4 from "@/components/typography/h4";
+import H3 from "@/components/typography/h3";
 
 export default function Hero() {
   return (
@@ -18,9 +18,9 @@ export default function Hero() {
           <H1>
             <VerticalReveal>hi, I&apos;m Mattia 👋</VerticalReveal>
           </H1>
-          <H4 className="!font-normal">
+          <H3 className="!font-normal">
             <VerticalReveal delay={0.1}>Full-stack developer</VerticalReveal>
-          </H4>
+          </H3>
         </div>
 
         <HorizontalReveal className="flex items-center gap-4">
