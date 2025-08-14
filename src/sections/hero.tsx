@@ -7,22 +7,20 @@ import {FaFileAlt} from "react-icons/fa";
 import CometBackground from "../components/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
 import HorizontalReveal from "../components/animations/horizontal-reveal";
+import H1 from "../components/typography/h1";
+import H4 from "@/components/typography/h4";
 
 export default function Hero() {
   return (
     <CometBackground>
       <div className="flex flex-col items-start justify-center h-screen gap-5 w-fit">
         <div className="flex flex-col gap-1">
-          <h1>
-            <VerticalReveal>
-              <span className="text-5xl font-bold text-foreground">hi, I&apos;m Mattia 👋</span>
-            </VerticalReveal>
-          </h1>
-          <h3>
-            <VerticalReveal delay={0.1}>
-              <span className="text-2xl font text-foreground">Full-stack developer</span>
-            </VerticalReveal>
-          </h3>
+          <H1>
+            <VerticalReveal>hi, I&apos;m Mattia 👋</VerticalReveal>
+          </H1>
+          <H4 className="!font-normal">
+            <VerticalReveal delay={0.1}>Full-stack developer</VerticalReveal>
+          </H4>
         </div>
 
         <HorizontalReveal className="flex items-center gap-4">

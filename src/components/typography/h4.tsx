@@ -1,0 +1,11 @@
+import React from "react";
+
+type H4Props = React.HTMLAttributes<HTMLHeadingElement>;
+
+export default function H4({ children, className = "", ...props }: H4Props) {
+  return (
+    <h4 className={`text-2xl scroll-m-20 font-semibold tracking-tight ${className}`} {...props}>
+      {children}
+    </h4>
+  );
+}

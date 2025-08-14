@@ -1,3 +1,4 @@
+import P from "@/components/typography/p";
 import Footer from "@/sections/footer";
 import Hero from "@/sections/hero";
 
@@ -15,8 +16,7 @@ export default function Home() {
       <div className="flex flex-col justify-center w-full max-w-4xl gap-16 p-8 pb-20 mx-auto sm:p-20">
         <main className="flex flex-col">
           <div className="h-[600px]">
-
-          Content here.
+            <P>Content here</P>
           </div>
         </main>
         <Footer />
