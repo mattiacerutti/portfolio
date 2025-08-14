@@ -4,7 +4,7 @@ type PProps = React.HTMLAttributes<HTMLParagraphElement>;
 
 export default function P({ children, className = "", ...props }: PProps) {
   return (
-    <p className={`text-base leading-7 ${className}`} {...props}>
+    <p className={`text-lg leading-7 ${className}`} {...props}>
       {children}
     </p>
   );
