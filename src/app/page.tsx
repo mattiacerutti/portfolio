@@ -1,5 +1,4 @@
 import P from "@/components/typography/p";
-import Footer from "@/sections/footer";
 import Hero from "@/sections/hero";
 
 export const metadata = {
@@ -19,7 +18,6 @@ export default function Home() {
             <P>Content here</P>
           </div>
         </main>
-        <Footer />
       </div>
     </>
   );

@@ -34,7 +34,7 @@ export default function VerticalReveal({children, delay = 0, className = ""}: Pr
 
   return (
     <div ref={wrapRef} className={className}>
-      <span ref={contentRef} className="inline-block">
+      <span ref={contentRef} className="inline-block w-full">
         {children}
       </span>
     </div>

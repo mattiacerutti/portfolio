@@ -17,7 +17,7 @@ export default function Footer() {
   const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
   const setSystemTheme = () => setTheme("system");
   return (
-    <footer className="flex items-center justify-between w-full">
+    <footer className="flex items-center justify-between w-full max-w-4xl mb-10 mt-35">
       <p className="text-base text-gray-500">&copy; {new Date().getFullYear()}</p>
       {isMounted && (
         <div className="flex items-center justify-end gap-4">
