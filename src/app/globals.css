@@ -3,7 +3,7 @@
 :root {
   --foreground: #0a0a0a;
   --background: #ffffff;
-  --link-text: rgba(0, 0, 0, 0.7);
+  --link-text: rgba(0, 0, 0, 0.6);
   --link-hover: #000000;
   --button-bg: var(--link-text);
   --button-text: var(--background);
@@ -13,9 +13,9 @@
 }
 
 [data-theme="dark"] {
-  --foreground: #ffffff;
+  --foreground: #f5f5f5;
   --background: #0a0a0a;
-  --link-text: rgba(255, 255, 255, 0.7);
+  --link-text: rgba(255, 255, 255, 0.6);
   --link-hover: #fff;
   --button-bg: var(--link-text);
   --button-text: var(--background);
