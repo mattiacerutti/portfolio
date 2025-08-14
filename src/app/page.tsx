@@ -21,9 +21,9 @@ export default function Home() {
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <H3>Work</H3>
-              <P className="text-[var(--link-text)]">
+              <P className="text-[var(--muted-foreground)]">
                 My most relevant work experiences.&nbsp;
-                <Link href="/work" className="transition-colors duration-400 text-[var(--link-text)] hover:text-[var(--link-hover)] underline decoration-[var(--link-text)]/30">
+                <Link href="/work" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)] underline decoration-[var(--muted-foreground)]/30">
                   Click here
                 </Link>{" "}
                 for the full list.

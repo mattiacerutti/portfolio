@@ -3,9 +3,8 @@
 :root {
   --foreground: #0a0a0a;
   --background: #ffffff;
-  --link-text: rgba(0, 0, 0, 0.6);
-  --link-hover: #000000;
-  --button-bg: var(--link-text);
+  --muted-foreground: rgba(0, 0, 0, 0.6);
+  --button-bg: var(--muted-foreground);
   --button-text: var(--background);
   --button-hover-bg: #000;
   --button-hover-text: #fff;
@@ -15,9 +14,8 @@
 [data-theme="dark"] {
   --foreground: #f5f5f5;
   --background: #0a0a0a;
-  --link-text: rgba(255, 255, 255, 0.6);
-  --link-hover: #fff;
-  --button-bg: var(--link-text);
+  --muted-foreground: rgba(255, 255, 255, 0.6);
+  --button-bg: var(--muted-foreground);
   --button-text: var(--background);
   --button-hover-bg: #fff;
   --button-hover-text: #000;

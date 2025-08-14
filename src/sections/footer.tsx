@@ -21,10 +21,10 @@ export default function Footer() {
       <p className="text-base text-gray-500">&copy; {new Date().getFullYear()}</p>
       {isMounted && (
         <div className="flex items-center justify-end gap-4">
-          <button className="text-gray-500 transition cursor-pointer hover:text-[var(--link-hover)] duration-400" onClick={setSystemTheme}>
+          <button className="text-gray-500 transition cursor-pointer hover:text-[var(--foreground)] duration-400" onClick={setSystemTheme}>
             <RiComputerLine className="w-5 h-5" />
           </button>
-          <button className="text-gray-500 transition cursor-pointer hover:text-[var(--link-hover)] duration-400" onClick={toggleTheme}>
+          <button className="text-gray-500 transition cursor-pointer hover:text-[var(--foreground)] duration-400" onClick={toggleTheme}>
             {resolvedTheme === "dark" ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
           </button>
         </div>

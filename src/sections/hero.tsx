@@ -28,7 +28,7 @@ export default function Hero() {
             href="https://github.com/mattiacerutti"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors text-[var(--link-text)] hover:text-[var(--link-hover)] duration-400"
+            className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
           >
             <FaGithub className="w-6 h-6" />
           </Link>
@@ -36,7 +36,7 @@ export default function Hero() {
             href="https://www.linkedin.com/in/mattiacerutti/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors text-[var(--link-text)] hover:text-[var(--link-hover)] duration-400"
+            className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
           >
             <FaLinkedin className="w-6.5 h-6.5" />
           </Link>

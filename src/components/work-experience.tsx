@@ -20,7 +20,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
       <div className="flex flex-col justify-between gap-4">
         <div className="flex flex-col">
           <H4>{title}</H4>
-          <span className="text-[var(--link-text)]">{role}</span>
+          <span className="text-[var(--muted-foreground)]">{role}</span>
         </div>
         <div className="flex flex-col gap-2">
           <div className="underline italic underline-offset-2 decoration-[var(--foreground)]/20">
@@ -40,7 +40,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
         <P>
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
-        <span className="text-[var(--link-text)]">{location}</span>
+        <span className="text-[var(--muted-foreground)]">{location}</span>
       </div>
     </div>
   );
