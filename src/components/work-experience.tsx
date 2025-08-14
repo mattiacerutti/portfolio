@@ -1,16 +1,9 @@
 import React from "react";
 import H4 from "./typography/h4";
 import P from "./typography/p";
+import {IWorkExperience} from "@/data/work";
 
-interface IWorkExperienceProps {
-  title: string;
-  role: string;
-  location: string;
-  startDate: Date;
-  endDate?: Date;
-  technologies: string[];
-  responsibilities: string[];
-}
+type IWorkExperienceProps = IWorkExperience;
 
 export default function WorkExperience(props: IWorkExperienceProps) {
   const {title, role, location, startDate, endDate, technologies, responsibilities} = props;

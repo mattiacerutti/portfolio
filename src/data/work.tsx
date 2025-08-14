@@ -1,4 +1,14 @@
-export const WORK_EXPERIENCES = [
+export interface IWorkExperience {
+  title: string;
+  role: string;
+  location: string;
+  startDate: Date;
+  endDate?: Date;
+  technologies: string[];
+  responsibilities: string[];
+}
+
+export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
   {
     title: "AWS, Language & Library Foundations",
     role: "Software Engineer",
@@ -12,6 +22,7 @@ export const WORK_EXPERIENCES = [
       "Optimized a mission-critical retail service handling 500MM+ requests/day, improving throughput by 18%, reducing CPU utilization by 22%, and cutting latency by 20%.",
       "Mentored 3 junior developers, leading weekly code reviews and pair-programming sessions to improve code quality and team productivity.",
     ],
+    relevant: true,
   },
   {
     title: "Google, Cloud Platform",
@@ -21,6 +32,7 @@ export const WORK_EXPERIENCES = [
     endDate: new Date("2025-05-01"),
     technologies: ["Python", "GCP", "Kubernetes"],
     responsibilities: ["Managed cloud infrastructure", "Optimized costs"],
+    relevant: false,
   },
   {
     title: "Microsoft, Azure",
@@ -30,5 +42,6 @@ export const WORK_EXPERIENCES = [
     endDate: new Date("2024-05-01"),
     technologies: ["TypeScript", "Azure", "Docker"],
     responsibilities: ["Automated deployments", "Monitored application performance"],
+    relevant: true,
   },
 ];
