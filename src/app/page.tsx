@@ -2,7 +2,7 @@ import VerticalReveal from "@/components/animations/vertical-reveal";
 import H3 from "@/components/typography/h3";
 import P from "@/components/typography/p";
 import WorkExperience from "@/components/work-experience";
-import {WORK_EXPERIENCES} from "@/data/work";
+import { WORK_EXPERIENCES } from "@/data/work";
 import Hero from "@/sections/hero";
 import Link from "next/link";
 
@@ -13,11 +13,10 @@ export const metadata = {
 };
 export default function Home() {
   return (
-    <>
+    <div className="w-full">
       <Hero />
-
       <div className="flex flex-col justify-center w-full max-w-4xl gap-16 py-8 pb-20 mx-auto">
-        <main className="flex flex-col">
+        <div className="flex flex-col">
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <H3>Work</H3>
@@ -48,8 +47,8 @@ export default function Home() {
               )}
             </div>
           </div>
-        </main>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

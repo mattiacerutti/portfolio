@@ -24,7 +24,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased ovicking-wide flex flex-col items-center min-h-screen justify-between`}>
         <ThemeProvider>
           <Header />
-          {children}
+          <main className="flex-1 w-full flex justify-center">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
