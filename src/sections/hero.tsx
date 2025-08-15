@@ -1,26 +1,36 @@
 import React from "react";
 import Link from "next/link";
-import {FaGithub} from "react-icons/fa";
-import {FaLinkedin} from "react-icons/fa";
-import {FaFileAlt} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFileAlt } from "react-icons/fa";
 
 import CometBackground from "../components/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
 import HorizontalReveal from "../components/animations/horizontal-reveal";
 import H1 from "../components/typography/h1";
 import H3 from "@/components/typography/h3";
+import P from "@/components/typography/p";
 
 export default function Hero() {
   return (
     <CometBackground>
       <div className="flex flex-col items-start justify-center h-screen gap-5 w-fit">
-        <div className="flex flex-col gap-1">
-          <H1>
-            <VerticalReveal>hi, I&apos;m Mattia 👋</VerticalReveal>
-          </H1>
-          <H3 className="!font-normal">
-            <VerticalReveal delay={0.1}>Full-stack developer</VerticalReveal>
-          </H3>
+        <div className="flex flex-col">
+          <VerticalReveal>
+            <H1>
+              hi, I&apos;m Mattia 👋
+            </H1>
+          </VerticalReveal>
+          <VerticalReveal delay={0.1}>
+            <H3 className="!font-normal">
+              Software Engineer
+            </H3>
+          </VerticalReveal>
+          <VerticalReveal delay={0.2}>
+            <P>
+              📍 Venice, Italy
+            </P>
+          </VerticalReveal>
         </div>
 
         <HorizontalReveal className="flex items-center gap-4">
