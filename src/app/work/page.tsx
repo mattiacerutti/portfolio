@@ -9,7 +9,7 @@ export default function Work() {
   const baseDelay = 0.15;
 
   return (
-    <div className="flex flex-col gap-15">
+    <div className="flex flex-col gap-8">
       <VerticalReveal>
         <H3>Work</H3>
         <P className="text-[var(--muted-foreground)]">My work experiences.</P>
