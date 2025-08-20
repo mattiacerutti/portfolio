@@ -34,21 +34,27 @@ function Page() {
 
       <div className="flex flex-col gap-8">
         <VerticalReveal delay={baseDelay}>
-          <P>Most typing games test you on plain words. That&apos;s not how developers type. Writing code involves braces, parentheses, indentation, and syntax rules.</P>
+          <P>
+            Most typing games (eg.{" "}
+            <Link href="https://monkeytype.com/" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+              Monkey Type
+            </Link>
+            ) test you on plain words, but that&apos;s not how developers type. Writing code involves braces, parentheses, indentation, and syntax rules.
+          </P>
         </VerticalReveal>
 
         <VerticalReveal delay={baseDelay * 1}>
           <div className="flex flex-col gap-2">
             <H4>Why I Built It</H4>
             <P>
-              I wanted a tool that felt closer to real programming than standard typing trainers.
-              <br />
-              Typing{" "}
+              I wanted a tool that felt closer to real programming than standard typing trainers. Typing{" "}
               <Code language="ts" inline>
                 function myFunc()
               </Code>{" "}
-              has a very different rhythm than typing <i>the quick brown fox</i>. Code Typer makes you practice the symbols, spacing, and structures you encounter every day in
-              code.
+              has a very different rhythm than typing <i>the quick brown fox</i>.
+              <br />
+              <br />
+              Code Typer makes you practice the symbols, spacing, and structures you encounter every day in code while also providing the help an IDE would.
             </P>
           </div>
         </VerticalReveal>
@@ -74,7 +80,7 @@ function Page() {
                 <b>Next.js</b>: Single framework for frontend and backend API routes. Simplified deployment and kept all logic in one place.
               </Li>
               <Li>
-                <b>PostgreSQL + Prisma</b>: Postgres stores GitHub file links and language metadata. And yes, of course I had to go with Prisma.
+                <b>PostgreSQL + Prisma</b>: Postgres stores GitHub file links and language metadata. Naturally, I had to go with Prisma.
               </Li>
               <Li>
                 <b>GitHub API</b>: Primary source of code snippets. Carefully optimized to avoid rate-limit headaches.
@@ -104,14 +110,13 @@ function Page() {
               <Li>
                 <b>Parsing</b>
                 <br />
-                Use <b>Tree-sitter</b> to parse the file and extract candidate snippets like functions or classes.
+                Use <i>Tree-sitter</i> to parse the file and extract candidate snippets like functions or classes.
               </Li>
               <Li>
                 <b>Validation &amp; Formatting</b>
                 <br />
-                Standardize whitespace and indentation, then validate the snippet with rules like minimum length or line count.
-                <br />
-                If a file yields no valid snippets, it&apos;s marked invalid in the database to avoid future queries.
+                Standardize whitespace and indentation, then validate the snippet with rules like minimum length or line count. If a file yields no valid snippets, it&apos;s marked
+                invalid in the database to avoid future queries.
               </Li>
               <Li>
                 <b>Autocomplete Marking</b>
@@ -125,12 +130,12 @@ function Page() {
 
         <VerticalReveal delay={baseDelay * 5}>
           <div className="flex flex-col gap-2">
-            <H4>What’s Next</H4>
+            <H4>What&apos;s Next</H4>
             <P>The current version works, but here are some ways it could be improved:</P>
             <Ul>
-              <Li>A cleaner (and better) UI</Li>
-              <Li>Progress tracking over time (with accounts)</Li>
-              <Li>Richer performance metrics</Li>
+              <Li>A cleaner (and better) UI.</Li>
+              <Li>Progress tracking over time (with accounts).</Li>
+              <Li>Richer performance metrics.</Li>
             </Ul>
           </div>
         </VerticalReveal>
