@@ -15,7 +15,12 @@ export default function Projects() {
       </VerticalReveal>
       <div className="flex flex-col gap-10">
         <VerticalReveal delay={baseDelay * 1} className="w-full">
-          <ProjectCard id={"code-typer"} title={"Code Typer"} description={"A typing game to improve your coding skills."} technologies={["TypeScript", "React"]} />
+          <ProjectCard
+            id={"code-typer"}
+            title={"Code Typer"}
+            description={"A typing game to improve your coding skills."}
+            technologies={["TypeScript", "Next.js", "PostgreSQL", "Prisma"]}
+          />
         </VerticalReveal>
       </div>
     </div>
