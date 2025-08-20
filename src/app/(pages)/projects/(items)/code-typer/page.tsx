@@ -19,6 +19,7 @@ function Page() {
   return (
     <div className="flex flex-col gap-8">
       <VerticalReveal>
+        <P className="!text-sm text-[var(--muted-foreground)]">2 min read</P>
         <div className="flex items-center gap-2">
           <H3>Code Typer</H3>
           <Link href={link} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
