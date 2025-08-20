@@ -19,7 +19,7 @@ function ProjectCard(props: IProjectCardProps) {
         <H4>{title}</H4>
         <P className="text-[var(--muted-foreground)] font-extralight">{description}</P>
         {technologies && (
-          <div className="flex flex-wrap gap-2 mt-5">
+          <div className="flex flex-wrap mt-5 gap-2">
             {technologies.map((tech, index) => (
               <div key={index} className="rounded-md bg-[var(--foreground)]/4 border border-[var(--foreground)]/20 px-2 py-1">
                 {tech}
