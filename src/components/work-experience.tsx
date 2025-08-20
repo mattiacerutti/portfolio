@@ -2,6 +2,8 @@ import React from "react";
 import H4 from "./typography/h4";
 import P from "./typography/p";
 import {IWorkExperience} from "@/data/work";
+import Ul from "./typography/ul";
+import Li from "./typography/li";
 
 type IWorkExperienceProps = IWorkExperience;
 
@@ -27,13 +29,11 @@ export default function WorkExperience(props: IWorkExperienceProps) {
             <P>Technologies: {technologies.join(", ")}</P>
           </div>
 
-          <ul className="pl-6 space-y-3 list-disc marker:text-[var(--foreground)]/40 marker:pl-10">
+          <Ul>
             {responsibilities.map((responsibility, index) => (
-              <li className="pl-2" key={index}>
-                <P>{responsibility}</P>
-              </li>
+              <Li key={index}>{responsibility}</Li>
             ))}
-          </ul>
+          </Ul>
         </div>
       </div>
       <div className="flex flex-col items-end text-nowrap">
