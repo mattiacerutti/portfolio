@@ -17,15 +17,7 @@ export default function Work() {
       <div className="flex flex-col gap-10">
         {WORK_EXPERIENCES.map((experience, index) => (
           <VerticalReveal key={index} delay={(index + 1) * baseDelay} className="w-full">
-            <WorkExperience
-              title={experience.title}
-              role={experience.role}
-              location={experience.location}
-              startDate={experience.startDate}
-              endDate={experience.endDate}
-              technologies={experience.technologies}
-              responsibilities={experience.responsibilities}
-            />
+            <WorkExperience experience={experience} />
           </VerticalReveal>
         ))}
       </div>

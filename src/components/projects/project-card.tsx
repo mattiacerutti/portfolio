@@ -2,16 +2,16 @@ import Link from "next/link";
 import React from "react";
 import H4 from "../typography/h4";
 import P from "../typography/p";
+import TechCard from "../tech-card";
+import {IProject} from "@/data/projects";
 
 interface IProjectCardProps {
-  id: string;
-  title: string;
-  description: string;
-  technologies: string[];
+  project: IProject;
 }
 
 function ProjectCard(props: IProjectCardProps) {
-  const {id, title, description, technologies} = props;
+  const {project} = props;
+  const {id, title, description, technologies} = project;
 
   return (
     <Link href={`/projects/${id}`} className="cursor-pointer">
@@ -21,9 +21,7 @@ function ProjectCard(props: IProjectCardProps) {
         {technologies && (
           <div className="flex flex-wrap mt-5 gap-2">
             {technologies.map((tech, index) => (
-              <div key={index} className="rounded-md bg-[var(--foreground)]/4 border border-[var(--foreground)]/20 px-2 py-1">
-                {tech}
-              </div>
+              <TechCard key={index} tech={tech} />
             ))}
           </div>
         )}

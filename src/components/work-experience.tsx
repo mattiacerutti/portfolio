@@ -5,10 +5,13 @@ import {IWorkExperience} from "@/data/work";
 import Ul from "./typography/ul";
 import Li from "./typography/li";
 
-type IWorkExperienceProps = IWorkExperience;
+interface IWorkExperienceProps {
+  experience: IWorkExperience;
+}
 
 export default function WorkExperience(props: IWorkExperienceProps) {
-  const {title, role, location, startDate, endDate, technologies, responsibilities} = props;
+  const {experience} = props;
+  const {title, role, location, startDate, endDate, technologies, responsibilities} = experience;
 
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat("en-US", {

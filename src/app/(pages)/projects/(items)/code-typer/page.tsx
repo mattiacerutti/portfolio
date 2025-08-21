@@ -10,39 +10,43 @@ import React from "react";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {FaGithub} from "react-icons/fa";
 import Code from "@/components/typography/code";
+import TechCard from "@/components/tech-card";
+import {getProjectById} from "@/data/projects";
 
 function Page() {
   const baseDelay = 0.15;
-  const link = "https://codetyper.mattiacerutti.com";
-  const githubLink = "https://github.com/mattiacerutti/code-typer";
+  const project = getProjectById("code-typer");
 
   return (
     <div className="flex flex-col gap-8">
       <VerticalReveal>
         <P className="!text-sm text-[var(--muted-foreground)]">2 min read</P>
         <div className="flex items-center gap-2">
-          <H3>Code Typer</H3>
-          <Link href={link} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+          <H3>{project.title}</H3>
+          <Link href={project.preview} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
             <HiOutlineExternalLink className="w-5 h-5" />
           </Link>
-          <Link href={githubLink} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+          <Link href={project.github} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
             <FaGithub className="w-5 h-5" />
           </Link>
         </div>
-        <P className="text-[var(--muted-foreground)]">A typing game to improve your code typing skills.</P>
+        <P className="text-[var(--muted-foreground)]">{project.description}</P>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {project.technologies.map((tech) => (
+            <TechCard key={tech} tech={tech} />
+          ))}
+        </div>
       </VerticalReveal>
-
       <div className="flex flex-col gap-8">
         <VerticalReveal delay={baseDelay}>
           <P>
             Most typing games (eg.{" "}
-            <Link href="https://monkeytype.com/" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+            <Link href="https://monkeytype.com/" target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
               Monkey Type
             </Link>
             ) test you on plain words, but that&apos;s not how developers type. Writing code involves braces, parentheses, indentation, and syntax rules.
           </P>
         </VerticalReveal>
-
         <VerticalReveal delay={baseDelay * 1}>
           <div className="flex flex-col gap-2">
             <H4>Why I Built It</H4>
@@ -58,7 +62,7 @@ function Page() {
             </P>
           </div>
         </VerticalReveal>
-
+        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 2}>
           <div className="flex flex-col gap-2">
             <H4>Features</H4>
@@ -71,7 +75,7 @@ function Page() {
             </Ul>
           </div>
         </VerticalReveal>
-
+        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 3}>
           <div className="flex flex-col gap-2">
             <H4>Tech Stack</H4>
@@ -91,7 +95,7 @@ function Page() {
             </Ul>
           </div>
         </VerticalReveal>
-
+        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 4}>
           <div className="flex flex-col gap-2">
             <H4>How the Snippet Pipeline Works</H4>
@@ -127,7 +131,7 @@ function Page() {
             <P>On the frontend, snippets are highlighted, rendered, and typed in real time.</P>
           </div>
         </VerticalReveal>
-
+        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 5}>
           <div className="flex flex-col gap-2">
             <H4>What&apos;s Next</H4>
