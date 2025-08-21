@@ -5,7 +5,7 @@ import Ol from "@/components/typography/ol";
 import H3 from "@/components/typography/h3";
 import H4 from "@/components/typography/h4";
 import P from "@/components/typography/p";
-import Link from "next/link";
+import { CustomLink } from "@/components/typography/link";
 import React from "react";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {FaGithub} from "react-icons/fa";
@@ -23,12 +23,12 @@ function Page() {
         <P className="!text-sm text-[var(--muted-foreground)]">2 min read</P>
         <div className="flex items-center gap-2">
           <H3>{project.title}</H3>
-          <Link href={project.preview} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+          <CustomLink href={project.preview} target="_blank">
             <HiOutlineExternalLink className="w-5 h-5" />
-          </Link>
-          <Link href={project.github} target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+          </CustomLink>
+          <CustomLink href={project.github} target="_blank">
             <FaGithub className="w-5 h-5" />
-          </Link>
+          </CustomLink>
         </div>
         <P className="text-[var(--muted-foreground)]">{project.description}</P>
         <div className="flex flex-wrap gap-2 mt-3">
@@ -41,9 +41,9 @@ function Page() {
         <VerticalReveal delay={baseDelay}>
           <P>
             Most typing games (eg.{" "}
-            <Link href="https://monkeytype.com/" target="_blank" className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+            <CustomLink href="https://monkeytype.com/" target="_blank">
               Monkey Type
-            </Link>
+            </CustomLink>
             ) test you on plain words, but that&apos;s not how developers type. Writing code involves braces, parentheses, indentation, and syntax rules.
           </P>
         </VerticalReveal>

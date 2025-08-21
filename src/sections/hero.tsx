@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { CustomLink } from "@/components/typography/link";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFileAlt } from "react-icons/fa";
@@ -34,23 +34,23 @@ export default function Hero() {
         </div>
 
         <HorizontalReveal className="flex items-center gap-4">
-          <Link
+          <CustomLink
             href="https://github.com/mattiacerutti"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
           >
             <FaGithub className="w-6 h-6" />
-          </Link>
-          <Link
+          </CustomLink>
+          <CustomLink
             href="https://www.linkedin.com/in/mattiacerutti/"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
           >
             <FaLinkedin className="w-6.5 h-6.5" />
-          </Link>
-          <Link
+          </CustomLink>
+          <CustomLink
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -58,7 +58,7 @@ export default function Hero() {
           >
             <FaFileAlt className="w-4 h-4" />
             Resume
-          </Link>
+          </CustomLink>
         </HorizontalReveal>
       </div>
     </CometBackground>

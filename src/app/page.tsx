@@ -4,7 +4,7 @@ import P from "@/components/typography/p";
 import WorkExperience from "@/components/work-experience";
 import {WORK_EXPERIENCES} from "@/data/work";
 import Hero from "@/sections/hero";
-import Link from "next/link";
+import { CustomLink } from "@/components/typography/link";
 
 export const metadata = {
   title: "Mattia Cerutti",
@@ -22,12 +22,12 @@ export default function Home() {
               <H3>Work</H3>
               <P className="text-[var(--muted-foreground)]">
                 My most relevant work experiences.&nbsp;
-                <Link
+                <CustomLink
                   href="/work"
                   className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)] underline decoration-[var(--muted-foreground)]/30"
                 >
                   Click here
-                </Link>{" "}
+                </CustomLink>{" "}
                 for the full list.
               </P>
             </VerticalReveal>
