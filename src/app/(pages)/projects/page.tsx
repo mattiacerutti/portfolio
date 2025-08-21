@@ -1,3 +1,20 @@
+export const metadata = {
+  title: "Projects | Mattia Cerutti",
+  description: "All projects by Mattia Cerutti.",
+  openGraph: {
+    title: "Projects | Mattia Cerutti",
+    description: "All projects by Mattia Cerutti.",
+    url: "https://mattiacerutti.com/projects",
+    siteName: "Mattia Cerutti Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Mattia Cerutti",
+    description: "All projects by Mattia Cerutti.",
+  },
+};
 import React from "react";
 import H3 from "@/components/typography/h3";
 import VerticalReveal from "@/components/animations/vertical-reveal";

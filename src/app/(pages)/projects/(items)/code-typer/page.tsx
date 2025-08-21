@@ -1,3 +1,21 @@
+export const metadata = {
+  title: "Code Typer | Mattia Cerutti",
+  description: "Code Typer project by Mattia Cerutti. Details, tech stack, and links.",
+  openGraph: {
+    title: "Code Typer | Mattia Cerutti",
+    description: "Code Typer project by Mattia Cerutti. Details, tech stack, and links.",
+    url: "https://mattiacerutti.com/projects/code-typer",
+    siteName: "Mattia Cerutti Portfolio",
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Code Typer | Mattia Cerutti",
+    description: "Code Typer project by Mattia Cerutti. Details, tech stack, and links.",
+  },
+};
+
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import Ul from "@/components/typography/ul";
 import Li from "@/components/typography/li";
@@ -5,7 +23,7 @@ import Ol from "@/components/typography/ol";
 import H3 from "@/components/typography/h3";
 import H4 from "@/components/typography/h4";
 import P from "@/components/typography/p";
-import { CustomLink } from "@/components/typography/link";
+import {CustomLink} from "@/components/typography/link";
 import React from "react";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {FaGithub} from "react-icons/fa";
@@ -51,11 +69,11 @@ function Page() {
           <div className="flex flex-col gap-2">
             <H4>Why I Built It</H4>
             <P>
-              I wanted a tool that felt closer to real programming than standard typing trainers. Typing{" "}
+              I wanted a tool that felt closer to real programming than standard typing trainers: typing{" "}
               <Code language="ts" inline>
                 function myFunc()
               </Code>{" "}
-              has a very different rhythm than typing <i>the quick brown fox</i>.
+              has a very different rhythm than typing <i>the quick brown fox</i>!
               <br />
               <br />
               Code Typer makes you practice the symbols, spacing, and structures you encounter every day in code while also providing the help an IDE would.
