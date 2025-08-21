@@ -20,6 +20,6 @@ export const PROJECTS: IProject[] = [
     description: "A typing game to improve your coding skills.",
     technologies: ["TypeScript", "Next.js", "PostgreSQL", "Prisma"],
     github: "https://github.com/mattiacerutti/code-typer",
-    preview: "https://code-typer.vercel.app/",
+    preview: "https://codetyper.mattiacerutti.com/",
   },
 ];
