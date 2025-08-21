@@ -4,12 +4,25 @@ import P from "@/components/typography/p";
 import WorkExperience from "@/components/work-experience";
 import {WORK_EXPERIENCES} from "@/data/work";
 import Hero from "@/sections/hero";
-import { CustomLink } from "@/components/typography/link";
+import {CustomLink} from "@/components/typography/link";
 
 export const metadata = {
-  title: "Mattia Cerutti",
-  description: "Mattia Cerutti's personal portfolio",
+  title: "Home | Mattia Cerutti",
+  description: "Portfolio of Mattia Cerutti. Discover projects, work experience, and more.",
   keywords: ["Mattia Cerutti", "Web Developer", "Portfolio", "Fullstack Developer"],
+  openGraph: {
+    title: "Home | Mattia Cerutti",
+    description: "Portfolio of Mattia Cerutti. Discover projects, work experience, and more.",
+    url: "https://mattiacerutti.com/",
+    siteName: "Mattia Cerutti Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Home | Mattia Cerutti",
+    description: "Portfolio of Mattia Cerutti. Discover projects, work experience, and more.",
+  },
 };
 export default function Home() {
   return (
