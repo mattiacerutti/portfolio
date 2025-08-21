@@ -54,7 +54,7 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="items-center transition-colors hover:text-[var(--button-hover-text)] hover:bg-[var(--button-hover-bg)] duration-400 flex gap-1 px-2 py-1 text-[var(--button-text)] bg-[var(--button-bg)] rounded-lg"
+            className="items-center transition-colors hover:!text-[var(--button-hover-text)] hover:!bg-[var(--button-hover-bg)] duration-400 flex gap-1 px-2 py-1 !text-[var(--button-text)] !bg-[var(--button-bg)] rounded-lg"
           >
             <FaFileAlt className="w-4 h-4" />
             Resume
