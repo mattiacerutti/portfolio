@@ -3,8 +3,8 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 z-50 w-full px-8 py-6 text-xl border-b bg-[var(--foreground)]/2 border-gray-500/10 bg-clip-padding backdrop-filter backdrop-blur-md">
-      <div className="flex justify-between max-w-5xl mx-auto">
+    <header className="fixed top-0 left-0 z-50 w-full p-6 text-xl border-b bg-[var(--foreground)]/2 border-gray-500/10 bg-clip-padding backdrop-filter backdrop-blur-md">
+      <div className="flex justify-between max-w-4xl mx-auto">
   <CustomLink href="/" className="font-semibold">
           Mattia Cerutti
   </CustomLink>

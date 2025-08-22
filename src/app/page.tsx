@@ -26,10 +26,10 @@ export const metadata = {
 };
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full">
       <Hero />
-      <div className="flex flex-col justify-center w-full max-w-4xl py-8 pb-20 mx-auto gap-16">
-        <div className="flex flex-col">
+      <div className="flex justify-center w-full px-6 mt-8">
+        <div className="flex flex-col max-w-4xl gap-30">
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <H3>Work</H3>

@@ -22,31 +22,32 @@ export default function WorkExperience(props: IWorkExperienceProps) {
   };
 
   return (
-    <div className="flex flex-row justify-between gap-5">
-      <div className="flex flex-col justify-between gap-2">
-        <div className="flex flex-col">
-          <H4>{title}</H4>
-          <span className="text-[var(--muted-foreground)]">{role}</span>
-        </div>
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-row flex-wrap gap-2 decoration-[var(--foreground)]/20">
-            {technologies.map((tech, index) => (
-              <TechCard key={index} tech={tech} />
-            ))}
-          </div>
-
-          <Ul>
-            {responsibilities.map((responsibility, index) => (
-              <Li key={index}>{responsibility}</Li>
-            ))}
-          </Ul>
-        </div>
+    <div className="grid gap-0.5 md:gap-2 md:grid-cols-[1fr_auto] grid-cols-1">
+      <div className="flex flex-col">
+        <H4>{title}</H4>
+        <span className="text-[var(--muted-foreground)]">{role}</span>
       </div>
-      <div className="flex flex-col items-end text-nowrap">
+
+      <div className="flex items-center max-md:italic max-md:gap-2 w-fit md:flex-col md:items-end text-nowrap">
         <P>
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
-        <span className="text-[var(--muted-foreground)]">{location}</span>
+        <P className="visible md:hidden">•</P>
+        <P className="md:!text-base  md:text-[var(--muted-foreground)]">{location}</P>
+      </div>
+
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-row flex-wrap gap-2 decoration-[var(--foreground)]/20 max-md:mt-1">
+          {technologies.map((tech, index) => (
+            <TechCard key={index} tech={tech} />
+          ))}
+        </div>
+
+        <Ul>
+          {responsibilities.map((responsibility, index) => (
+            <Li key={index}>{responsibility}</Li>
+          ))}
+        </Ul>
       </div>
     </div>
   );
