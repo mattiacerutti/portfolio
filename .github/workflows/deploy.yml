@@ -1,0 +1,20 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  nixpacks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Install Nixpacks
+        run: curl -fsSL https://nixpacks.com/install.sh | bash
+      - name: Build image with Nixpacks
+        run: nixpacks build . --name ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:latest
+      - name: Push
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:latest
