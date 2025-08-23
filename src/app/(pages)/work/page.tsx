@@ -1,9 +1,16 @@
+import React from "react";
+import H3 from "@/components/typography/h3";
+import WorkExperience from "@/components/work-experience";
+import {WORK_EXPERIENCES} from "@/data/work";
+import VerticalReveal from "@/components/animations/vertical-reveal";
+import P from "@/components/typography/p";
+
 export const metadata = {
   title: "Work | Mattia Cerutti",
-  description: "Professional work experiences of Mattia Cerutti.",
+  description: "My work experience and career so far.",
   openGraph: {
     title: "Work | Mattia Cerutti",
-    description: "Professional work experiences of Mattia Cerutti.",
+    description: "My work experience and career so far.",
     url: "https://mattiacerutti.com/work",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
@@ -12,15 +19,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Work | Mattia Cerutti",
-    description: "Professional work experiences of Mattia Cerutti.",
+    description: "My work experience and career so far.",
   },
 };
-import React from "react";
-import H3 from "@/components/typography/h3";
-import WorkExperience from "@/components/work-experience";
-import {WORK_EXPERIENCES} from "@/data/work";
-import VerticalReveal from "@/components/animations/vertical-reveal";
-import P from "@/components/typography/p";
 
 export default function Work() {
   const baseDelay = 0.15;

@@ -1,21 +1,3 @@
-export const metadata = {
-  title: "Code Typer | Mattia Cerutti",
-  description: "Code Typer project by Mattia Cerutti. Details, tech stack, and links.",
-  openGraph: {
-    title: "Code Typer | Mattia Cerutti",
-    description: "Code Typer project by Mattia Cerutti. Details, tech stack, and links.",
-    url: "https://mattiacerutti.com/projects/code-typer",
-    siteName: "Mattia Cerutti Portfolio",
-    locale: "en_US",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Code Typer | Mattia Cerutti",
-    description: "Code Typer project by Mattia Cerutti. Details, tech stack, and links.",
-  },
-};
-
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import Ul from "@/components/typography/ul";
 import Li from "@/components/typography/li";
@@ -30,6 +12,24 @@ import {FaGithub} from "react-icons/fa";
 import Code from "@/components/typography/code";
 import TechCard from "@/components/tech-card";
 import {getProjectById} from "@/data/projects";
+
+export const metadata = {
+  title: "Code Typer | Mattia Cerutti",
+  description: "A closer look at Code Typer, what it does, how I built it.",
+  openGraph: {
+    title: "Code Typer | Mattia Cerutti",
+    description: "A closer look at Code Typer, what it does, how I built it.",
+    url: "https://mattiacerutti.com/projects/code-typer",
+    siteName: "Mattia Cerutti Portfolio",
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Code Typer | Mattia Cerutti",
+    description: "A closer look at Code Typer, what it does, how I built it.",
+  },
+};
 
 function Page() {
   const baseDelay = 0.15;
@@ -80,7 +80,6 @@ function Page() {
             </P>
           </div>
         </VerticalReveal>
-        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 2}>
           <div className="flex flex-col gap-2">
             <H4>Features</H4>
@@ -93,7 +92,6 @@ function Page() {
             </Ul>
           </div>
         </VerticalReveal>
-        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 3}>
           <div className="flex flex-col gap-2">
             <H4>Tech Stack</H4>
@@ -113,7 +111,6 @@ function Page() {
             </Ul>
           </div>
         </VerticalReveal>
-        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 4}>
           <div className="flex flex-col gap-2">
             <H4>How the Snippet Pipeline Works</H4>
@@ -149,7 +146,6 @@ function Page() {
             <P>On the frontend, snippets are highlighted, rendered, and typed in real time.</P>
           </div>
         </VerticalReveal>
-        {/* ...existing code... */}
         <VerticalReveal delay={baseDelay * 5}>
           <div className="flex flex-col gap-2">
             <H4>What&apos;s Next</H4>

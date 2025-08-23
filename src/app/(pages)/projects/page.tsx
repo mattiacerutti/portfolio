@@ -1,9 +1,16 @@
+import React from "react";
+import H3 from "@/components/typography/h3";
+import VerticalReveal from "@/components/animations/vertical-reveal";
+import P from "@/components/typography/p";
+import ProjectCard from "@/components/projects/project-card";
+import {PROJECTS} from "@/data/projects";
+
 export const metadata = {
   title: "Projects | Mattia Cerutti",
-  description: "All projects by Mattia Cerutti.",
+  description: "Check out what I've been working on.",
   openGraph: {
     title: "Projects | Mattia Cerutti",
-    description: "All projects by Mattia Cerutti.",
+    description: "Check out what I've been working on.",
     url: "https://mattiacerutti.com/projects",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
@@ -12,15 +19,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Projects | Mattia Cerutti",
-    description: "All projects by Mattia Cerutti.",
+    description: "Check out what I've been working on.",
   },
 };
-import React from "react";
-import H3 from "@/components/typography/h3";
-import VerticalReveal from "@/components/animations/vertical-reveal";
-import P from "@/components/typography/p";
-import ProjectCard from "@/components/projects/project-card";
-import {PROJECTS} from "@/data/projects";
 
 export default function Projects() {
   const baseDelay = 0.15;

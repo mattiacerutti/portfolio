@@ -1,6 +1,11 @@
+import H2 from "@/components/typography/h2";
+import H4 from "@/components/typography/h4";
+import P from "@/components/typography/p";
+import { CustomLink } from "@/components/typography/link";
+
 export const metadata = {
     title: "404 | Mattia Cerutti",
-    description: "Page not found on Mattia Cerutti's portfolio.",
+    description: "Page not found.",
     openGraph: {
         title: "404 | Mattia Cerutti",
         description: "Page not found.",
@@ -15,10 +20,6 @@ export const metadata = {
         description: "Page not found.",
     },
 };
-import H2 from "@/components/typography/h2";
-import H4 from "@/components/typography/h4";
-import P from "@/components/typography/p";
-import { CustomLink } from "@/components/typography/link";
 
 export default function NotFound() {
     return (

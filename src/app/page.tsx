@@ -8,11 +8,11 @@ import {CustomLink} from "@/components/typography/link";
 
 export const metadata = {
   title: "Home | Mattia Cerutti",
-  description: "Portfolio of Mattia Cerutti. Discover projects, work experience, and more.",
+  description: "Projects, experience, and things I've been doing.",
   keywords: ["Mattia Cerutti", "Web Developer", "Portfolio", "Fullstack Developer"],
   openGraph: {
     title: "Home | Mattia Cerutti",
-    description: "Portfolio of Mattia Cerutti. Discover projects, work experience, and more.",
+    description: "Projects, experience, and things I've been doing.",
     url: "https://mattiacerutti.com/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
@@ -21,9 +21,10 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Home | Mattia Cerutti",
-    description: "Portfolio of Mattia Cerutti. Discover projects, work experience, and more.",
+    description: "Projects, experience, and things I've been doing.",
   },
 };
+
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
