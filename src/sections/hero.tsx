@@ -51,7 +51,7 @@ export default function Hero() {
             <FaLinkedin className="w-6.5 h-6.5" />
           </CustomLink>
           <CustomLink
-            href="/resume.pdf"
+            href="https://flowcv.com/resume/sfcv6r8csf"
             target="_blank"
             rel="noopener noreferrer"
             className="items-center transition-colors hover:!text-[var(--button-hover-text)] hover:!bg-[var(--button-hover-bg)] duration-400 flex gap-1 px-2 py-1 !text-[var(--button-text)] !bg-[var(--button-bg)] rounded-lg"

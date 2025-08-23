@@ -29,7 +29,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       <Hero />
       <div className="flex justify-center w-full px-6 mt-8">
-        <div className="flex flex-col max-w-4xl gap-30">
+        <div className="flex flex-col w-4xl gap-30">
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <H3>Work</H3>

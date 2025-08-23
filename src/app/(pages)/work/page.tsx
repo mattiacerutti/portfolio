@@ -29,7 +29,7 @@ export default function Work() {
     <div className="flex flex-col gap-8">
       <VerticalReveal>
         <H3>Work</H3>
-        <P className="text-[var(--muted-foreground)]">My work experiences.</P>
+        <P className="text-[var(--muted-foreground)]">All my work experiences.</P>
       </VerticalReveal>
       <div className="flex flex-col gap-10">
         {WORK_EXPERIENCES.map((experience, index) => (
