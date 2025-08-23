@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/sections/header";
 import {ThemeProvider} from "../components/theme-provider";
 import Footer from "@/sections/footer";
+import LoadingWrapper from "@/components/loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +24,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased ovicking-wide flex flex-col items-center min-h-screen justify-between`}>
         <ThemeProvider>
-          <Header />
-          <main className="flex justify-center flex-1 w-full">
-            {children}
-          </main>
-          <Footer />
+          <LoadingWrapper>
+            <Header />
+            <main className="flex justify-center flex-1 w-full">{children}</main>
+            <Footer />
+          </LoadingWrapper>
         </ThemeProvider>
       </body>
     </html>

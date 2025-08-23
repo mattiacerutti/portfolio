@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useLayoutEffect} from "react";
 import {useTheme} from "next-themes";
 
 interface ICometBackgroundProps {
@@ -15,6 +15,13 @@ interface IComet {
   angle: number;
   opacity: number;
   radius: number;
+  vx: number;
+  vy: number;
+  halfTailWidth: number;
+  tailOffsetX: number;
+  tailOffsetY: number;
+  perpCos: number;
+  perpSin: number;
 }
 
 const COMET_COUNT = 20;
@@ -30,8 +37,10 @@ function randomInRange([min, max]: [number, number]) {
 }
 
 function createComet(width: number, height: number, location: "anywhere" | "edges" = "anywhere"): IComet {
+
   let x = Math.random() * width;
   let y = Math.random() * height;
+  
   if (location === "edges") {
     if (Math.random() < width / (width + height)) {
       // Top edge
@@ -41,14 +50,30 @@ function createComet(width: number, height: number, location: "anywhere" | "edge
       x = -Math.random() * 60;
     }
   }
+
+  // Precompute trig and geometry helpers for performance
+  const length = randomInRange(TAIL_LENGTH_RANGE);
+  const speed = randomInRange(SPEED_RANGE);
+  const angle = ANGLE + (Math.random() - 0.5) * ANGLE_VARIATION;
+  const opacity = randomInRange(OPACITY_RANGE);
+  const radius = randomInRange(HEAD_RADIUS_RANGE);
+  const cosA = Math.cos(angle);
+  const sinA = Math.sin(angle);
   return {
     x,
     y,
-    length: randomInRange(TAIL_LENGTH_RANGE),
-    speed: randomInRange(SPEED_RANGE),
-    angle: ANGLE + (Math.random() - 0.5) * ANGLE_VARIATION,
-    opacity: randomInRange(OPACITY_RANGE),
-    radius: randomInRange(HEAD_RADIUS_RANGE),
+    length,
+    speed,
+    angle,
+    opacity,
+    radius,
+    vx: cosA * speed,
+    vy: sinA * speed,
+    halfTailWidth: radius,
+    tailOffsetX: cosA * length,
+    tailOffsetY: sinA * length,
+    perpCos: -sinA,
+    perpSin: cosA,
   };
 }
 
@@ -81,7 +106,7 @@ function parseColorToRGB(color: string) {
     }
   }
   // fallback to white
-  return {r: 255, g: 255, b: 255};
+  throw new Error(`Unable to parse color: ${color}`);
 }
 
 function toRGBA(rgb: {r: number; g: number; b: number}, alpha: number) {
@@ -90,6 +115,7 @@ function toRGBA(rgb: {r: number; g: number; b: number}, alpha: number) {
 
 export default function CometBackground({children}: ICometBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const readyDispatchedRef = useRef(false);
   const {resolvedTheme} = useTheme();
   const cometRGBRef = useRef<{r: number; g: number; b: number}>({r: 255, g: 255, b: 255});
 
@@ -97,17 +123,23 @@ export default function CometBackground({children}: ICometBackgroundProps) {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
+    // Initialize canvas based on parent element size and device pixel ratio
+    const parent = canvas.parentElement as HTMLElement | null;
+    const initialW = parent?.clientWidth ?? window.innerWidth;
+    const initialH = parent?.clientHeight ?? window.innerHeight;
+    let dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.floor(initialW * dpr);
+    canvas.height = Math.floor(initialH * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    let comets: IComet[] = Array.from({length: COMET_COUNT}, () => createComet(width, height, "anywhere"));
 
-    function drawComet(comet: IComet) {
+    const comets: IComet[] = Array.from({length: COMET_COUNT}, () => createComet(initialW, initialH, "anywhere"));
+
+
+    function drawComet(comet: IComet, displayHeight: number) {
       // Fade out as comet approaches the bottom edge
-      const fadeStart = height * 0.75;
-      const fadeEnd = height;
+      const fadeStart = displayHeight * 0.75;
+      const fadeEnd = displayHeight;
       let fade = 1;
       if (comet.y > fadeStart) {
         fade = Math.max(0, 1 - (comet.y - fadeStart) / (fadeEnd - fadeStart));
@@ -115,15 +147,13 @@ export default function CometBackground({children}: ICometBackgroundProps) {
 
       // Tail
       ctx.save();
-      const tailWidth = comet.radius * 2.0;
-      const perpAngle = comet.angle + Math.PI / 2;
 
-      const x1 = comet.x + (Math.cos(perpAngle) * tailWidth) / 2;
-      const y1 = comet.y + (Math.sin(perpAngle) * tailWidth) / 2;
-      const x2 = comet.x - (Math.cos(perpAngle) * tailWidth) / 2;
-      const y2 = comet.y - (Math.sin(perpAngle) * tailWidth) / 2;
-      const x3 = comet.x - Math.cos(comet.angle) * comet.length;
-      const y3 = comet.y - Math.sin(comet.angle) * comet.length;
+      const x1 = comet.x + comet.perpCos * comet.halfTailWidth;
+      const y1 = comet.y + comet.perpSin * comet.halfTailWidth;
+      const x2 = comet.x - comet.perpCos * comet.halfTailWidth;
+      const y2 = comet.y - comet.perpSin * comet.halfTailWidth;
+      const x3 = comet.x - comet.tailOffsetX;
+      const y3 = comet.y - comet.tailOffsetY;
 
       const grad = ctx.createLinearGradient(comet.x, comet.y, x3, y3);
       grad.addColorStop(0, toRGBA(cometRGBRef.current, 0.45 * comet.opacity * fade));
@@ -150,48 +180,57 @@ export default function CometBackground({children}: ICometBackgroundProps) {
       ctx.restore();
     }
 
-    function updateComet(comet: IComet) {
-      comet.x += Math.cos(comet.angle) * comet.speed;
-      comet.y += Math.sin(comet.angle) * comet.speed;
+    function updateComet(comet: IComet, displayWidth: number, displayHeight: number) {
+      comet.x += comet.vx;
+      comet.y += comet.vy;
 
       // Reset comet if it goes off screen
-      if (comet.x > width + 30 || comet.y > height + 30) {
-        Object.assign(comet, createComet(width, height, "edges"));
+      if (comet.x > displayWidth + 30 || comet.y > displayHeight + 30) {
+        Object.assign(comet, createComet(displayWidth, displayHeight, "edges"));
       }
     }
 
     function update() {
-      ctx.clearRect(0, 0, width, height);
-      for (const comet of comets) {
-        updateComet(comet);
-        drawComet(comet);
+      // Keep canvas in sync with parent element and DPR each frame
+      const parentEl = canvas.parentElement as HTMLElement | null;
+      const displayW = parentEl?.clientWidth ?? window.innerWidth;
+      const displayH = parentEl?.clientHeight ?? window.innerHeight;
+      const nextDpr = window.devicePixelRatio || 1;
+
+      const needResize = canvas.width !== Math.floor(displayW * nextDpr) || canvas.height !== Math.floor(displayH * nextDpr) || nextDpr !== dpr;
+      if (needResize) {
+        dpr = nextDpr;
+        canvas.width = Math.floor(displayW * dpr);
+        canvas.height = Math.floor(displayH * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      ctx.clearRect(0, 0, displayW, displayH);
+      for (let i = 0; i < comets.length; i++) {
+        const comet = comets[i];
+        updateComet(comet, displayW, displayH);
+        drawComet(comet, displayH);
       }
     }
 
     let animationId: number;
     function animate() {
+      // Dispatch ready event
+      if (!readyDispatchedRef.current) {
+        readyDispatchedRef.current = true;
+        window.dispatchEvent(new Event("comets:ready"));
+      }
       update();
       animationId = requestAnimationFrame(animate);
     }
-    animate();
-
-    function handleResize() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-
-      comets = Array.from({length: COMET_COUNT}, () => createComet(width, height, "anywhere"));
-    }
-    window.addEventListener("resize", handleResize);
-
+    animationId = requestAnimationFrame(animate)
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
+        window.dispatchEvent(new Event("comets:ready"));
     const raf = requestAnimationFrame(() => {
       const rawColor = getComputedStyle(document.documentElement).getPropertyValue("--comet-color");
       cometRGBRef.current = parseColorToRGB(rawColor);
@@ -200,7 +239,7 @@ export default function CometBackground({children}: ICometBackgroundProps) {
   }, [resolvedTheme]);
 
   return (
-    <section className="relative flex flex-col items-center justify-center w-full h-screen overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center w-full h-[100lvh] overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" />
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">{children}</div>
     </section>
