@@ -1,8 +1,8 @@
 import React from "react";
-import { CustomLink } from "@/components/typography/link";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaFileAlt } from "react-icons/fa";
+import {CustomLink} from "@/components/typography/link";
+import {FaGithub} from "react-icons/fa";
+import {FaLinkedin} from "react-icons/fa";
+import {FaFileAlt} from "react-icons/fa";
 
 import CometBackground from "../components/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
@@ -14,22 +14,19 @@ import P from "@/components/typography/p";
 export default function Hero() {
   return (
     <CometBackground>
-      <div className="flex flex-col items-start justify-center h-screen gap-5 w-fit">
+      <div className="flex flex-col items-start justify-center h-screen gap-5 w-fit p-5">
         <div className="flex flex-col">
           <VerticalReveal>
-            <H1>
-              hi, I&apos;m Mattia 👋
-            </H1>
+            <div className="flex flex-col xs:flex-row items-start xs:gap-3">
+              <H1 className="text-nowrap">hi, I&apos;m</H1>
+              <H1 className="text-nowrap">Mattia 👋</H1>
+            </div>
           </VerticalReveal>
           <VerticalReveal delay={0.1}>
-            <H3 className="!font-normal">
-              Software Engineer
-            </H3>
+            <H3 className="!font-normal">Software Engineer</H3>
           </VerticalReveal>
           <VerticalReveal delay={0.2}>
-            <P>
-              📍 Venice, Italy
-            </P>
+            <P>📍 Venice, Italy</P>
           </VerticalReveal>
         </div>
 

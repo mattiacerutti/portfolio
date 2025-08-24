@@ -53,7 +53,7 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
       }
     }, wrapRef);
     return () => ctx.revert();
-  }, [delay, trigger, startY]);
+  }, [delay, trigger, startY, duration]);
 
   return (
     <div ref={wrapRef} className={className}>
