@@ -7,10 +7,10 @@ import {PROJECTS} from "@/data/projects";
 
 export const metadata = {
   title: "Projects | Mattia Cerutti",
-  description: "Check out what I've been working on.",
+  description: "Things I've been working on lately.",
   openGraph: {
     title: "Projects | Mattia Cerutti",
-    description: "Check out what I've been working on.",
+    description: "Things I've been working on lately.",
     url: "https://mattiacerutti.com/projects",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
@@ -19,7 +19,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Projects | Mattia Cerutti",
-    description: "Check out what I've been working on.",
+    description: "Things I've been working on lately.",
   },
 };
 

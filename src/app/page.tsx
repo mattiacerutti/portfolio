@@ -7,12 +7,12 @@ import Hero from "@/sections/hero";
 import {CustomLink} from "@/components/typography/link";
 
 export const metadata = {
-  title: "Home | Mattia Cerutti",
-  description: "Projects, experience, and things I've been doing.",
+  title: "Mattia Cerutti - Software Engineer",
+  description: "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.",
   keywords: ["Mattia Cerutti", "Web Developer", "Portfolio", "Fullstack Developer"],
   openGraph: {
-    title: "Home | Mattia Cerutti",
-    description: "Projects, experience, and things I've been doing.",
+    title: "Mattia Cerutti - Software Engineer",
+    description: "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.",
     url: "https://mattiacerutti.com/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Home | Mattia Cerutti",
-    description: "Projects, experience, and things I've been doing.",
+    title: "Mattia Cerutti - Software Engineer",
+    description: "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.",
   },
 };
 
