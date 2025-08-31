@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     scrollRestoration: true,
   },
   output: "export",
-   images: { unoptimized: true }, 
+  images: {unoptimized: true},
+  trailingSlash: true
 };
 
 export default nextConfig;
