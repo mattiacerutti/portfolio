@@ -1,4 +1,5 @@
 module.exports = {
-  siteUrl: 'https://mattiacerutti.com',
+  siteUrl: "https://mattiacerutti.com",
   generateRobotsTxt: true,
-}
+  outDir: "./out",
+};
