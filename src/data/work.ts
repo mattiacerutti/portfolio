@@ -10,6 +10,21 @@ export interface IWorkExperience {
 
 export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
   {
+    title: "Amazon Web Services (AWS)",
+    role: "Software Development Engineer, Internship",
+    location: "Dublin, Ireland",
+    startDate: new Date("2025-06"),
+    endDate: new Date("2025-09"),
+    technologies: ["Java", "AWS S3", "AWS ECS", "AWS CloudWatch", "CI/CD"],
+    responsibilities: [
+      "Contributed to a company-wide JDK migration campaign with VP-level visibility, projected to save $10M+ across 3K+ pipelines, by porting and automating an existing data aggregation and analysis tool.",
+      "Enabled automated migration of ~100K CI/CD pipelines by delivering daily analysis, identifying migration needs and supplying data powering code-change automation, reducing manual effort for engineers across the whole company.",
+      "Designed and deployed an event-driven AWS workflow (EventBridge, Step Functions, ECS Fargate, CloudWatch) with automated retries, alarms and dashboards tracking 10+ metrics, eliminating manual on-call execution and ensuring reliable, observable operation of the pipeline analysis service.",
+      "Designed and deployed an event-driven AWS workflow (EventBridge, Step Functions, ECS Fargate, CloudWatch) with automated retries, alarms and dashboards tracking 10+ metrics, eliminating manual on-call execution and ensuring reliable, observable operation of the pipeline analysis service.",
+    ],
+    relevant: true,
+  },
+  {
     title: "Novaidea Creative Resources",
     role: "Fullstack Developer, Contractor",
     location: "Remote",
@@ -33,7 +48,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     technologies: ["Python", "MySQL"],
     responsibilities: [
       "Developed an automation tool for formatting and printing company documents from a database streamlining the process for 15+ employees, reducing error rates and improving output consistency across 4 departments.",
-      "Collaborated within a team to diagnose and resolve existing bugs in the automation processes."
+      "Collaborated within a team to diagnose and resolve existing bugs in the automation processes.",
     ],
     relevant: false,
   },
