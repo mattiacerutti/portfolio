@@ -17,7 +17,7 @@ export function CustomLink({
   return (
     <Link
       {...extraProps}
-      className={`transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)] ${
+      className={`transition-colors duration-600 text-[var(--muted-foreground)] hover:text-[var(--foreground)] ${
         underline ? "underline decoration-[var(--muted-foreground)]/30" : ""
       } ${className ?? ""}`}
     >

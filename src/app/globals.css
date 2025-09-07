@@ -18,8 +18,8 @@
   --glow-hue-a: -10deg;
   --glow-hue-b: 6deg;
   --glow-hue-c: 22deg;
+
   --glow-saturation: 4;
-  /* Breathing animation controls (light) */
   --glow-breathe-min: 0.7;
   --glow-breathe-max: 1;
   --glow-breathe-duration: 12s;
@@ -39,7 +39,6 @@
   --glow-hue-a: 0deg;
   --glow-hue-b: 10deg;
   --glow-hue-c: 36deg;
-  --glow-saturation: 2;
 }
 
 body {
