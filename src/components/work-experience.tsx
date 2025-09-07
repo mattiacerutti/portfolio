@@ -28,7 +28,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
         <span className="text-[var(--muted-foreground)]">{role}</span>
       </div>
 
-      <div className="flex items-center max-md:italic max-md:gap-2 w-fit md:flex-col md:items-end text-nowrap">
+      <div className="flex flex-wrap items-center max-md:italic max-md:gap-x-2 w-fit md:flex-col md:items-end text-nowrap">
         <P>
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
@@ -36,7 +36,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
         <P className="md:!text-base  md:text-[var(--muted-foreground)]">{location}</P>
       </div>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 mt-1 md:col-span-2">
         <div className="flex flex-row flex-wrap gap-2 decoration-[var(--foreground)]/20 max-md:mt-1">
           {technologies.map((tech, index) => (
             <TechCard key={index} tech={tech} />
