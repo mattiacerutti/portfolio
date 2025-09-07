@@ -20,7 +20,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
       "Contributed to a company-wide JDK migration campaign with VP-level visibility, projected to save $10M+ across 3K+ pipelines, by porting and automating an existing data aggregation and analysis tool.",
       "Enabled automated migration of ~100K CI/CD pipelines by delivering daily analysis, identifying migration needs and supplying data powering code-change automation, reducing manual effort for engineers across the whole company.",
       "Designed and deployed an event-driven AWS workflow (EventBridge, Step Functions, ECS Fargate, CloudWatch) with automated retries, alarms and dashboards tracking 10+ metrics, eliminating manual on-call execution and ensuring reliable, observable operation of the pipeline analysis service.",
-      "Designed and deployed an event-driven AWS workflow (EventBridge, Step Functions, ECS Fargate, CloudWatch) with automated retries, alarms and dashboards tracking 10+ metrics, eliminating manual on-call execution and ensuring reliable, observable operation of the pipeline analysis service.",
+      "Optimized the aggregation logic to cut runtime by 50% and resolved a critical API dependency by coordinating with the owning team, enabling a successful and cheaper integration of the automated workflow.",
     ],
     relevant: true,
   },
