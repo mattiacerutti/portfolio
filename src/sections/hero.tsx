@@ -14,7 +14,7 @@ import P from "@/components/typography/p";
 export default function Hero() {
   return (
     <CometBackground>
-      <div className="flex flex-col items-start justify-center h-screen gap-5 w-fit p-5">
+      <div className="flex flex-col items-start justify-center h-screen gap-3 w-fit p-5">
         <div className="flex flex-col">
           <VerticalReveal>
             <div className="flex flex-col xs:flex-row items-start xs:gap-3">
@@ -30,14 +30,14 @@ export default function Hero() {
           </VerticalReveal>
         </div>
 
-        <HorizontalReveal className="flex items-center gap-4">
+        <HorizontalReveal className="flex items-center gap-3">
           <CustomLink
             href="https://github.com/mattiacerutti"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
           >
-            <FaGithub className="w-6 h-6" />
+            <FaGithub className="w-auto h-7" />
           </CustomLink>
           <CustomLink
             href="https://www.linkedin.com/in/mattiacerutti/"
@@ -45,15 +45,15 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
           >
-            <FaLinkedin className="w-6.5 h-6.5" />
+            <FaLinkedin className="w-auto h-7" />
           </CustomLink>
           <CustomLink
             href="https://flowcv.com/resume/sfcv6r8csf"
             target="_blank"
             rel="noopener noreferrer"
-            className="items-center transition-colors hover:!text-[var(--button-hover-text)] hover:!bg-[var(--button-hover-bg)] duration-400 flex gap-1 px-2 py-1 !text-[var(--button-text)] !bg-[var(--button-bg)] rounded-lg"
+            className="items-center transition-colors hover:!text-[var(--button-hover-text)] hover:!bg-[var(--button-hover-bg)] duration-400 flex gap-1 px-1.5 !text-[var(--button-text)] !bg-[var(--button-bg)] rounded-md h-7"
           >
-            <FaFileAlt className="w-4 h-4" />
+            <FaFileAlt className="w-3.5 h-3.5" />
             Resume
           </CustomLink>
         </HorizontalReveal>
