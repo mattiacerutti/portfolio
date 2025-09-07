@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @theme {
   --breakpoint-xs: 25rem;
 }
@@ -14,6 +13,16 @@
   --button-hover-bg: #000;
   --button-hover-text: #fff;
   --comet-color: #000000;
+
+  --glow-base-rgb: 246, 227, 186; /* Cream */
+  --glow-hue-a: -10deg;
+  --glow-hue-b: 6deg;
+  --glow-hue-c: 22deg;
+  --glow-saturation: 4;
+  /* Breathing animation controls (light) */
+  --glow-breathe-min: 0.7;
+  --glow-breathe-max: 1;
+  --glow-breathe-duration: 12s;
 }
 
 [data-theme="dark"] {
@@ -25,10 +34,69 @@
   --button-hover-bg: #fff;
   --button-hover-text: #000;
   --comet-color: #ffffff;
+
+  --glow-base-rgb: 0, 103, 79; /* Emerald green */
+  --glow-hue-a: 0deg;
+  --glow-hue-b: 10deg;
+  --glow-hue-c: 36deg;
+  --glow-saturation: 2;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: radial-gradient(
+    ellipse 120vw 40vh at 50% -5vh,
+    rgba(var(--glow-base-rgb), 0.08) 0%,
+    rgba(var(--glow-base-rgb), 0.078) 40%,
+    rgba(var(--glow-base-rgb), 0.064) 70%,
+    rgba(var(--glow-base-rgb), 0.036) 90%,
+    transparent 120%
+  );
+  filter: hue-rotate(var(--glow-hue-a)) saturate(var(--glow-saturation));
+  opacity: var(--glow-breathe-min);
+  animation:
+    hueShift 20s ease-in-out infinite alternate,
+    glowBreathe var(--glow-breathe-duration) ease-in-out infinite;
+  pointer-events: none;
+  will-change: filter, opacity;
+}
+
+[data-theme="dark"] .top-glow {
+  background: radial-gradient(
+    ellipse 120vw 40vh at 50% -5vh,
+    rgba(var(--glow-base-rgb), 0.07) 0%,
+    rgba(var(--glow-base-rgb), 0.05) 40%,
+    rgba(var(--glow-base-rgb), 0.025) 70%,
+    rgba(var(--glow-base-rgb), 0.01) 90%,
+    transparent 120%
+  );
+}
+
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(var(--glow-hue-a)) saturate(var(--glow-saturation));
+  }
+  50% {
+    filter: hue-rotate(var(--glow-hue-b)) saturate(var(--glow-saturation));
+  }
+  100% {
+    filter: hue-rotate(var(--glow-hue-c)) saturate(var(--glow-saturation));
+  }
+}
+
+/* Subtle intensity pulsing */
+@keyframes glowBreathe {
+  0%   { opacity: var(--glow-breathe-min); }
+  50%  { opacity: var(--glow-breathe-max); }
+  100% { opacity: var(--glow-breathe-min); }
 }

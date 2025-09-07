@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased ovicking-wide flex flex-col items-center min-h-screen justify-between`}>
+        <div aria-hidden className="top-glow" />
         <ThemeProvider>
           <LoadingWrapper>
             <Header />
