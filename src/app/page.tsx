@@ -38,7 +38,7 @@ export default function Home() {
                 My most relevant work experiences.&nbsp;
                 <CustomLink
                   href="/work"
-                  className="transition-colors duration-400 text-[var(--muted-foreground)] hover:text-[var(--foreground)] underline decoration-[var(--muted-foreground)]/30"
+                  className="underline decoration-[var(--muted-foreground)]/30"
                 >
                   Click here
                 </CustomLink>{" "}

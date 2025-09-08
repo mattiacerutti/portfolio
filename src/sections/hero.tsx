@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="flex flex-col">
           <VerticalReveal>
             <div className="flex flex-col items-start xs:flex-row xs:gap-3">
-              <H1 className="text-nowrap">hi, I&apos;m</H1>
+              <H1 className="text-nowrap">Hi, I&apos;m</H1>
               <H1 className="text-nowrap">
                 Mattia <span className="transition-transform duration-300 inline-block origin-[70%_70%] hover:animate-wave">👋</span>
               </H1>
@@ -28,7 +28,7 @@ export default function Hero() {
             <H3 className="!font-normal">Software Engineer</H3>
           </VerticalReveal>
           <VerticalReveal delay={0.2}>
-            <P>📍 Venice, Italy</P>
+            <P className="text-[var(--muted-foreground)]">📍 Venice, Italy</P>
           </VerticalReveal>
         </div>
 
@@ -37,7 +37,7 @@ export default function Hero() {
             href="https://github.com/mattiacerutti"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
+            className="!text-[var(--button-bg)] hover:!text-[var(--button-hover-bg)]"
           >
             <FaGithub className="w-auto h-7" />
           </CustomLink>
@@ -45,7 +45,7 @@ export default function Hero() {
             href="https://www.linkedin.com/in/mattiacerutti/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)] duration-400"
+            className="!text-[var(--button-bg)] hover:!text-[var(--button-hover-bg)]"
           >
             <FaLinkedin className="w-auto h-7" />
           </CustomLink>
