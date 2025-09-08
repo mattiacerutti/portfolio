@@ -36,10 +36,10 @@
   --comet-color: #ffffff;
 
   --glow-saturation: 1;
-  --glow-base-rgb: 0, 103, 79; /* Emerald green */
-  --glow-hue-a: -55deg;
-  --glow-hue-b: 45deg;
-  --glow-hue-c: 95deg;
+  --glow-base-rgb: 0, 90, 100; /* Emerald green */
+  --glow-hue-a: -30deg;
+  --glow-hue-b: 40deg;
+  --glow-hue-c: 90deg;
 }
 
 body {
@@ -97,7 +97,7 @@ body {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(30deg);
+    transform: rotate(20deg);
   }
   0% {
     transform: rotate(0deg);
