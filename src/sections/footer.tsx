@@ -9,7 +9,7 @@ import {useSound} from "@/hooks/useSound";
 export default function Footer() {
   const {setTheme, resolvedTheme, theme} = useTheme();
   const [isMounted, setIsMounted] = useState(false);
-  const {init, play} = useSound("/switch.mp3");
+  const {init, play} = useSound("/switch.mp3", 0.5);
 
   useEffect(() => {
     setIsMounted(true);
