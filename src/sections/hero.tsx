@@ -14,12 +14,14 @@ import P from "@/components/typography/p";
 export default function Hero() {
   return (
     <CometBackground>
-      <div className="flex flex-col items-start justify-center h-screen gap-3 w-fit p-5">
+      <div className="flex flex-col items-start justify-center h-screen gap-3 p-5 w-fit">
         <div className="flex flex-col">
           <VerticalReveal>
-            <div className="flex flex-col xs:flex-row items-start xs:gap-3">
+            <div className="flex flex-col items-start xs:flex-row xs:gap-3">
               <H1 className="text-nowrap">hi, I&apos;m</H1>
-              <H1 className="text-nowrap">Mattia 👋</H1>
+              <H1 className="text-nowrap">
+                Mattia <span className="transition-transform duration-300 inline-block origin-[70%_70%] hover:animate-wave">👋</span>
+              </H1>
             </div>
           </VerticalReveal>
           <VerticalReveal delay={0.1}>
