@@ -36,10 +36,7 @@ export default function Home() {
               <H3>Work</H3>
               <P className="text-[var(--muted-foreground)]">
                 My most relevant work experiences.&nbsp;
-                <CustomLink
-                  href="/work"
-                  className="underline decoration-[var(--muted-foreground)]/30"
-                >
+                <CustomLink href="/work" className="underline decoration-[var(--muted-foreground)]/30">
                   Click here
                 </CustomLink>{" "}
                 for the full list.

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./button";
 
 interface ITechCardProps {
   tech: string;
@@ -7,7 +8,11 @@ interface ITechCardProps {
 function TechCard(props: ITechCardProps) {
   const {tech} = props;
 
-  return <div className="rounded-md font-semibold text-xs text-[var(--muted-foreground)] bg-[var(--foreground)]/4 border border-[var(--foreground)]/20 px-2 py-1 w-fit">{tech}</div>;
+  return (
+    <Button className="px-2 py-1.5 text-xs font-semibold" hover={false}>
+      {tech}
+    </Button>
+  );
 }
 
 export default TechCard;

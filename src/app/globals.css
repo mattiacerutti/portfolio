@@ -5,13 +5,15 @@
 }
 
 :root {
-  --foreground: #0a0a0a;
+  --foreground: #020202;
   --background: #ffffff;
-  --muted-foreground: #666666;
-  --button-bg: var(--foreground);
-  --button-text: var(--background);
-  --button-hover-bg: #4D4D4D;
-  --button-hover-text: #fff;
+  --muted-foreground: #7f7f7f;
+  --button-bg: rgba(255, 255, 255, 0.5);
+  --button-text: var(--muted-foreground);
+  --button-hover-bg: rgba(0, 0, 0, 0.2);
+  --button-hover-text: var(--foreground);
+  --button-border: rgba(0, 0, 0, 0.2);
+
   --comet-color: #000000;
 
   --glow-base-rgb: 246, 227, 186; /* Cream */
@@ -26,20 +28,23 @@
 }
 
 [data-theme="dark"] {
-  --foreground: #f5f5f5;
-  --background: #0a0a0a;
-  --muted-foreground: #999999;
-  --button-bg: var(--foreground);
-  --button-text: var(--background);
-  --button-hover-bg: #B3B3B3;
-  --button-hover-text: #000;
+  --foreground: #e1e1e1;
+  --background: #000000;
+  --muted-foreground: #7f7f7f;
+  --button-bg: rgba(10, 10, 10, 0.5);
+  --button-text: var(--muted-foreground);
+  --button-hover-bg: rgba(255, 255, 255, 0.09);
+  --button-hover-text: var(--foreground);
+  --button-border: rgba(255, 255, 255, 0.09);
+
   --comet-color: #ffffff;
 
-  --glow-saturation: 1;
   --glow-base-rgb: 0, 90, 100; /* Emerald green */
   --glow-hue-a: -30deg;
   --glow-hue-b: 40deg;
   --glow-hue-c: 90deg;
+
+  --glow-saturation: 1;
 }
 
 body {
