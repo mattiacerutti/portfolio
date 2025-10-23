@@ -11,6 +11,8 @@ import H1 from "../components/typography/h1";
 import H3 from "@/components/typography/h3";
 import P from "@/components/typography/p";
 import Button from "@/components/ui/button";
+import Image from "next/image";
+import Wave from "/public/wave.png";
 
 export default function Hero() {
   return (
@@ -18,10 +20,13 @@ export default function Hero() {
       <div className="flex h-screen w-fit flex-col items-start justify-center gap-3 p-5">
         <div className="flex flex-col gap-1">
           <VerticalReveal>
-            <div className="xs:flex-row xs:gap-3 flex flex-col items-start">
+            <div className="xs:flex-row xs:gap-3 xs:items-end flex flex-col">
               <H1 className="text-nowrap">hey! i&apos;m</H1>
               <H1 className="text-nowrap">
-                Mattia <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">👋</span>
+                Mattia&nbsp;
+                <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">
+                  <Image src={Wave} alt="Wave" className="h-12 w-12" />
+                </span>
               </H1>
             </div>
           </VerticalReveal>

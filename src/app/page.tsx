@@ -40,8 +40,8 @@ export default function Home() {
                 Stuff i&apos;ve been doing lately.&nbsp;
                 <CustomLink href="/projects" className="underline decoration-[var(--muted-foreground)]/30">
                   Click here
-                </CustomLink>{" "}
-                for the full list.
+                </CustomLink>
+                &nbsp;for the full list.
               </P>
             </VerticalReveal>
             <div className="grid [grid-auto-rows:1fr] grid-cols-2 gap-10">
@@ -62,8 +62,8 @@ export default function Home() {
                 My most relevant work experiences.&nbsp;
                 <CustomLink href="/work" className="underline decoration-[var(--muted-foreground)]/30">
                   Click here
-                </CustomLink>{" "}
-                for the full list.
+                </CustomLink>
+                &nbsp;for the full list.
               </P>
             </VerticalReveal>
             <div className="flex flex-col gap-10">

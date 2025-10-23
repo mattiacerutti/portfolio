@@ -63,7 +63,7 @@ function Page() {
       <div className="flex flex-col gap-8">
         <VerticalReveal delay={baseDelay}>
           <P>
-            Most typing games (eg.{" "}
+            Most typing games (eg.&nbsp;
             <CustomLink href="https://monkeytype.com/" target="_blank" underline>
               Monkey Type
             </CustomLink>
@@ -74,11 +74,11 @@ function Page() {
           <div className="flex flex-col gap-2">
             <H4>Why I Built It</H4>
             <P>
-              I wanted a tool that felt closer to real programming than standard typing trainers: typing{" "}
+              I wanted a tool that felt closer to real programming than standard typing trainers: typing&nbsp;
               <Code language="ts" inline>
                 function myFunc()
-              </Code>{" "}
-              has a very different rhythm than typing <i>the quick brown fox</i>!
+              </Code>
+              &nbsp;has a very different rhythm than typing <i>the quick brown fox</i>!
               <br />
               <br />
               Code Typer makes you practice the symbols, spacing, and structures you encounter every day in code while also providing the help an IDE would.
