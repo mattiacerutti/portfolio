@@ -8,10 +8,11 @@ import P from "@/components/typography/p";
 import {CustomLink} from "@/components/typography/link";
 import React from "react";
 import {HiOutlineExternalLink} from "react-icons/hi";
-import {FaGithub} from "react-icons/fa";
+import {TbBrandGithub} from "react-icons/tb";
 import Code from "@/components/typography/code";
 import TechCard from "@/components/ui/tech-card";
 import {getProjectById} from "@/data/projects";
+import Button from "@/components/ui/button";
 
 export const metadata = {
   title: "Code Typer | Mattia Cerutti",
@@ -42,10 +43,14 @@ function Page() {
         <div className="flex items-center gap-2">
           <H3>{project.title}</H3>
           <CustomLink href={project.preview} target="_blank">
-            <HiOutlineExternalLink className="h-5 w-5" />
+            <Button className="h-7 w-7 p-1.5">
+              <HiOutlineExternalLink className="h-full w-full" />
+            </Button>
           </CustomLink>
           <CustomLink href={project.github} target="_blank">
-            <FaGithub className="h-5 w-5" />
+            <Button className="h-7 w-7 p-1.5">
+              <TbBrandGithub className="h-full w-full" />
+            </Button>
           </CustomLink>
         </div>
         <P className="text-[var(--muted-foreground)]">{project.description}</P>

@@ -13,13 +13,14 @@ export function getProjectById(id: string) {
   return project;
 }
 
-export const PROJECTS: IProject[] = [
+export const PROJECTS: (IProject & {relevant: boolean})[] = [
   {
     id: "code-typer",
     title: "Code Typer",
-    description: "A typing game to improve your coding skills.",
+    description: "Code typing game for developers. Practice real syntax, not lorem ipsum. Braces, functions, indentation: the way you actually type.",
     technologies: ["TypeScript", "Next.js", "PostgreSQL", "Prisma"],
     github: "https://github.com/mattiacerutti/code-typer",
     preview: "https://codetyper.mattiacerutti.com/",
+    relevant: true,
   },
 ];

@@ -13,7 +13,6 @@ interface IVerticalRevealProps {
 }
 
 export default function VerticalReveal({children, delay = 0, className = "", trigger = "instant", startY = 32, duration = 1}: PropsWithChildren<IVerticalRevealProps>) {
-  const wrapRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLSpanElement | null>(null);
 
   useLayoutEffect(() => {
@@ -45,21 +44,19 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
           ease: "power3.out",
           clearProps: "willChange",
           scrollTrigger: {
-            trigger: wrapRef.current,
+            trigger: contentRef.current,
             start: "top 75%",
             toggleActions: "play none none none",
           },
         });
       }
-    }, wrapRef);
+    }, contentRef);
     return () => ctx.revert();
   }, [delay, trigger, startY, duration]);
 
   return (
-    <div ref={wrapRef} className={className}>
-      <span ref={contentRef} className="inline-block w-full">
-        {children}
-      </span>
-    </div>
+    <span ref={contentRef} className={className}>
+      {children}
+    </span>
   );
 }

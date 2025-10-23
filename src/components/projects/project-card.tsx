@@ -8,18 +8,19 @@ import Button from "../ui/button";
 
 interface IProjectCardProps {
   project: IProject;
+  hideTechStack?: boolean;
 }
 
 function ProjectCard(props: IProjectCardProps) {
-  const {project} = props;
+  const {project, hideTechStack = false} = props;
   const {id, title, description, technologies} = project;
 
   return (
     <CustomLink href={`/projects/${id}`} className="cursor-pointer">
-      <Button className="flex flex-col items-start !rounded-xl p-4">
+      <Button className="flex h-full flex-col items-start gap-2 !rounded-xl p-4">
         <H4 className="text-[var(--foreground)]">{title}</H4>
         <P className="font-extralight text-[var(--muted-foreground)]">{description}</P>
-        {technologies && (
+        {!hideTechStack && technologies && (
           <div className="mt-5 flex flex-wrap gap-2">
             {technologies.map((tech, index) => (
               <TechCard key={index} name={tech} />

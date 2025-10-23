@@ -5,6 +5,8 @@ import WorkExperience from "@/components/work/work-experience";
 import {WORK_EXPERIENCES} from "@/data/work";
 import Hero from "@/sections/hero";
 import {CustomLink} from "@/components/typography/link";
+import {PROJECTS} from "@/data/projects";
+import ProjectCard from "@/components/projects/project-card";
 
 export const metadata = {
   title: "Mattia Cerutti - Software Engineer",
@@ -30,7 +32,29 @@ export default function Home() {
     <div className="flex w-full flex-col">
       <Hero />
       <div className="mt-8 flex w-full justify-center px-6">
-        <div className="flex w-4xl flex-col gap-30">
+        <div className="flex w-4xl flex-col gap-20">
+          <div className="flex flex-col gap-8">
+            <VerticalReveal trigger="scroll" startY={50} duration={2}>
+              <H3>Projects</H3>
+              <P className="text-[var(--muted-foreground)]">
+                Stuff i&apos;ve been doing lately.&nbsp;
+                <CustomLink href="/projects" className="underline decoration-[var(--muted-foreground)]/30">
+                  Click here
+                </CustomLink>{" "}
+                for the full list.
+              </P>
+            </VerticalReveal>
+            <div className="grid [grid-auto-rows:1fr] grid-cols-2 gap-10">
+              {PROJECTS.map(
+                (project, index) =>
+                  project.relevant && (
+                    <VerticalReveal key={index} trigger="scroll" className="h-full w-full" startY={50} duration={2}>
+                      <ProjectCard project={project} hideTechStack />
+                    </VerticalReveal>
+                  )
+              )}
+            </div>
+          </div>
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <H3>Work</H3>
