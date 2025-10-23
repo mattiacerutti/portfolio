@@ -1,6 +1,6 @@
 import React from "react";
 import H3 from "@/components/typography/h3";
-import WorkExperience from "@/components/work-experience";
+import WorkExperience from "@/components/work/work-experience";
 import {WORK_EXPERIENCES} from "@/data/work";
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import P from "@/components/typography/p";

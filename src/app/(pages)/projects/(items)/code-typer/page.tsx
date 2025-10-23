@@ -10,7 +10,7 @@ import React from "react";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {FaGithub} from "react-icons/fa";
 import Code from "@/components/typography/code";
-import TechCard from "@/components/tech-card";
+import TechCard from "@/components/ui/tech-card";
 import {getProjectById} from "@/data/projects";
 
 export const metadata = {
@@ -51,7 +51,7 @@ function Page() {
         <P className="text-[var(--muted-foreground)]">{project.description}</P>
         <div className="flex flex-wrap gap-2 mt-3">
           {project.technologies.map((tech) => (
-            <TechCard key={tech} tech={tech} />
+            <TechCard key={tech} name={tech} />
           ))}
         </div>
       </VerticalReveal>
@@ -59,7 +59,7 @@ function Page() {
         <VerticalReveal delay={baseDelay}>
           <P>
             Most typing games (eg.{" "}
-            <CustomLink href="https://monkeytype.com/" target="_blank">
+            <CustomLink href="https://monkeytype.com/" target="_blank" underline>
               Monkey Type
             </CustomLink>
             ) test you on plain words, but that&apos;s not how developers type. Writing code involves braces, parentheses, indentation, and syntax rules.

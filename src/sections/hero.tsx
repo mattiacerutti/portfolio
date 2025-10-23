@@ -4,13 +4,13 @@ import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
 import {FaRegFileAlt} from "react-icons/fa";
 
-import CometBackground from "../components/comet-background";
+import CometBackground from "../components/animations/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
 import HorizontalReveal from "../components/animations/horizontal-reveal";
 import H1 from "../components/typography/h1";
 import H3 from "@/components/typography/h3";
 import P from "@/components/typography/p";
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 
 export default function Hero() {
   return (

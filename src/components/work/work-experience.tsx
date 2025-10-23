@@ -1,10 +1,10 @@
 import React from "react";
-import H4 from "./typography/h4";
-import P from "./typography/p";
+import H4 from "../typography/h4";
+import P from "../typography/p";
 import {IWorkExperience} from "@/data/work";
-import Ul from "./typography/ul";
-import Li from "./typography/li";
-import TechCard from "./tech-card";
+import Ul from "../typography/ul";
+import Li from "../typography/li";
+import TechCard from "../ui/tech-card";
 
 interface IWorkExperienceProps {
   experience: IWorkExperience;
@@ -39,7 +39,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
       <div className="flex flex-col gap-5 mt-1 md:col-span-2">
         <div className="flex flex-row flex-wrap gap-2 decoration-[var(--foreground)]/20 max-md:mt-1">
           {technologies.map((tech, index) => (
-            <TechCard key={index} tech={tech} />
+            <TechCard key={index} name={tech} />
           ))}
         </div>
 
