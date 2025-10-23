@@ -17,9 +17,9 @@ function ProjectCard(props: IProjectCardProps) {
 
   return (
     <CustomLink href={`/projects/${id}`} className="cursor-pointer">
-      <Button className="flex h-full flex-col items-start gap-2 !rounded-xl p-4">
+      <Button className="flex h-full flex-col items-start gap-1 !rounded-xl p-4">
         <H4 className="text-[var(--foreground)]">{title}</H4>
-        <P className="font-extralight text-[var(--muted-foreground)]">{description}</P>
+        <P className="!text-base text-[var(--muted-foreground)]">{description}</P>
         {!hideTechStack && technologies && (
           <div className="mt-5 flex flex-wrap gap-2">
             {technologies.map((tech, index) => (

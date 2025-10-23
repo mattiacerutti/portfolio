@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="flex h-screen w-fit flex-col items-start justify-center gap-3 p-5">
         <div className="flex flex-col gap-1">
           <VerticalReveal>
-            <div className="xs:flex-row xs:gap-3 xs:items-end flex flex-col">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:gap-3">
               <H1 className="text-nowrap">hey! i&apos;m</H1>
               <H1 className="text-nowrap">
                 Mattia&nbsp;

@@ -1,18 +1,14 @@
-import {Geist, Geist_Mono} from "next/font/google";
+import {Inter} from "next/font/google";
 import "./globals.css";
 import Header from "@/sections/header";
 import {ThemeProvider} from "../components/theme-provider";
 import Footer from "@/sections/footer";
 import LoadingWrapper from "@/components/loading";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -22,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
+      <body className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
           <LoadingWrapper>

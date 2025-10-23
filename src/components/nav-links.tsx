@@ -71,7 +71,7 @@ export default function NavLinks() {
   }, [pathname]);
 
   return (
-    <div ref={navRef} className="relative flex items-center gap-3 font-light decoration-[var(--muted-foreground)]/30">
+    <div ref={navRef} className="relative flex items-center gap-3 decoration-[var(--muted-foreground)]/30">
       <span
         aria-hidden
         className="pointer-events-none absolute -bottom-1 h-0.5 rounded bg-[var(--foreground)] will-change-transform"
