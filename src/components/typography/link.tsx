@@ -13,7 +13,7 @@ export function CustomLink(props: ICustomLinkProps) {
   return (
     <Link
       {...extraProps}
-      className={`transition-colors duration-600 text-[var(--muted-foreground)] hover:text-[var(--foreground)] ${className} ${
+      className={`text-[var(--muted-foreground)] transition-colors duration-600 hover:text-[var(--foreground)] ${className} ${
         underline && "underline decoration-[var(--muted-foreground)]/30"
       } `}
     >

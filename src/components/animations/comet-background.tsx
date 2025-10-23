@@ -48,10 +48,9 @@ function randomInRange([min, max]: [number, number]) {
 }
 
 function createComet(width: number, height: number, location: "anywhere" | "edges" = "anywhere"): IComet {
-
   let x = Math.random() * width;
   let y = Math.random() * height;
-  
+
   if (location === "edges") {
     if (Math.random() < width / (width + height)) {
       // Top edge
@@ -152,11 +151,10 @@ export default function CometBackground({children}: ICometBackgroundProps) {
     canvas.height = Math.floor(initialH * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-
     const comets: IComet[] = Array.from({length: COMET_COUNT}, () => createComet(initialW, initialH, "anywhere"));
 
     // Mouse position to influence comet direction
-    const mouseRef = { x: initialW / 2, y: initialH / 2, has: false } as { x: number; y: number; has: boolean };
+    const mouseRef = {x: initialW / 2, y: initialH / 2, has: false} as {x: number; y: number; has: boolean};
 
     const onMouseMove = (e: MouseEvent) => {
       mouseRef.x = e.clientX;
@@ -169,11 +167,10 @@ export default function CometBackground({children}: ICometBackgroundProps) {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseleave", onMouseLeave);
 
-    const influence = { x: 0, y: 0 };
+    const influence = {x: 0, y: 0};
     const SMOOTHING_RATE = 5; // per second; higher -> faster response
     const BIAS_STRENGTH = 0.15; // base blend strength at full deflection
     const NOISE_STRENGTH = 2; // scales the effect of per-comet noise
-
 
     function drawComet(comet: IComet, displayHeight: number, dirX: number, dirY: number) {
       // Fade out as comet approaches the bottom edge
@@ -329,7 +326,7 @@ export default function CometBackground({children}: ICometBackgroundProps) {
       update(dt);
       animationId = requestAnimationFrame(animate);
     }
-    animationId = requestAnimationFrame(animate)
+    animationId = requestAnimationFrame(animate);
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("mousemove", onMouseMove);
@@ -338,7 +335,7 @@ export default function CometBackground({children}: ICometBackgroundProps) {
   }, []);
 
   useEffect(() => {
-        window.dispatchEvent(new Event("comets:ready"));
+    window.dispatchEvent(new Event("comets:ready"));
     const raf = requestAnimationFrame(() => {
       const rawColor = getComputedStyle(document.documentElement).getPropertyValue("--comet-color");
       cometRGBRef.current = parseColorToRGB(rawColor);
@@ -347,9 +344,9 @@ export default function CometBackground({children}: ICometBackgroundProps) {
   }, [resolvedTheme]);
 
   return (
-    <section className="relative flex flex-col items-center justify-center w-full h-[100lvh] overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" />
-      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">{children}</div>
+    <section className="relative flex h-[100lvh] w-full flex-col items-center justify-center overflow-hidden">
+      <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-0 h-full w-full" />
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">{children}</div>
     </section>
   );
 }

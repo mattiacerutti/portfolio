@@ -22,21 +22,21 @@ export default function WorkExperience(props: IWorkExperienceProps) {
   };
 
   return (
-    <div className="grid gap-0.5 md:gap-2 md:grid-cols-[1fr_auto] grid-cols-1">
+    <div className="grid grid-cols-1 gap-0.5 md:grid-cols-[1fr_auto] md:gap-2">
       <div className="flex flex-col">
         <H4>{title}</H4>
         <span className="text-[var(--muted-foreground)]">{role}</span>
       </div>
 
-      <div className="flex flex-wrap items-center max-md:italic max-md:gap-x-2 w-fit md:flex-col md:items-end text-nowrap">
+      <div className="flex w-fit flex-wrap items-center text-nowrap max-md:gap-x-2 max-md:italic md:flex-col md:items-end">
         <P>
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
         <P className="visible md:hidden">•</P>
-        <P className="md:!text-base  md:text-[var(--muted-foreground)]">{location}</P>
+        <P className="md:!text-base md:text-[var(--muted-foreground)]">{location}</P>
       </div>
 
-      <div className="flex flex-col gap-5 mt-1 md:col-span-2">
+      <div className="mt-1 flex flex-col gap-5 md:col-span-2">
         <div className="flex flex-row flex-wrap gap-2 decoration-[var(--foreground)]/20 max-md:mt-1">
           {technologies.map((tech, index) => (
             <TechCard key={index} name={tech} />

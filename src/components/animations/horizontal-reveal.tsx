@@ -37,10 +37,7 @@ export default function HorizontalReveal({children, delay = 0, stagger = 0.15, c
   const childrenArray = Array.isArray(children) ? children : [children];
 
   return (
-    <div
-      ref={wrapRef}
-      className={className}
-    >
+    <div ref={wrapRef} className={className}>
       {childrenArray.map((child, i) => (
         <span key={i} data-reveal-item>
           {child}

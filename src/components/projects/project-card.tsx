@@ -16,11 +16,11 @@ function ProjectCard(props: IProjectCardProps) {
 
   return (
     <CustomLink href={`/projects/${id}`} className="cursor-pointer">
-      <Button className="flex flex-col items-start p-4 !rounded-xl">
+      <Button className="flex flex-col items-start !rounded-xl p-4">
         <H4 className="text-[var(--foreground)]">{title}</H4>
-        <P className="text-[var(--muted-foreground)] font-extralight">{description}</P>
+        <P className="font-extralight text-[var(--muted-foreground)]">{description}</P>
         {technologies && (
-          <div className="flex flex-wrap mt-5 gap-2">
+          <div className="mt-5 flex flex-wrap gap-2">
             {technologies.map((tech, index) => (
               <TechCard key={index} name={tech} />
             ))}

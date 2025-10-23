@@ -29,30 +29,33 @@ export default function Footer() {
   };
 
   return (
-    <footer className="flex items-center justify-between w-full max-w-4xl mb-5 md:mb-10 mt-25 md:mt-35 max-lg:px-6">
+    <footer className="mt-25 mb-5 flex w-full max-w-4xl items-center justify-between max-lg:px-6 md:mt-35 md:mb-10">
       <p className="text-base text-gray-500">&copy; {new Date().getFullYear()}</p>
       {isMounted && (
         <div className="flex items-center justify-end gap-4">
-          <button className={`text-gray-500 transition duration-400 ${theme === "system" ? "opacity-50 " : "cursor-pointer hover:text-[var(--foreground)] "}`} onClick={() => changeTheme("system")}>
-            <RiComputerLine className="w-5 h-5" />
+          <button
+            className={`text-gray-500 transition duration-400 ${theme === "system" ? "opacity-50" : "cursor-pointer hover:text-[var(--foreground)]"}`}
+            onClick={() => changeTheme("system")}
+          >
+            <RiComputerLine className="h-5 w-5" />
           </button>
           <button
-            className="inline-flex items-center justify-center leading-none text-gray-500 transition cursor-pointer hover:text-[var(--foreground)] duration-400"
+            className="inline-flex cursor-pointer items-center justify-center leading-none text-gray-500 transition duration-400 hover:text-[var(--foreground)]"
             onClick={toggleTheme}
             aria-label="Toggle theme"
             title="Toggle theme"
           >
-            <span className="relative block w-5 h-5 shrink-0">
+            <span className="relative block h-5 w-5 shrink-0">
               <FiSun
                 className={
-                  "absolute inset-0 w-5 h-5 origin-center pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] " +
-                  (resolvedTheme === "dark" ? "opacity-0 rotate-[-60deg] scale-90" : "opacity-100 rotate-0 scale-100")
+                  "pointer-events-none absolute inset-0 h-5 w-5 origin-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] " +
+                  (resolvedTheme === "dark" ? "scale-90 rotate-[-60deg] opacity-0" : "scale-100 rotate-0 opacity-100")
                 }
               />
               <FiMoon
                 className={
-                  "absolute inset-0 w-5 h-5 origin-center pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] " +
-                  (resolvedTheme === "dark" ? "opacity-100 rotate-0 scale-100" : "opacity-0 rotate-[60deg] scale-90")
+                  "pointer-events-none absolute inset-0 h-5 w-5 origin-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] " +
+                  (resolvedTheme === "dark" ? "scale-100 rotate-0 opacity-100" : "scale-90 rotate-[60deg] opacity-0")
                 }
               />
               <span className="sr-only">{resolvedTheme === "dark" ? "Switch to light" : "Switch to dark"}</span>

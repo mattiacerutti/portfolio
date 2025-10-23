@@ -15,13 +15,13 @@ import Button from "@/components/ui/button";
 export default function Hero() {
   return (
     <CometBackground>
-      <div className="flex flex-col items-start justify-center h-screen gap-3 p-5 w-fit">
+      <div className="flex h-screen w-fit flex-col items-start justify-center gap-3 p-5">
         <div className="flex flex-col gap-1">
           <VerticalReveal>
-            <div className="flex flex-col items-start xs:flex-row xs:gap-3">
+            <div className="xs:flex-row xs:gap-3 flex flex-col items-start">
               <H1 className="text-nowrap">hey! i&apos;m</H1>
               <H1 className="text-nowrap">
-                Mattia <span className="transition-transform duration-300 inline-block origin-[70%_70%] hover:animate-wave">👋</span>
+                Mattia <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">👋</span>
               </H1>
             </div>
           </VerticalReveal>
@@ -29,24 +29,24 @@ export default function Hero() {
             <H3 className="!font-normal text-[var(--muted-foreground)]">21yo software engineer</H3>
           </VerticalReveal>
           <VerticalReveal delay={0.2}>
-            <P className="text-[var(--muted-foreground)] !font-semibold">📍 Italy</P>
+            <P className="!font-semibold text-[var(--muted-foreground)]">📍 Italy</P>
           </VerticalReveal>
         </div>
 
         <HorizontalReveal className="flex items-center gap-3">
           <CustomLink href="https://github.com/mattiacerutti" target="_blank" rel="noopener noreferrer" className="">
-            <Button className="w-9 h-9 p-1.5">
-              <TbBrandGithub className="w-full h-full " />
+            <Button className="h-9 w-9 p-1.5">
+              <TbBrandGithub className="h-full w-full" />
             </Button>
           </CustomLink>
           <CustomLink href="https://www.linkedin.com/in/mattiacerutti/" target="_blank" rel="noopener noreferrer">
-            <Button className="w-9 h-9 p-1.5">
-              <LiaLinkedinIn className="w-full h-full " />
+            <Button className="h-9 w-9 p-1.5">
+              <LiaLinkedinIn className="h-full w-full" />
             </Button>
           </CustomLink>
           <CustomLink href="https://flowcv.com/resume/sfcv6r8csf" target="_blank" rel="noopener noreferrer">
-            <Button className="w-9 h-9 p-2">
-              <FaRegFileAlt className="w-full h-full" />
+            <Button className="h-9 w-9 p-2">
+              <FaRegFileAlt className="h-full w-full" />
             </Button>
           </CustomLink>
         </HorizontalReveal>

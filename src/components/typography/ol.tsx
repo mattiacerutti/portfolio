@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Ol({children, ...props}: React.HTMLAttributes<HTMLOListElement>) {
   return (
-    <ol className="pl-6 list-decimal space-y-2" {...props}>
+    <ol className="list-decimal space-y-2 pl-6" {...props}>
       {children}
     </ol>
   );

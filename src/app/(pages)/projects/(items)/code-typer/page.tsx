@@ -42,14 +42,14 @@ function Page() {
         <div className="flex items-center gap-2">
           <H3>{project.title}</H3>
           <CustomLink href={project.preview} target="_blank">
-            <HiOutlineExternalLink className="w-5 h-5" />
+            <HiOutlineExternalLink className="h-5 w-5" />
           </CustomLink>
           <CustomLink href={project.github} target="_blank">
-            <FaGithub className="w-5 h-5" />
+            <FaGithub className="h-5 w-5" />
           </CustomLink>
         </div>
         <P className="text-[var(--muted-foreground)]">{project.description}</P>
-        <div className="flex flex-wrap gap-2 mt-3">
+        <div className="mt-3 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <TechCard key={tech} name={tech} />
           ))}

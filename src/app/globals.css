@@ -68,7 +68,9 @@ body {
   );
   filter: hue-rotate(var(--glow-hue-a)) saturate(var(--glow-saturation));
   opacity: var(--glow-breathe-min);
-  animation: hueShift 15s ease-in-out infinite alternate, glowBreathe var(--glow-breathe-duration) ease-in-out infinite;
+  animation:
+    hueShift 15s ease-in-out infinite alternate,
+    glowBreathe var(--glow-breathe-duration) ease-in-out infinite;
   pointer-events: none;
   will-change: filter, opacity;
 }

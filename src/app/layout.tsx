@@ -22,12 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased ovicking-wide flex flex-col items-center min-h-screen justify-between`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
           <LoadingWrapper>
             <Header />
-            <main className="flex justify-center flex-1 w-full">{children}</main>
+            <main className="flex w-full flex-1 justify-center">{children}</main>
             <Footer />
           </LoadingWrapper>
         </ThemeProvider>

@@ -21,9 +21,9 @@ export default function LoadingWrapper({children}: {children: React.ReactNode}) 
   if (!loading) return <>{children}</>;
 
   return (
-    <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-300 `} aria-hidden>
+    <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-300`} aria-hidden>
       <div className="flex flex-col items-center gap-3">
-        <div className="h-8 w-8 rounded-full border-2 border-[var(--muted-foreground)] border-t-transparent animate-spin" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--muted-foreground)] border-t-transparent" />
         <span className="text-sm text-[var(--muted-foreground)]">Loading…</span>
       </div>
     </div>

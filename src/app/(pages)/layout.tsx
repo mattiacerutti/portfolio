@@ -4,7 +4,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex justify-center w-full px-6 mt-30">
+    <div className="mt-30 flex w-full justify-center px-6">
       <div className="w-4xl">{children}</div>
     </div>
   );
