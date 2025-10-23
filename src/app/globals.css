@@ -59,13 +59,7 @@ body {
   left: 0;
   right: 0;
   height: 100vh;
-  background: radial-gradient(
-    ellipse 120vw 40vh at 50% -20vh,
-    rgba(var(--glow-base-rgb), 0.8) 0%,
-    rgba(var(--glow-base-rgb), 0.1) 70%,
-    rgba(var(--glow-base-rgb), 0.05) 90%,
-    transparent 120%
-  );
+  background: radial-gradient(ellipse 120vw 40vh at 50% -30vh, rgba(var(--glow-base-rgb), 0.6) 0%, rgba(var(--glow-base-rgb), 0.05) 90%, transparent 120%);
   filter: hue-rotate(var(--glow-hue-a)) saturate(var(--glow-saturation));
   opacity: var(--glow-breathe-min);
   animation:
