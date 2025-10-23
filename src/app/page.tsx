@@ -44,7 +44,7 @@ export default function Home() {
                 &nbsp;for the full list.
               </P>
             </VerticalReveal>
-            <div className="grid [grid-auto-rows:1fr] grid-cols-2 gap-10">
+            <div className="grid [grid-auto-rows:1fr] grid-cols-1 gap-10 sm:grid-cols-2">
               {PROJECTS.map(
                 (project, index) =>
                   project.relevant && (
