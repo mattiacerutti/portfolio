@@ -3,8 +3,8 @@ export interface IProject {
   title: string;
   description: string;
   technologies: string[];
-  github: string;
-  preview: string;
+  github?: string;
+  preview?: string;
 }
 
 export function getProjectById(id: string) {
@@ -21,6 +21,13 @@ export const PROJECTS: (IProject & {relevant: boolean})[] = [
     technologies: ["TypeScript", "Next.js", "PostgreSQL", "Prisma"],
     github: "https://github.com/mattiacerutti/code-typer",
     preview: "https://codetyper.mattiacerutti.com/",
+    relevant: true,
+  },
+  {
+    id: "selected-work",
+    title: "Selected Client Work",
+    description: "A collection of client projects I built. Thoughtful design, smooth interactions, and real products used by real people every day.",
+    technologies: ["React", "TailwindCSS", "GSAP", "Locomotive Scroll", "PHP"],
     relevant: true,
   },
 ];

@@ -28,7 +28,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     title: "Novaidea Creative Resources",
     role: "Fullstack Developer, Contractor",
     location: "Remote",
-    startDate: new Date("2023-05"),
+    startDate: new Date("2023-03"),
     endDate: new Date("2025-01"),
     technologies: ["React", "TailwindCSS", "MySQL", "PHP", "CI/CD"],
     responsibilities: [

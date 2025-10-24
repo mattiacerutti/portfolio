@@ -32,12 +32,21 @@ export default function Projects() {
         <H3>Projects</H3>
         <P className="text-[var(--muted-foreground)]">All my projects.</P>
       </VerticalReveal>
-      <div className="flex flex-col gap-10">
-        {PROJECTS.map((project, idx) => (
-          <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)} className="w-full">
-            <ProjectCard project={project} />
-          </VerticalReveal>
-        ))}
+      <div className="flex flex-col gap-15">
+        <div className="flex flex-col gap-4">
+          {PROJECTS.filter((project) => project.relevant).map((project, idx) => (
+            <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)} className="w-full">
+              <ProjectCard project={project} relevant />
+            </VerticalReveal>
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          {PROJECTS.filter((project) => !project.relevant).map((project, idx) => (
+            <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)} className="w-full">
+              <ProjectCard project={project} />
+            </VerticalReveal>
+          ))}
+        </div>
       </div>
     </div>
   );
