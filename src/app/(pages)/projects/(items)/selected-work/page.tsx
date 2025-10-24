@@ -66,12 +66,10 @@ function Page() {
       <div className="flex flex-col gap-8">
         <VerticalReveal delay={baseDelay}>
           <P>
-            <P>
-              A mix of landing pages and configurators I built with <i>Novaidea</i> since I was 18. These were my first real production projects starting from plain HTML, moving
-              through PHP, and eventually into modern React + Tailwind builds. Each site features custom animations with <b>GSAP</b> and <b>LocomotiveScroll</b>, and most include
-              a&nbsp;
-              <b>multi-language CMS</b> that lets clients manage translations and content completely on their own.
-            </P>
+            A mix of landing pages and configurators I built with <i>Novaidea</i> since I was 18. These were my first real production projects starting from plain HTML, moving
+            through PHP, and eventually into modern React + Tailwind builds. Each site features custom animations with <b>GSAP</b> and <b>LocomotiveScroll</b>, and most include
+            a&nbsp;
+            <b>multi-language CMS</b> that lets clients manage translations and content completely on their own.
           </P>
         </VerticalReveal>
 
@@ -93,7 +91,7 @@ function Page() {
                 &nbsp;— A simple static landing made with just HTML, CSS, and JS (didn&apos;t even know React yet, lol). Has a clean layout and some more advanced animations.
               </Li>
               <Li>
-                <CustomLink href="https://abert.it/pop" target="_blank" underline>
+                <CustomLink href="https://abert.it/pop/?lang=eng" target="_blank" underline>
                   Abert Pop
                 </CustomLink>
                 &nbsp;— Built with React and Tailwind. Includes a JSON-driven CMS and a custom multi-language system that lets the client manage translations and content entirely
