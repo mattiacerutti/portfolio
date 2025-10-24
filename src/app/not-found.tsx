@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     title: "404 | Mattia Cerutti",
     description: "Page not found.",
-    url: "https://mattiacerutti.com/404",
+    url: "https://mattiacerutti.com/404/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
     type: "website",

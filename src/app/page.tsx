@@ -38,7 +38,7 @@ export default function Home() {
               <H3>Projects</H3>
               <P className="text-[var(--muted-foreground)]">
                 Stuff i&apos;ve been doing lately.&nbsp;
-                <CustomLink href="/projects" className="underline decoration-[var(--muted-foreground)]/30">
+                <CustomLink href="/projects/" className="underline decoration-[var(--muted-foreground)]/30">
                   Click here
                 </CustomLink>
                 &nbsp;for the full list.
@@ -60,7 +60,7 @@ export default function Home() {
               <H3>Work</H3>
               <P className="text-[var(--muted-foreground)]">
                 My most relevant work experiences.&nbsp;
-                <CustomLink href="/work" className="underline decoration-[var(--muted-foreground)]/30">
+                <CustomLink href="/work/" className="underline decoration-[var(--muted-foreground)]/30">
                   Click here
                 </CustomLink>
                 &nbsp;for the full list.

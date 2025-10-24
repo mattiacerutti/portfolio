@@ -86,7 +86,7 @@ export default function NavLinks() {
       />
 
       <Link
-        href="/work"
+        href="/work/"
         ref={workRef}
         aria-current={isActive("/work") ? "page" : undefined}
         className={`transition-colors duration-600 ${isActive("/work") ? "text-[var(--foreground)]" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"}`}
@@ -94,7 +94,7 @@ export default function NavLinks() {
         work
       </Link>
       <Link
-        href="/projects"
+        href="/projects/"
         ref={projectsRef}
         aria-current={isActive("/projects") ? "page" : undefined}
         className={`transition-colors duration-600 ${isActive("/projects") ? "text-[var(--foreground)]" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"}`}

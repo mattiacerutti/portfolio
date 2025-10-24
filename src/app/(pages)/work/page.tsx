@@ -11,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: "Work | Mattia Cerutti",
     description: "My work experience and career so far.",
-    url: "https://mattiacerutti.com/work",
+    url: "https://mattiacerutti.com/work/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
     type: "website",

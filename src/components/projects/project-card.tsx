@@ -18,7 +18,7 @@ function ProjectCard(props: IProjectCardProps) {
   const {id, title, description, technologies} = project;
 
   return (
-    <CustomLink href={`/projects/${id}`} className="cursor-pointer">
+    <CustomLink href={`/projects/${id}/`} className="cursor-pointer">
       <Button className="relative flex h-full flex-col items-start gap-1 !rounded-xl p-4">
         {relevant && <LuPin className="absolute top-4 right-4 h-4 w-4 text-[var(--muted-foreground)]" title="This project has been pinned" />}
         <H4 className="text-[var(--foreground)]">{title}</H4>

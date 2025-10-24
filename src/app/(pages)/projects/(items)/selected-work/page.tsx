@@ -18,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "Selected Work | Mattia Cerutti",
     description: "A collection of client projects I built. Thoughtful design, smooth interactions, and real products used by real people every day.",
-    url: "https://mattiacerutti.com/projects/selected-work",
+    url: "https://mattiacerutti.com/projects/selected-work/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
     type: "article",

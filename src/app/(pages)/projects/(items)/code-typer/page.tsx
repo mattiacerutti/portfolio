@@ -20,7 +20,7 @@ export const metadata = {
   openGraph: {
     title: "Code Typer | Mattia Cerutti",
     description: "A closer look at Code Typer, what it does, how I built it.",
-    url: "https://mattiacerutti.com/projects/code-typer",
+    url: "https://mattiacerutti.com/projects/code-typer/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
     type: "article",
