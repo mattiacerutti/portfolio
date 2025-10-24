@@ -1,6 +1,7 @@
 "use client";
 
 import {useEffect, useState} from "react";
+import P from "./typography/p";
 
 export default function LoadingWrapper({children}: {children: React.ReactNode}) {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,7 @@ export default function LoadingWrapper({children}: {children: React.ReactNode}) 
     <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-300`} aria-hidden>
       <div className="flex flex-col items-center gap-3">
         <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--muted-foreground)] border-t-transparent" />
-        <span className="text-sm text-[var(--muted-foreground)]">Loading…</span>
+        <P className="text-[var(--muted-foreground)]">Loading…</P>
       </div>
     </div>
   );

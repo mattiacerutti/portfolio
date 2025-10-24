@@ -33,7 +33,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
         <P className="visible md:hidden">•</P>
-        <P className="md:!text-base md:text-[var(--muted-foreground)]">{location}</P>
+        <P className="md:text-[var(--muted-foreground)]">{location}</P>
       </div>
 
       <div className="mt-1 flex flex-col gap-5 md:col-span-2">

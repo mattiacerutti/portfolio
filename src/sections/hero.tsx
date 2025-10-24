@@ -21,8 +21,8 @@ export default function Hero() {
         <div className="flex flex-col gap-1">
           <VerticalReveal>
             <div className="flex flex-col sm:flex-row sm:items-end sm:gap-3">
-              <H1 className="text-nowrap">hey! i&apos;m</H1>
-              <H1 className="text-nowrap">
+              <H1 className="!text-5xl text-nowrap">hey! i&apos;m</H1>
+              <H1 className="!text-5xl text-nowrap">
                 Mattia&nbsp;
                 <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">
                   <Image src={Wave} alt="Wave" className="h-12 w-12" />

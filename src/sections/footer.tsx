@@ -5,6 +5,7 @@ import {RiComputerLine} from "react-icons/ri";
 import {FiMoon, FiSun} from "react-icons/fi";
 import {useTheme} from "next-themes";
 import {useSound} from "@/hooks/useSound";
+import P from "@/components/typography/p";
 
 export default function Footer() {
   const {setTheme, resolvedTheme, theme} = useTheme();
@@ -29,18 +30,18 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mt-25 mb-5 flex w-full max-w-4xl items-center justify-between max-lg:px-6 md:mt-35 md:mb-10">
-      <p className="text-base text-gray-500">&copy; {new Date().getFullYear()}</p>
+    <footer className="mt-25 mb-5 flex w-full max-w-4xl items-center justify-between text-gray-500 max-lg:px-6 md:mt-35 md:mb-10">
+      <P>&copy; {new Date().getFullYear()}</P>
       {isMounted && (
         <div className="flex items-center justify-end gap-4">
           <button
-            className={`text-gray-500 transition duration-400 ${theme === "system" ? "opacity-50" : "cursor-pointer hover:text-[var(--foreground)]"}`}
+            className={`transition duration-400 ${theme === "system" ? "opacity-50" : "cursor-pointer hover:text-[var(--foreground)]"}`}
             onClick={() => changeTheme("system")}
           >
             <RiComputerLine className="h-5 w-5" />
           </button>
           <button
-            className="inline-flex cursor-pointer items-center justify-center leading-none text-gray-500 transition duration-400 hover:text-[var(--foreground)]"
+            className="inline-flex cursor-pointer items-center justify-center leading-none transition duration-400 hover:text-[var(--foreground)]"
             onClick={toggleTheme}
             aria-label="Toggle theme"
             title="Toggle theme"
