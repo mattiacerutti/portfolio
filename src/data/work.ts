@@ -6,12 +6,13 @@ export interface IWorkExperience {
   endDate?: Date;
   technologies: string[];
   responsibilities: string[];
+  logo: string;
 }
 
 export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
   {
     title: "Amazon Web Services (AWS)",
-    role: "Software Development Engineer, Internship",
+    role: "Software Engineer, Internship",
     location: "Dublin, Ireland",
     startDate: new Date("2025-06"),
     endDate: new Date("2025-09"),
@@ -23,6 +24,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
       "Optimized the aggregation logic to cut runtime by 50% and resolved a critical API dependency by coordinating with the owning team, enabling a successful and cheaper integration of the automated workflow.",
     ],
     relevant: true,
+    logo: "/aws.png",
   },
   {
     title: "Novaidea Creative Resources",
@@ -38,6 +40,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
       "Owned code architecture and quality, mentoring 2 developers and collaborating with 5+ cross-functional teammates to deliver solutions for 4+ clients.",
     ],
     relevant: true,
+    logo: "/novaidea.png",
   },
   {
     title: "Estilos SRL",
@@ -51,5 +54,6 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
       "Collaborated within a team to diagnose and resolve existing bugs in the automation processes.",
     ],
     relevant: false,
+    logo: "/estilos.png",
   },
 ];

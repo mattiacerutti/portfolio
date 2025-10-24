@@ -5,6 +5,7 @@ import {IWorkExperience} from "@/data/work";
 import Ul from "../typography/ul";
 import Li from "../typography/li";
 import TechCard from "../ui/tech-card";
+import Image from "next/image";
 
 interface IWorkExperienceProps {
   experience: IWorkExperience;
@@ -22,13 +23,16 @@ export default function WorkExperience(props: IWorkExperienceProps) {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-0.5 md:grid-cols-[1fr_auto] md:gap-2">
-      <div className="flex flex-col">
-        <H4>{title}</H4>
-        <span className="text-[var(--muted-foreground)]">{role}</span>
+    <div className="grid grid-cols-1 gap-1 md:grid-cols-[1fr_auto] md:gap-2">
+      <div className="flex flex-row items-center gap-4">
+        <Image src={experience.logo} alt={`${title} logo`} width={60} height={60} className="h-12 w-12 rounded-md object-cover" draggable="false" />
+        <div className="flex flex-col">
+          <H4 className="text-balance">{title}</H4>
+          <span className="text-[var(--muted-foreground)]">{role}</span>
+        </div>
       </div>
 
-      <div className="flex w-fit flex-wrap items-center text-nowrap max-md:gap-x-2 max-md:italic md:flex-col md:items-end">
+      <div className="flex w-fit flex-wrap items-center text-nowrap max-md:gap-x-2 md:flex-col md:items-end">
         <P>
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
