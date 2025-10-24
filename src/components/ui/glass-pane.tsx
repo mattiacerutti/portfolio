@@ -8,11 +8,7 @@ interface IButtonProps {
 function GlassPane(props: IButtonProps) {
   const {children, className} = props;
   return (
-    <div
-      className={`rounded-lg bg-[var(--button-bg)] text-[var(--button-text)] shadow-[inset_0_0_0_1.5px_var(--button-border)] backdrop-blur-md transition-colors duration-300 ${className} }`}
-    >
-      {children}
-    </div>
+    <div className={`rounded-lg bg-[var(--button-bg)] text-[var(--button-text)] shadow-[inset_0_0_0_1.5px_var(--button-border)] backdrop-blur-md ${className} }`}>{children}</div>
   );
 }
 

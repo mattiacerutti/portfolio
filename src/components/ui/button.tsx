@@ -8,7 +8,11 @@ interface IButtonProps {
 
 function Button(props: IButtonProps) {
   const {children, className} = props;
-  return <GlassPane className={`cursor-pointer hover:bg-[var(--button-hover-bg)] hover:text-[var(--button-hover-text)] ${className}`}>{children}</GlassPane>;
+  return (
+    <GlassPane className={`cursor-pointer transition-colors duration-300 hover:bg-[var(--button-hover-bg)] hover:text-[var(--button-hover-text)] ${className}`}>
+      {children}
+    </GlassPane>
+  );
 }
 
 export default Button;

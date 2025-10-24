@@ -8,7 +8,7 @@
   --foreground: #020202;
   --background: #ffffff;
   --muted-foreground: #7f7f7f;
-  --button-bg: rgba(255, 255, 255, 0.5);
+  --button-bg: rgba(245, 245, 245, 0.8);
   --button-text: var(--muted-foreground);
   --button-hover-bg: rgba(0, 0, 0, 0.2);
   --button-hover-text: var(--foreground);
@@ -31,7 +31,7 @@
   --foreground: #e1e1e1;
   --background: #000000;
   --muted-foreground: #7f7f7f;
-  --button-bg: rgba(10, 10, 10, 0.5);
+  --button-bg: rgba(10, 10, 10, 0.7);
   --button-text: var(--muted-foreground);
   --button-hover-bg: rgba(255, 255, 255, 0.09);
   --button-hover-text: var(--foreground);
