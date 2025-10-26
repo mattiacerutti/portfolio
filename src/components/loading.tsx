@@ -7,7 +7,10 @@ export default function LoadingWrapper({children}: {children: React.ReactNode}) 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
+    const onLoad = () => setLoading(false);
+    if (document.readyState === "complete") setLoading(false);
+    else window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
   }, []);
 
   useEffect(() => {
@@ -19,14 +22,18 @@ export default function LoadingWrapper({children}: {children: React.ReactNode}) 
     document.documentElement.style.overflow = "";
   }, [loading]);
 
-  if (!loading) return <>{children}</>;
-
   return (
-    <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-300`} aria-hidden>
-      <div className="flex flex-col items-center gap-3">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--muted-foreground)] border-t-transparent" />
-        <P className="text-[var(--muted-foreground)]">Loading…</P>
+    <>
+      {children}
+      <div
+        className={`fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-[var(--background)] transition-opacity duration-300 ${!loading && "pointer-events-none invisible"}`}
+        aria-hidden
+      >
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--muted-foreground)] border-t-transparent" />
+          <P className="text-[var(--muted-foreground)]">Loading…</P>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
