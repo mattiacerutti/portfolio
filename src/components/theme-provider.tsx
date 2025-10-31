@@ -4,7 +4,7 @@ import React from "react";
 
 export function ThemeProvider({children}: {children: React.ReactNode}) {
   return (
-    <NextThemeProvider attribute="data-theme" defaultTheme="system" enableSystem themeColor={"var(--background)"}>
+    <NextThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem themeColor={"var(--background)"}>
       {children}
     </NextThemeProvider>
   );
