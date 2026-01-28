@@ -2,8 +2,6 @@ import React from "react";
 import H4 from "../typography/h4";
 import P from "../typography/p";
 import {IWorkExperience} from "@/data/work";
-import Ul from "../typography/ul";
-import Li from "../typography/li";
 import TechCard from "../ui/tech-card";
 import Image from "next/image";
 
@@ -13,7 +11,7 @@ interface IWorkExperienceProps {
 
 export default function WorkExperience(props: IWorkExperienceProps) {
   const {experience} = props;
-  const {title, role, location, startDate, endDate, technologies, responsibilities} = experience;
+  const {title, role, location, startDate, endDate, technologies, description} = experience;
 
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat("en-US", {
@@ -47,11 +45,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
           ))}
         </div>
 
-        <Ul>
-          {responsibilities.map((responsibility, index) => (
-            <Li key={index}>{responsibility}</Li>
-          ))}
-        </Ul>
+        <P>{description}</P>
       </div>
     </div>
   );

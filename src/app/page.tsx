@@ -1,7 +1,7 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import H3 from "@/components/typography/h3";
 import P from "@/components/typography/p";
-import WorkExperience from "@/components/work/work-experience";
+import WorkTimeline from "@/components/work/work-timeline";
 import {WORK_EXPERIENCES} from "@/data/work";
 import Hero from "@/sections/hero";
 import {CustomLink} from "@/components/typography/link";
@@ -28,6 +28,8 @@ export const metadata = {
 };
 
 export default function Home() {
+  const relevantExperiences = WORK_EXPERIENCES.filter((experience) => experience.relevant);
+
   return (
     <div className="flex w-full flex-col">
       <Hero />
@@ -66,16 +68,7 @@ export default function Home() {
                 &nbsp;for the full list.
               </P>
             </VerticalReveal>
-            <div className="flex flex-col gap-10">
-              {WORK_EXPERIENCES.map(
-                (experience, index) =>
-                  experience.relevant && (
-                    <VerticalReveal key={index} trigger="scroll" className="w-full" startY={50} duration={2}>
-                      <WorkExperience experience={experience} />
-                    </VerticalReveal>
-                  )
-              )}
-            </div>
+            <WorkTimeline experiences={relevantExperiences} trigger="scroll" startY={50} duration={2} />
           </div>
         </div>
       </div>

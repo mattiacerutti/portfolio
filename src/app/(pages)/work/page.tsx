@@ -1,6 +1,6 @@
 import React from "react";
 import H3 from "@/components/typography/h3";
-import WorkExperience from "@/components/work/work-experience";
+import WorkTimeline from "@/components/work/work-timeline";
 import {WORK_EXPERIENCES} from "@/data/work";
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import P from "@/components/typography/p";
@@ -32,13 +32,7 @@ export default function Work() {
         <H3>Work</H3>
         <P className="text-[var(--muted-foreground)]">All my work experiences.</P>
       </VerticalReveal>
-      <div className="flex flex-col gap-10">
-        {WORK_EXPERIENCES.map((experience, index) => (
-          <VerticalReveal key={index} delay={(index + 1) * baseDelay} className="w-full">
-            <WorkExperience experience={experience} />
-          </VerticalReveal>
-        ))}
-      </div>
+      <WorkTimeline experiences={WORK_EXPERIENCES} baseDelay={baseDelay} />
     </div>
   );
 }
