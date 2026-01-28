@@ -1,4 +1,5 @@
 import {getHighlighter} from "@/lib/highlighter";
+import {twMerge} from "tailwind-merge";
 
 interface ICodeProps {
   language: string;
@@ -40,9 +41,11 @@ export default async function Code(props: ICodeProps) {
 
   return (
     <Tag
-      className={`border border-[var(--muted-foreground)]/20 bg-[var(--foreground)]/2 font-mono text-sm shadow-sm ${
-        inline ? "inline-block rounded px-1 py-0.5" : "overflow-x-auto rounded p-3"
-      } ${className}`}
+      className={twMerge(
+        "border border-[var(--muted-foreground)]/20 bg-[var(--foreground)]/2 font-mono text-sm shadow-sm",
+        inline ? "inline-block rounded px-1 py-0.5" : "overflow-x-auto rounded p-3",
+        className
+      )}
       dangerouslySetInnerHTML={{__html: html}}
     />
   );

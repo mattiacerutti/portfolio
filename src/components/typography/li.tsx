@@ -1,9 +1,11 @@
 import React from "react";
+import {twMerge} from "tailwind-merge";
+
 import P from "./p";
 
-export default function Li({children, ...props}: React.LiHTMLAttributes<HTMLLIElement>) {
+export default function Li({children, className = "", ...props}: React.LiHTMLAttributes<HTMLLIElement>) {
   return (
-    <li className="pl-2" {...props}>
+    <li className={twMerge("pl-2", className)} {...props}>
       <P>{children}</P>
     </li>
   );

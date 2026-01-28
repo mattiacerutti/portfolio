@@ -1,5 +1,6 @@
 import Link, {LinkProps} from "next/link";
 import * as React from "react";
+import {twMerge} from "tailwind-merge";
 
 type ICustomLinkProps = LinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -13,9 +14,11 @@ export function CustomLink(props: ICustomLinkProps) {
   return (
     <Link
       {...extraProps}
-      className={`text-[var(--muted-foreground)] transition-colors duration-600 hover:text-[var(--foreground)] ${className} ${
-        underline && "underline decoration-[var(--muted-foreground)]/30"
-      } `}
+      className={twMerge(
+        "text-[var(--muted-foreground)] transition-colors duration-600 hover:text-[var(--foreground)]",
+        underline && "underline decoration-[var(--muted-foreground)]/30",
+        className
+      )}
     >
       {children}
     </Link>
