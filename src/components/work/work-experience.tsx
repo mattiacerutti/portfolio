@@ -22,15 +22,15 @@ export default function WorkExperience(props: IWorkExperienceProps) {
 
   return (
     <div className="grid grid-cols-1 gap-1 md:grid-cols-[1fr_auto] md:gap-2">
-      <div className="flex flex-row items-center gap-4">
+      <div className="flex flex-row items-start gap-4 sm:items-center">
         <Image src={experience.logo} alt={`${title} logo`} width={60} height={60} className="h-12 w-12 rounded-md object-cover" draggable="false" />
-        <div className="flex flex-col">
-          <H4 className="text-balance">{title}</H4>
-          <span className="text-[var(--muted-foreground)]">{role}</span>
+        <div className="flex flex-col max-sm:gap-1">
+          <H4 className="leading-[1.15] text-balance sm:leading-normal">{title}</H4>
+          <span className="leading-[1.15] text-balance text-[var(--muted-foreground)] sm:leading-normal">{role}</span>
         </div>
       </div>
 
-      <div className="flex w-fit flex-col items-start gap-0.5 text-nowrap md:items-end">
+      <div className="flex w-fit flex-col items-start gap-0.5 text-nowrap max-sm:mt-1 md:items-end">
         <P className="text-[var(--foreground)]/90 max-md:!text-sm md:text-[var(--foreground)]">
           {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"}
         </P>
