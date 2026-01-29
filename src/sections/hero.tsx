@@ -40,17 +40,17 @@ export default function Hero() {
 
         <HorizontalReveal className="flex items-center gap-3">
           <CustomLink href="https://github.com/mattiacerutti" target="_blank" rel="noopener noreferrer" className="">
-            <Button className="h-9 w-9 p-1.5">
+            <Button className="h-9 w-9 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
               <TbBrandGithub className="h-full w-full" />
             </Button>
           </CustomLink>
           <CustomLink href="https://www.linkedin.com/in/mattiacerutti/" target="_blank" rel="noopener noreferrer">
-            <Button className="h-9 w-9 p-1.5">
+            <Button className="h-9 w-9 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
               <LiaLinkedinIn className="h-full w-full" />
             </Button>
           </CustomLink>
           <CustomLink href="https://flowcv.com/resume/sfcv6r8csf" target="_blank" rel="noopener noreferrer">
-            <Button className="h-9 w-9 p-2">
+            <Button className="h-9 w-9 p-2 transition-transform duration-300 hover:-translate-y-0.5">
               <FaRegFileAlt className="h-full w-full" />
             </Button>
           </CustomLink>

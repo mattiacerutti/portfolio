@@ -10,7 +10,7 @@ export default function RootLayout({
     <div className="flex flex-col gap-7">
       <CustomLink href="/projects/" className="flex flex-row items-center underline decoration-[var(--muted-foreground)]/30">
         <IoChevronBack className="mr-1 inline-block" />
-        Back to Projects
+        All Projects
       </CustomLink>
       {children}
     </div>

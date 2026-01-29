@@ -45,14 +45,14 @@ function Page() {
 
           {project.preview && (
             <CustomLink href={project.preview} target="_blank">
-              <Button className="h-7 w-7 p-1.5">
+              <Button className="h-7 w-7 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
                 <HiOutlineExternalLink className="h-full w-full" />
               </Button>
             </CustomLink>
           )}
           {project.github && (
             <CustomLink href={project.github} target="_blank">
-              <Button className="h-7 w-7 p-1.5">
+              <Button className="h-7 w-7 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
                 <TbBrandGithub className="h-full w-full" />
               </Button>
             </CustomLink>

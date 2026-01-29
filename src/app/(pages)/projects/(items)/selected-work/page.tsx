@@ -40,21 +40,6 @@ function Page() {
         <P className="!text-sm text-[var(--muted-foreground)]">1 min read</P>
         <div className="flex items-center gap-2">
           <H3>{project.title}</H3>
-
-          {project.preview && (
-            <CustomLink href={project.preview} target="_blank">
-              <Button className="h-7 w-7 p-1.5">
-                <HiOutlineExternalLink className="h-full w-full" />
-              </Button>
-            </CustomLink>
-          )}
-          {project.github && (
-            <CustomLink href={project.github} target="_blank">
-              <Button className="h-7 w-7 p-1.5">
-                <TbBrandGithub className="h-full w-full" />
-              </Button>
-            </CustomLink>
-          )}
         </div>
         <P className="text-[var(--muted-foreground)]">{project.description}</P>
         <div className="mt-3 flex flex-wrap gap-2">
