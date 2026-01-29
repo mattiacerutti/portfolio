@@ -42,7 +42,7 @@ function ProjectCard(props: IProjectCardProps) {
         </div>
         <P className="relative z-10 !text-sm text-[var(--muted-foreground)] sm:!text-base">{description}</P>
 
-        <div className="relative z-10 mt-3 flex items-center gap-2 text-xs font-semibold tracking-[0.16em] text-[var(--muted-foreground)] uppercase transition-colors duration-300 group-hover:text-[var(--foreground)]">
+        <div className="tracking-[0.16e relative z-10 mt-3 flex items-center gap-2 text-xs font-semibold tracking-widest text-[var(--muted-foreground)] uppercase transition-colors duration-300 group-hover:text-[var(--foreground)]">
           <span>View project</span>
           <HiOutlineArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
