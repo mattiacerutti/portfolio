@@ -2,7 +2,7 @@ import React from "react";
 import {CustomLink} from "@/components/typography/link";
 import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
-import {FaRegFileAlt} from "react-icons/fa";
+import {HiOutlineMail} from "react-icons/hi";
 
 import CometBackground from "../components/animations/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
@@ -49,9 +49,9 @@ export default function Hero() {
               <LiaLinkedinIn className="h-full w-full" />
             </Button>
           </CustomLink>
-          <CustomLink href="https://flowcv.com/resume/sfcv6r8csf" target="_blank" rel="noopener noreferrer">
-            <Button className="h-9 w-9 p-2 transition-transform duration-300 hover:-translate-y-0.5">
-              <FaRegFileAlt className="h-full w-full" />
+          <CustomLink href="mailto:mattiacerutti04@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Button className="h-9 w-9 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
+              <HiOutlineMail className="h-full w-full" />
             </Button>
           </CustomLink>
         </HorizontalReveal>
