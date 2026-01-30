@@ -13,6 +13,7 @@ import P from "@/components/typography/p";
 import Button from "@/components/ui/button";
 import Image from "next/image";
 import Wave from "/public/wave.png";
+import AgeDisplay from "@/components/age-display";
 
 export default function Hero() {
   return (
@@ -31,7 +32,9 @@ export default function Hero() {
             </div>
           </VerticalReveal>
           <VerticalReveal delay={0.1}>
-            <H3 className="!font-normal text-[var(--muted-foreground)]">21yo software engineer</H3>
+            <H3 className="!font-normal text-[var(--muted-foreground)]">
+              <AgeDisplay birthDate={new Date("2004-10-27")} />
+            </H3>
           </VerticalReveal>
           <VerticalReveal delay={0.2}>
             <P className="!font-semibold text-[var(--muted-foreground)]">📍 Italy</P>
