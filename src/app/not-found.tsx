@@ -1,7 +1,5 @@
 import H1 from "@/components/ui/typography/h1";
 import H4 from "@/components/ui/typography/h4";
-import {CustomLink} from "@/components/ui/typography/link";
-import Button from "@/components/ui/button";
 
 export const metadata = {
   title: "404 | Mattia Cerutti",
@@ -23,14 +21,11 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="absolute flex h-full flex-col items-center justify-center gap-5">
-      <div className="flex flex-col items-start">
-        <H1>Hmmm..</H1>
-        <H4 className="!font-normal">Looks like this page doesn&apos;t exist.</H4>
+    <div className="absolute flex h-full flex-col items-start justify-center gap-5">
+      <div className="flex flex-col items-start gap-2">
+        <H1>Oops.</H1>
+        <H4 className="font-normal text-[var(--muted-foreground)]">Looks like this page doesn&apos;t exist.</H4>
       </div>
-      <CustomLink href="/">
-        <Button className="px-4 py-2">Go back home</Button>
-      </CustomLink>
     </div>
   );
 }
