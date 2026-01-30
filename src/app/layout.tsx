@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/sections/header";
 import {ThemeProvider} from "../components/theme-provider";
 import Footer from "@/sections/footer";
-import LoadingWrapper from "@/components/loading";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,11 +20,9 @@ export default function RootLayout({
       <body className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
-          <LoadingWrapper>
-            <Header />
-            <main className="flex w-full flex-1 justify-center">{children}</main>
-            <Footer />
-          </LoadingWrapper>
+          <Header />
+          <main className="flex w-full flex-1 justify-center">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
