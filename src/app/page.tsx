@@ -37,14 +37,13 @@ export default function Home() {
         <div className="flex w-4xl flex-col gap-20">
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
-              <H3>Projects</H3>
-              <P className="text-[var(--muted-foreground)]">
-                Stuff i&apos;ve been doing lately.&nbsp;
+              <div className="flex flex-row items-center justify-between">
+                <H3>Projects</H3>
                 <CustomLink href="/projects/" className="underline decoration-[var(--muted-foreground)]/30">
-                  Click here
+                  <P>All projects</P>
                 </CustomLink>
-                &nbsp;for the full list.
-              </P>
+              </div>
+              <P className="text-[var(--muted-foreground)]">Stuff i&apos;ve been doing lately.&nbsp;</P>
             </VerticalReveal>
             <div className="grid [grid-auto-rows:1fr] grid-cols-1 gap-4 sm:grid-cols-2">
               {PROJECTS.map(
@@ -59,14 +58,13 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
-              <H3>Work</H3>
-              <P className="text-[var(--muted-foreground)]">
-                My most relevant work experiences.&nbsp;
+              <div className="flex flex-row items-center justify-between">
+                <H3>Work</H3>
                 <CustomLink href="/work/" className="underline decoration-[var(--muted-foreground)]/30">
-                  Click here
+                  <P>All experiences</P>
                 </CustomLink>
-                &nbsp;for the full list.
-              </P>
+              </div>
+              <P className="text-[var(--muted-foreground)]">My most relevant work experiences.&nbsp;</P>
             </VerticalReveal>
             <WorkTimeline experiences={relevantExperiences} trigger="scroll" startY={50} duration={2} />
           </div>
