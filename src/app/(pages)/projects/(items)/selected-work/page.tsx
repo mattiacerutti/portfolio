@@ -1,16 +1,13 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
-import Ul from "@/components/typography/ul";
-import Li from "@/components/typography/li";
-import H3 from "@/components/typography/h3";
-import H4 from "@/components/typography/h4";
-import P from "@/components/typography/p";
-import {CustomLink} from "@/components/typography/link";
+import Ul from "@/components/ui/typography/ul";
+import Li from "@/components/ui/typography/li";
+import H3 from "@/components/ui/typography/h3";
+import H4 from "@/components/ui/typography/h4";
+import P from "@/components/ui/typography/p";
+import {CustomLink} from "@/components/ui/typography/link";
 import React from "react";
-import {HiOutlineExternalLink} from "react-icons/hi";
-import {TbBrandGithub} from "react-icons/tb";
 import TechCard from "@/components/ui/tech-card";
 import {getProjectById} from "@/data/projects";
-import Button from "@/components/ui/button";
 
 export const metadata = {
   title: "Selected Work | Mattia Cerutti",

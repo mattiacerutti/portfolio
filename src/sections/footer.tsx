@@ -5,7 +5,7 @@ import {RiComputerLine} from "react-icons/ri";
 import {FiMoon, FiSun} from "react-icons/fi";
 import {useTheme} from "next-themes";
 import {useSound} from "@/hooks/useSound";
-import P from "@/components/typography/p";
+import P from "@/components/ui/typography/p";
 
 export default function Footer() {
   const {setTheme, resolvedTheme, theme} = useTheme();

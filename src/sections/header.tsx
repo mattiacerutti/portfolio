@@ -1,4 +1,4 @@
-import {CustomLink} from "@/components/typography/link";
+import {CustomLink} from "@/components/ui/typography/link";
 import React from "react";
 import NavLinks from "@/components/nav-links";
 

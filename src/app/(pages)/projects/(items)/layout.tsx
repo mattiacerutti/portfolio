@@ -1,4 +1,4 @@
-import {CustomLink} from "@/components/typography/link";
+import {CustomLink} from "@/components/ui/typography/link";
 import {IoChevronBack} from "react-icons/io5";
 
 export default function RootLayout({

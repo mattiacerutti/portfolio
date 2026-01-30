@@ -1,19 +1,19 @@
 import React from "react";
-import {CustomLink} from "@/components/typography/link";
+import {CustomLink} from "@/components/ui/typography/link";
 import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
 import {HiOutlineMail} from "react-icons/hi";
 
-import CometBackground from "../components/animations/comet-background";
+import CometBackground from "../components/home/comet-background";
 import VerticalReveal from "../components/animations/vertical-reveal";
 import HorizontalReveal from "../components/animations/horizontal-reveal";
-import H1 from "../components/typography/h1";
-import H3 from "@/components/typography/h3";
-import P from "@/components/typography/p";
+import H1 from "../components/ui/typography/h1";
+import H3 from "@/components/ui/typography/h3";
+import P from "@/components/ui/typography/p";
 import Button from "@/components/ui/button";
 import Image from "next/image";
 import Wave from "/public/wave.png";
-import AgeDisplay from "@/components/age-display";
+import AgeDisplay from "@/components/home/age-display";
 
 export default function Hero() {
   return (

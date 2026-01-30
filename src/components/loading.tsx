@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect, useState} from "react";
-import P from "./typography/p";
+import P from "./ui/typography/p";
 
 export default function LoadingWrapper({children}: {children: React.ReactNode}) {
   const [loading, setLoading] = useState(true);

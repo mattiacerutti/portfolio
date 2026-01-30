@@ -1,6 +1,6 @@
-import H1 from "@/components/typography/h1";
-import H4 from "@/components/typography/h4";
-import {CustomLink} from "@/components/typography/link";
+import H1 from "@/components/ui/typography/h1";
+import H4 from "@/components/ui/typography/h4";
+import {CustomLink} from "@/components/ui/typography/link";
 import Button from "@/components/ui/button";
 
 export const metadata = {

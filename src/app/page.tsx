@@ -1,10 +1,10 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
-import H3 from "@/components/typography/h3";
-import P from "@/components/typography/p";
+import H3 from "@/components/ui/typography/h3";
+import P from "@/components/ui/typography/p";
 import WorkTimeline from "@/components/work/work-timeline";
 import {WORK_EXPERIENCES} from "@/data/work";
 import Hero from "@/sections/hero";
-import {CustomLink} from "@/components/typography/link";
+import {CustomLink} from "@/components/ui/typography/link";
 import {PROJECTS} from "@/data/projects";
 import ProjectCard from "@/components/projects/project-card";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import H3 from "@/components/typography/h3";
+import H3 from "@/components/ui/typography/h3";
 import WorkTimeline from "@/components/work/work-timeline";
 import {WORK_EXPERIENCES} from "@/data/work";
 import VerticalReveal from "@/components/animations/vertical-reveal";
-import P from "@/components/typography/p";
+import P from "@/components/ui/typography/p";
 
 export const metadata = {
   title: "Work | Mattia Cerutti",
