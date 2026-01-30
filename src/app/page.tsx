@@ -7,6 +7,7 @@ import Hero from "@/sections/hero";
 import {CustomLink} from "@/components/ui/typography/link";
 import {PROJECTS} from "@/data/projects";
 import ProjectCard from "@/components/projects/project-card";
+import {HiOutlineArrowRight} from "react-icons/hi";
 
 export const metadata = {
   title: "Mattia Cerutti - Software Engineer",
@@ -39,8 +40,9 @@ export default function Home() {
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <div className="flex flex-row items-center justify-between">
                 <H3>Projects</H3>
-                <CustomLink href="/projects/" className="underline decoration-[var(--muted-foreground)]/30">
-                  <P>All projects</P>
+                <CustomLink href="/projects/" className="group relative flex items-center underline decoration-[var(--muted-foreground)]/30">
+                  <P className="transition-transform duration-300 group-hover:-translate-x-6">All projects</P>
+                  <HiOutlineArrowRight className="absolute -right-6 h-4 w-4 opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100" />
                 </CustomLink>
               </div>
               <P className="text-[var(--muted-foreground)]">Stuff i&apos;ve been doing lately.&nbsp;</P>
@@ -60,8 +62,9 @@ export default function Home() {
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <div className="flex flex-row items-center justify-between">
                 <H3>Work</H3>
-                <CustomLink href="/work/" className="underline decoration-[var(--muted-foreground)]/30">
-                  <P>All experiences</P>
+                <CustomLink href="/work/" className="group relative flex items-center underline decoration-[var(--muted-foreground)]/30">
+                  <P className="transition-transform duration-300 group-hover:-translate-x-6">All experiences</P>
+                  <HiOutlineArrowRight className="absolute -right-6 h-4 w-4 opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100" />
                 </CustomLink>
               </div>
               <P className="text-[var(--muted-foreground)]">My most relevant work experiences.&nbsp;</P>
