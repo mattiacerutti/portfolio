@@ -1,8 +1,8 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import Ul from "@/components/ui/typography/ul";
 import Li from "@/components/ui/typography/li";
+import H2 from "@/components/ui/typography/h2";
 import H3 from "@/components/ui/typography/h3";
-import H4 from "@/components/ui/typography/h4";
 import P from "@/components/ui/typography/p";
 import {CustomLink} from "@/components/ui/typography/link";
 import React from "react";
@@ -34,10 +34,10 @@ function Page() {
   return (
     <div className="flex flex-col gap-8">
       <VerticalReveal>
-        <P className="!text-sm text-[var(--muted-foreground)]">1 min read</P>
-        <div className="flex items-center gap-2">
-          <H3>{project.title}</H3>
-        </div>
+        <P className="!text-base text-[var(--muted-foreground)]">1 min read</P>
+
+        <H2>{project.title}</H2>
+
         <P className="text-[var(--muted-foreground)]">{project.description}</P>
         <div className="mt-3 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
@@ -57,7 +57,7 @@ function Page() {
 
         <VerticalReveal delay={baseDelay * 1}>
           <div className="flex flex-col gap-2">
-            <H4>Landings</H4>
+            <H3>Landings</H3>
             <Ul>
               <Li>
                 <CustomLink href="https://novaidea.it/" target="_blank" underline>
@@ -85,7 +85,7 @@ function Page() {
 
         <VerticalReveal delay={baseDelay * 2}>
           <div className="flex flex-col gap-2">
-            <H4>Configurators</H4>
+            <H3>Configurators</H3>
             <P>
               A set of five interactive product configurators built for <i>Abert</i> and <i>Broggi</i>. All share the same React + Tailwind architecture and use the same{" "}
               <b>json-driven CMS</b>
