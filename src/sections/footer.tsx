@@ -37,6 +37,8 @@ export default function Footer() {
           <button
             className={`transition duration-400 ${theme === "system" ? "opacity-50" : "cursor-pointer hover:text-[var(--foreground)]"}`}
             onClick={() => changeTheme("system")}
+            aria-label="Use system theme preference"
+            title="Use system theme"
           >
             <RiComputerLine className="h-5 w-5" />
           </button>
