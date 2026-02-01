@@ -12,7 +12,6 @@ import H3 from "@/components/ui/typography/h3";
 import P from "@/components/ui/typography/p";
 import Button from "@/components/ui/button";
 import Image from "next/image";
-import Wave from "/public/wave.png";
 import AgeDisplay from "@/components/home/age-display";
 
 export default function Hero() {
@@ -26,7 +25,7 @@ export default function Hero() {
               <H1 className="!text-5xl text-nowrap">
                 Mattia&nbsp;
                 <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">
-                  <Image src={Wave} alt="Wave" className="h-12 w-12" draggable={false} />
+                  <Image src={"./wave.png"} alt="Wave" className="h-12 w-12" draggable={false} width={48} height={48} />
                 </span>
               </H1>
             </div>

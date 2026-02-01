@@ -7,6 +7,7 @@ import {IProject} from "@/data/projects";
 import Button from "../ui/button";
 import {LuPin} from "react-icons/lu";
 import {HiOutlineArrowRight} from "react-icons/hi";
+import {ViewTransition} from "react";
 
 interface IProjectCardProps {
   project: IProject;
@@ -27,20 +28,26 @@ function ProjectCard(props: IProjectCardProps) {
         </div>
         {relevant && <LuPin className="absolute top-5 right-5 h-4 w-4 text-[var(--muted-foreground)]" title="This project has been pinned" />}
         <div className="flex flex-col gap-2">
-          <H4 className="text-[var(--foreground)]">{title}</H4>
+          <ViewTransition name={`project-title-${id}`}>
+            <H4 className="inline-block text-[var(--foreground)]">{title}</H4>
+          </ViewTransition>
 
           <div className="relative z-10 h-px w-10 bg-[var(--button-border)] transition-all duration-300 group-hover:w-16" />
           {!hideTechStack && technologies && (
-            <div className="relative z-10 mt-1 w-full rounded-xl">
-              <div className="flex flex-wrap gap-2">
-                {technologies.map((tech, index) => (
-                  <TechCard key={index} name={tech} />
-                ))}
+            <ViewTransition name={`project-tech-${id}`}>
+              <div className="relative z-10 mt-1 inline-block w-full rounded-xl">
+                <div className="flex flex-wrap gap-2">
+                  {technologies.map((tech, index) => (
+                    <TechCard key={index} name={tech} />
+                  ))}
+                </div>
               </div>
-            </div>
+            </ViewTransition>
           )}
         </div>
-        <P className="relative z-10 !text-sm text-[var(--muted-foreground)] sm:!text-base">{description}</P>
+        <ViewTransition name={`project-description-${id}`}>
+          <P className="relative z-10 inline-block !text-sm text-[var(--muted-foreground)] sm:!text-base">{description}</P>
+        </ViewTransition>
 
         <div className="tracking-[0.16e relative z-10 mt-3 flex items-center gap-2 text-xs font-semibold tracking-widest text-[var(--muted-foreground)] uppercase transition-colors duration-300 group-hover:text-[var(--foreground)]">
           <span>View project</span>
