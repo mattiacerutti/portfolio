@@ -25,7 +25,7 @@ export default function Hero() {
               <H1 className="!text-5xl text-nowrap">
                 Mattia&nbsp;
                 <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">
-                  <Image src={"./wave.png"} alt="Wave" className="h-12 w-12" draggable={false} width={48} height={48} />
+                  <Image src={"/wave.png"} alt="Wave" className="h-12 w-12" draggable={false} width={48} height={48} />
                 </span>
               </H1>
             </div>
