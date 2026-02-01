@@ -88,7 +88,7 @@ function Page() {
           <H3>How the Snippet Pipeline Actually Works</H3>
           <P>
             My first approach was simpler: when a user requests a snippet, fetch a random file from GitHub, parse it, extract snippets, and return one. But that had problems. It
-            was slow (users had to wait for the GitHub API call), and I couldn&apos;t track snippets snippets between users since everything was generated on-the-fly.
+            was unreliable (due to the GitHub API rate limits), and I couldn&apos;t track snippets between users since everything was generated on-the-fly.
           </P>
           <P>
             So I changed the architecture, now everything is <b>pre-fetched</b> and <b>pre-parsed</b> at <b>seed time</b>. Here&apos;s how it actually works:
@@ -107,14 +107,14 @@ function Page() {
           </P>
           <H4 className="mt-2">The Outdated Snippet Problem</H4>
           <P>
-            Since I&apos;m pre-parsing everything, what happens when the source file changes on GitHub? I could end up serving old, outdated code forever. My solution is to
+            Since I&apos;m pre-parsing everything, what happens when the source file changes on GitHub? I could end up serving old, outdated code forever. My solution is to&nbsp;
             <b>periodically re-fetch</b> tracked files. If the file&apos;s <b>SHA</b> has changed, I create a new <b>version</b>, re-parse it, and generate new snippets. The old
-            snippets still exist (for those shared links to keep working), but new requests get the fresh ones.
+            snippets will now coexist with the fresh ones.
           </P>
           <H4 className="mt-2">Deduplication</H4>
           <P>
             But here&apos;s a twist: if someone changes just one character in a 500-line file, the <b>SHA</b> changes, but 99% of the snippets are probably identical. I don&apos;t
-            want to create a bunch of <b>duplicate snippets</b> every time someone fixes a typo, because it would increase the probability of serving that specific snippet.
+            want to create a bunch of <b>duplicate snippets</b> every time someone fixes a typo, because it would increase the probability of serving those specific snippets.
           </P>
           <P>
             So I also calculate a <b>SHA</b> for each individual snippet (after stripping <b>whitespace</b>, so formatting changes don&apos;t matter). If a newly parsed snippet has
@@ -122,14 +122,14 @@ function Page() {
           </P>
           <H4 className="mt-2">The Filtering Tradeoff</H4>
           <P>
-            I also have to think about snippet <b>filtering</b>. I can set rules like &quot;only snippets between 10-50 lines&quot; or &quot;lines not longer than 70
-            characters&quot;. But if I change those filters later, existing snippets won&apos;t magically disappear. I have two options:
+            I also have to think about snippet <b>filtering</b>. Right now, i can set rules like &quot;only snippets between 10-50 lines&quot; or &quot;snippets with lines not
+            longer than 70 characters&quot;. But if I change those filters later, existing snippets won&apos;t magically disappear. I have two options:
           </P>
           <Ul>
-            <Li>Leave old snippets in place and accept that the database will have snippets from different filter &quot;eras&quot;</Li>
+            <Li>Leave old snippets in place and accept that the database will have snippets from different filter &quot;eras&quot;.</Li>
             <Li>
               Wipe the entire snippet database and regenerate everything. This would mean losing all data tied to a specific snippet, but right now that consists only in sharable
-              links, which are meant to be short-lived anyway.
+              links (which are meant to be short-lived anyway), so it&apos;s not a big deal.
             </Li>
           </Ul>
         </div>
@@ -138,11 +138,14 @@ function Page() {
       <VerticalReveal delay={baseDelay * 5}>
         <div className="flex flex-col gap-2">
           <H3>What I Might Add Next</H3>
-          <P>It works pretty well right now, but there are a few things I&apos;d like to tackle when I have time:</P>
+          <P>It works pretty well right now and its being used by some people, but there are a few things I&apos;d like to tackle when I have time:</P>
           <Ul>
-            <Li>Better UI. I&apos;m not a designer, and it shows. The current interface is functional but pretty bare-bones.</Li>
-            <Li>Progress tracking. I&apos;d like to store your typing history over time so you can see if you&apos;re actually improving.</Li>
-            <Li>More detailed stats. Right now you just get WPM and accuracy. I&apos;d love to break that down by language, snippet complexity, etc.</Li>
+            <Li>Better UI: i&apos;m not a designer, and it shows. The current interface is functional but pretty bare-bones.</Li>
+            <Li>Progress tracking: i&apos;d like to store your typing history over time so you can see if you&apos;re actually improving.</Li>
+            <Li>More detailed stats: right now you just get WPM and accuracy. I&apos;d love to break that down by language, snippet complexity, etc.</Li>
+            <Li>
+              Custom snippet importing: since different programmers have different coding styles, i&apos;d like to allow users to import their own code snippets for practice.
+            </Li>
           </Ul>
         </div>
       </VerticalReveal>
