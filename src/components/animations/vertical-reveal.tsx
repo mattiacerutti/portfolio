@@ -45,8 +45,9 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
           clearProps: "willChange",
           scrollTrigger: {
             trigger: contentRef.current,
-            start: "top 75%",
+            start: "top 90%",
             toggleActions: "play none none none",
+            markers: true,
           },
         });
       }
