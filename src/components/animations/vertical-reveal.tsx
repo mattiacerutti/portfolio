@@ -47,7 +47,6 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
             trigger: contentRef.current,
             start: "top 90%",
             toggleActions: "play none none none",
-            markers: true,
           },
         });
       }
