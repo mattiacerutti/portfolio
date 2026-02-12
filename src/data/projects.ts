@@ -29,7 +29,7 @@ export const PROJECTS: (IProject & {relevant: boolean})[] = [
     id: "selected-work",
     title: "Selected Client Work",
     description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
-    technologies: ["React", "TailwindCSS", "GSAP", "Locomotive Scroll", "PHP"],
+    technologies: ["React", "Tailwind", "PHP", "MySQL"],
     relevant: true,
     readTime: "1 min",
   },

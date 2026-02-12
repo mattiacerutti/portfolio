@@ -18,7 +18,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     endDate: new Date("2025-09"),
     technologies: ["Java", "AWS S3", "AWS ECS", "AWS CloudWatch", "CI/CD"],
     description:
-      "Built and improved an event-driven pipeline analysis service to accelerate a VP-visible JDK migration, delivering daily insights for ~100K CI/CD pipelines, cutting runtime 50%, and automating operations with AWS workflows and observability.",
+      "Worked on a <b>VP-visible</b> JDK migration projected to save <b>$10M+</b> across the company. Built an event-driven analysis service with <b>EventBridge</b>, <b>Step Functions</b> and <b>ECS Fargate</b> that processed <b>~100K CI/CD pipelines</b> daily. Cut runtime by <b>50%</b> and eliminated manual on-call work with automated workflows and <b>CloudWatch</b> dashboards.",
     relevant: true,
     logo: "/aws.png",
   },
@@ -28,9 +28,9 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     location: "Remote",
     startDate: new Date("2023-03"),
     endDate: new Date("2025-01"),
-    technologies: ["React", "TailwindCSS", "MySQL", "PHP", "CI/CD"],
+    technologies: ["React", "Tailwind", "MySQL", "PHP", "CI/CD"],
     description:
-      "Delivered 8+ websites for multiple clients with SSR, multiple languages and 3D/AR features. Designed scalable MySQL schemas and automated CI/CD to cut deployments to under 2 minutes while leading code quality and mentoring teammates.",
+      "Built <b>8+</b> production websites with <b>React</b>, <b>PHP</b> and <b>Tailwind</b>: everything from landing pages to 3D product configurators with AR previews. Set up CI/CD that cut deployment time by <b>90%</b>. Mentored <b>2</b> developers and designed database schemas that made multi-language support actually manageable.",
     relevant: true,
     logo: "/novaidea.png",
   },
@@ -42,7 +42,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     endDate: new Date("2022-06"),
     technologies: ["Python", "MySQL"],
     description:
-      "Built a Python/MySQL document automation tool that standardized printing for 15+ staff across 4 departments, reduced errors, and improved output consistency while helping resolve legacy automation bugs.",
+      "Built a <b>Python/MySQL</b> tool that automated document formatting and printing for <b>15+</b> people across <b>4</b> departments. Cut down errors and inconsistent output while fixing legacy bugs in the existing automation system.",
     relevant: false,
     logo: "/estilos.png",
   },

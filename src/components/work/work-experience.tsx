@@ -44,7 +44,7 @@ export default function WorkExperience(props: IWorkExperienceProps) {
           ))}
         </div>
 
-        <P>{description}</P>
+        <P dangerouslySetInnerHTML={{__html: description}} />
       </div>
     </div>
   );
