@@ -112,7 +112,7 @@ function Page() {
             <CustomLink href="https://novaidea.it/" target="_blank" underline>
               Novaidea
             </CustomLink>{" "}
-            when I was 18, during high school. Since then I've built everything from simple landing pages to complex product configurators for clients like <i>Abert</i> and{" "}
+            when I was 18, during high school. Since then I&apos;ve built everything from simple landing pages to complex product configurators for clients like <i>Abert</i> and{" "}
             <i>Broggi</i> — both big names in the Italian tableware world.
           </P>
           <P>
