@@ -1,18 +1,17 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
-import Ul from "@/components/ui/typography/ul";
-import Li from "@/components/ui/typography/li";
-import H3 from "@/components/ui/typography/h3";
 import P from "@/components/ui/typography/p";
 import {CustomLink} from "@/components/ui/typography/link";
 import ProjectHeader from "@/components/projects/project-header";
 import {getProjectById} from "@/data/projects";
+import WorkItemCard, {IWorkItem} from "@/components/ui/work-item-card";
+import H3 from "@/components/ui/typography/h3";
 
 export const metadata = {
   title: "Selected Work | Mattia Cerutti",
-  description: "A collection of client projects I built. Thoughtful design, smooth interactions, and real products used by real people every day.",
+  description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
   openGraph: {
     title: "Selected Work | Mattia Cerutti",
-    description: "A collection of client projects I built. Thoughtful design, smooth interactions, and real products used by real people every day.",
+    description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
     url: "https://mattiacerutti.com/projects/selected-work/",
     siteName: "Mattia Cerutti Portfolio",
     locale: "en_US",
@@ -21,91 +20,136 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Selected Work | Mattia Cerutti",
-    description: "A collection of client projects I built. Thoughtful design, smooth interactions, and real products used by real people every day.",
+    description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
   },
 };
+
+const landingPages: IWorkItem[] = [
+  {
+    name: "Novaidea",
+    href: "https://novaidea.it/",
+    client: "Novaidea",
+    year: "2023",
+    description:
+      "The first site I ever shipped to production. Built it with PHP and a custom MySQL CMS so the team could update their own content. I remember being terrified when it went live, but it's still running today.",
+    tags: [],
+  },
+  {
+    name: "New Art Vanguard",
+    href: "https://newartvanguard.com/",
+    client: "Novaidea",
+    year: "2023",
+    description:
+      "Pure HTML, CSS, and vanilla JS — no React, no framework, just the basics. I made this before I really understood what React was for. Looking back, it's kinda cool what you can do with just the fundamentals.",
+    tags: [],
+  },
+  {
+    name: "Abert Pop",
+    href: "https://abert.it/pop/?lang=eng",
+    client: "Abert",
+    year: "2024",
+    description:
+      "A product showcase for Abert's Pop collection. I built a JSON-based CMS that handles translations, so the marketing team can switch between Italian and English without asking me to change any code.",
+    tags: [],
+  },
+];
+
+const configurators: IWorkItem[] = [
+  {
+    name: "Abert Lighting",
+    href: "https://tool.abert.it/lighting/?lang=eng",
+    client: "Abert",
+    year: "2024",
+    description: "",
+    tags: [],
+  },
+  {
+    name: "Abert Logo",
+    href: "https://tool.abert.it/logo/?lang=eng",
+    client: "Abert",
+    year: "2024",
+    description: "",
+    tags: [],
+  },
+  {
+    name: "Abert Industrial",
+    href: "https://tool.abert.it/industrial/?lang=eng",
+    client: "Abert",
+    year: "2025",
+    description: "",
+    tags: [],
+  },
+  {
+    name: "Broggi Foscari",
+    href: "https://tool.broggi.it/foscari/?lang=eng",
+    client: "Broggi",
+    year: "2025",
+    description: "",
+    tags: [],
+  },
+  {
+    name: "Broggi Living",
+    href: "https://tool.broggi.it/living/?lang=eng",
+    client: "Broggi",
+    year: "2025",
+    description: "",
+    tags: [],
+  },
+];
 
 function Page() {
   const baseDelay = 0.15;
   const project = getProjectById("selected-work");
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-10">
       <ProjectHeader project={project} />
+
       <VerticalReveal delay={baseDelay}>
-        <P>
-          A mix of landing pages and configurators I built with <i>Novaidea</i> since I was 18. These were my first real production projects starting from plain HTML, moving
-          through PHP, and eventually into modern React + Tailwind builds. Each site features custom animations with <b>GSAP</b> and <b>LocomotiveScroll</b>, and most include
-          a&nbsp;
-          <b>multi-language CMS</b> that lets clients manage translations and content completely on their own.
-        </P>
+        <div className="flex flex-col gap-4">
+          <P>
+            I started working with{" "}
+            <CustomLink href="https://novaidea.it/" target="_blank" underline>
+              Novaidea
+            </CustomLink>{" "}
+            when I was 18, during high school. Since then I've built everything from simple landing pages to complex product configurators for clients like <i>Abert</i> and{" "}
+            <i>Broggi</i> — both big names in the Italian tableware world.
+          </P>
+          <P>
+            Everything uses <b>GSAP</b> and <b>LocomotiveScroll</b> for animations, <b>Tailwind</b> for styling, and a custom JSON-based <b>multi-language CMS</b> I built so
+            clients can manage their own content without bothering me every time they need a text change.
+          </P>
+        </div>
       </VerticalReveal>
 
       <VerticalReveal delay={baseDelay * 2}>
-        <div className="flex flex-col gap-2">
-          <H3>Landings</H3>
-          <Ul>
-            <Li>
-              <CustomLink href="https://novaidea.it/" target="_blank" underline>
-                Novaidea
-              </CustomLink>
-              &nbsp;— The first website I ever made. Built in PHP with server-side rendering and a custom CMS powered by MySQL. It still runs today and lets the brand update their
-              content directly.
-            </Li>
-            <Li>
-              <CustomLink href="https://newartvanguard.com/" target="_blank" underline>
-                New Art Vanguard
-              </CustomLink>
-              &nbsp;— A simple static landing made with just HTML, CSS, and JS (didn&apos;t even know React yet, lol). Has a clean layout and some more advanced animations.
-            </Li>
-            <Li>
-              <CustomLink href="https://abert.it/pop/?lang=eng" target="_blank" underline>
-                Abert Pop
-              </CustomLink>
-              &nbsp;— Built with React and Tailwind. Includes a JSON-driven CMS and a custom multi-language system that lets the client manage translations and content entirely on
-              their own.
-            </Li>
-          </Ul>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-1">
+            <H3>Landing Pages</H3>
+            <P className="text-sm text-(--muted-foreground)">Simple sites that showcase brands and actually convert visitors into customers.</P>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {landingPages.map((item) => (
+              <WorkItemCard key={item.name} item={item} />
+            ))}
+          </div>
         </div>
       </VerticalReveal>
 
       <VerticalReveal delay={baseDelay * 3}>
-        <div className="flex flex-col gap-2">
-          <H3>Configurators</H3>
-          <P>
-            A set of five interactive product configurators built for <i>Abert</i> and <i>Broggi</i>. All share the same React + Tailwind architecture and use the same{" "}
-            <b>json-driven CMS</b>
-            &nbsp;and <b>multi-language system</b> from the landings. <br />
-            Each tool lets users explore product variations directly in the browser, while giving the client&nbsp;
-            <b>full control</b> over content and translations.
-          </P>
-          <Ul>
-            <Li>
-              <CustomLink href="https://tool.abert.it/lighting/?lang=eng" target="_blank" underline>
-                Abert Lighting
-              </CustomLink>
-            </Li>
-            <Li>
-              <CustomLink href="https://tool.abert.it/logo/?lang=eng" target="_blank" underline>
-                Abert Logo
-              </CustomLink>
-            </Li>
-            <Li>
-              <CustomLink href="https://tool.abert.it/industrial/?lang=eng" target="_blank" underline>
-                Abert Industrial
-              </CustomLink>
-            </Li>
-            <Li>
-              <CustomLink href="https://tool.broggi.it/foscari/?lang=eng" target="_blank" underline>
-                Broggi Foscari
-              </CustomLink>
-            </Li>
-            <Li>
-              <CustomLink href="https://tool.broggi.it/living/?lang=eng" target="_blank" underline>
-                Broggi Living
-              </CustomLink>
-            </Li>
-          </Ul>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-1">
+            <H3>Product Configurators</H3>
+            <P className="text-sm text-(--muted-foreground)">
+              Interactive tools where customers mix and match products in real-time. The CMS manages hundreds of combinations behind the scenes, way more complex than it looks on
+              the surface.
+            </P>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {configurators.map((item) => (
+              <WorkItemCard key={item.name} item={item} />
+            ))}
+          </div>
         </div>
       </VerticalReveal>
     </div>

@@ -28,7 +28,7 @@ export const PROJECTS: (IProject & {relevant: boolean})[] = [
   {
     id: "selected-work",
     title: "Selected Client Work",
-    description: "A collection of client projects I built. Thoughtful design, smooth interactions, and real products used by real people every day.",
+    description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
     technologies: ["React", "TailwindCSS", "GSAP", "Locomotive Scroll", "PHP"],
     relevant: true,
     readTime: "1 min",
