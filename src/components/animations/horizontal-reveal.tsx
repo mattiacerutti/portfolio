@@ -1,7 +1,7 @@
 "use client";
 
-import {useLayoutEffect, useRef, PropsWithChildren} from "react";
-import gsap from "gsap";
+import {Children, PropsWithChildren} from "react";
+import {motion} from "framer-motion";
 
 interface IHorizontalRevealProps {
   delay?: number;
@@ -10,39 +10,37 @@ interface IHorizontalRevealProps {
 }
 
 export default function HorizontalReveal({children, delay = 0, stagger = 0.15, className = ""}: PropsWithChildren<IHorizontalRevealProps>) {
-  const wrapRef = useRef<HTMLDivElement | null>(null);
+  const childrenArray = Children.toArray(children);
 
-  useLayoutEffect(() => {
-    if (!wrapRef.current) return;
-    const targets = wrapRef.current.querySelectorAll<HTMLElement>("[data-reveal-item]");
-    const ctx = gsap.context(() => {
-      gsap.set(targets, {
-        opacity: 0,
-        scale: 0.6,
-        willChange: "scale, opacity",
-      });
-      gsap.to(targets, {
-        opacity: 1,
-        scale: 1,
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: delay,
+        staggerChildren: stagger,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {opacity: 0, scale: 0.6},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
         duration: 1,
-        delay,
-        stagger,
-        ease: "power3.out",
-        clearProps: "willChange",
-      });
-    }, wrapRef);
-    return () => ctx.revert();
-  }, [delay, stagger]);
-
-  const childrenArray = Array.isArray(children) ? children : [children];
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
 
   return (
-    <div ref={wrapRef} className={className}>
+    <motion.div className={className} variants={containerVariants} initial="hidden" animate="visible">
       {childrenArray.map((child, i) => (
-        <span key={i} data-reveal-item>
+        <motion.span key={i} variants={itemVariants}>
           {child}
-        </span>
+        </motion.span>
       ))}
-    </div>
+    </motion.div>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import {useLayoutEffect, useRef, PropsWithChildren} from "react";
-import gsap from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {PropsWithChildren} from "react";
+import {motion} from "framer-motion";
 
 interface IVerticalRevealProps {
   delay?: number;
@@ -13,50 +12,27 @@ interface IVerticalRevealProps {
 }
 
 export default function VerticalReveal({children, delay = 0, className = "", trigger = "instant", startY = 32, duration = 1}: PropsWithChildren<IVerticalRevealProps>) {
-  const contentRef = useRef<HTMLSpanElement | null>(null);
-
-  useLayoutEffect(() => {
-    if (!contentRef.current) return;
-    if (trigger === "scroll") {
-      gsap.registerPlugin(ScrollTrigger);
-    }
-    const ctx = gsap.context(() => {
-      gsap.set(contentRef.current, {
-        y: startY,
-        opacity: 0,
-        willChange: "transform, opacity",
-      });
-      if (trigger === "instant") {
-        gsap.to(contentRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: duration,
-          delay,
-          ease: "power3.out",
-          clearProps: "willChange",
-        });
-      } else if (trigger === "scroll") {
-        gsap.to(contentRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: duration,
-          delay,
-          ease: "power3.out",
-          clearProps: "willChange",
-          scrollTrigger: {
-            trigger: contentRef.current,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        });
-      }
-    }, contentRef);
-    return () => ctx.revert();
-  }, [delay, trigger, startY, duration]);
+  const revealTransition = {
+    duration,
+    delay,
+    ease: [0.22, 1, 0.36, 1] as const,
+  };
 
   return (
-    <span ref={contentRef} className={className}>
+    <motion.span
+      className={className}
+      initial={{y: startY, opacity: 0}}
+      transition={revealTransition}
+      {...(trigger === "scroll"
+        ? {
+            whileInView: {y: 0, opacity: 1},
+            viewport: {once: true, amount: 0.1},
+          }
+        : {
+            animate: {y: 0, opacity: 1},
+          })}
+    >
       {children}
-    </span>
+    </motion.span>
   );
 }
