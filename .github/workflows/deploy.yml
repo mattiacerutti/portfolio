@@ -59,7 +59,7 @@ jobs:
       - name: Build and push to GHCR
         uses: docker/build-push-action@v6
         with:
-          context: out
+          context: .
           file: Dockerfile
           push: true
           platforms: linux/arm64,linux/amd64

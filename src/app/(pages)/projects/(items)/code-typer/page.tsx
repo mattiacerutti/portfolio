@@ -7,24 +7,14 @@ import P from "@/components/ui/typography/p";
 import {CustomLink} from "@/components/ui/typography/link";
 import ProjectHeader from "@/components/projects/project-header";
 import {getProjectById} from "@/data/projects";
+import {createPageMetadata} from "@/lib/seo";
 
-export const metadata = {
-  title: "Code Typer | Mattia Cerutti",
+export const metadata = createPageMetadata({
+  title: "Code Typer",
   description: "A closer look at Code Typer, what it does, how I built it.",
-  openGraph: {
-    title: "Code Typer | Mattia Cerutti",
-    description: "A closer look at Code Typer, what it does, how I built it.",
-    url: "https://mattiacerutti.com/projects/code-typer/",
-    siteName: "Mattia Cerutti Portfolio",
-    locale: "en_US",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Code Typer | Mattia Cerutti",
-    description: "A closer look at Code Typer, what it does, how I built it.",
-  },
-};
+  pathname: "/projects/code-typer/",
+  type: "article",
+});
 
 function Page() {
   const baseDelay = 0.15;

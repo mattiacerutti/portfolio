@@ -4,24 +4,13 @@ import VerticalReveal from "@/components/animations/vertical-reveal";
 import P from "@/components/ui/typography/p";
 import ProjectCard from "@/components/projects/project-card";
 import {PROJECTS} from "@/data/projects";
+import {createPageMetadata} from "@/lib/seo";
 
-export const metadata = {
-  title: "Projects | Mattia Cerutti",
+export const metadata = createPageMetadata({
+  title: "Projects",
   description: "Things I've been working on lately.",
-  openGraph: {
-    title: "Projects | Mattia Cerutti",
-    description: "Things I've been working on lately.",
-    url: "https://mattiacerutti.com/projects/",
-    siteName: "Mattia Cerutti Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Projects | Mattia Cerutti",
-    description: "Things I've been working on lately.",
-  },
-};
+  pathname: "/projects/",
+});
 
 export default function Projects() {
   const baseDelay = 0.15;

@@ -1,9 +1,14 @@
+import type {Metadata} from "next";
 import H1 from "@/components/ui/typography/h1";
 import H4 from "@/components/ui/typography/h4";
 
-export const metadata = {
-  title: "404 | Mattia Cerutti",
+export const metadata: Metadata = {
+  title: "404",
   description: "Page not found.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   openGraph: {
     title: "404 | Mattia Cerutti",
     description: "Page not found.",

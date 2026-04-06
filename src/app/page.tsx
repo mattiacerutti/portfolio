@@ -8,25 +8,14 @@ import {CustomLink} from "@/components/ui/typography/link";
 import {PROJECTS} from "@/data/projects";
 import ProjectCard from "@/components/projects/project-card";
 import {HiOutlineArrowRight} from "react-icons/hi";
+import {createPageMetadata} from "@/lib/seo";
 
-export const metadata = {
-  title: "Mattia Cerutti - Software Engineer",
+export const metadata = createPageMetadata({
+  title: "Mattia Cerutti",
   description: "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.",
-  keywords: ["Mattia Cerutti", "Web Developer", "Portfolio", "Fullstack Developer"],
-  openGraph: {
-    title: "Mattia Cerutti - Software Engineer",
-    description: "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.",
-    url: "https://mattiacerutti.com/",
-    siteName: "Mattia Cerutti Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Mattia Cerutti - Software Engineer",
-    description: "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.",
-  },
-};
+  pathname: "/",
+  keywords: ["Mattia Cerutti", "Software Engineer", "Portfolio", "Fullstack Developer", "Cerutti"],
+});
 
 export default function Home() {
   const relevantExperiences = WORK_EXPERIENCES.filter((experience) => experience.relevant);

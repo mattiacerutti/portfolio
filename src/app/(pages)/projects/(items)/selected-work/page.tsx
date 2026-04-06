@@ -5,24 +5,14 @@ import ProjectHeader from "@/components/projects/project-header";
 import {getProjectById} from "@/data/projects";
 import WorkItemCard, {IWorkItem} from "@/components/ui/work-item-card";
 import H3 from "@/components/ui/typography/h3";
+import {createPageMetadata} from "@/lib/seo";
 
-export const metadata = {
-  title: "Selected Work | Mattia Cerutti",
+export const metadata = createPageMetadata({
+  title: "Selected Work",
   description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
-  openGraph: {
-    title: "Selected Work | Mattia Cerutti",
-    description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
-    url: "https://mattiacerutti.com/projects/selected-work/",
-    siteName: "Mattia Cerutti Portfolio",
-    locale: "en_US",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Selected Work | Mattia Cerutti",
-    description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
-  },
-};
+  pathname: "/projects/selected-work/",
+  type: "article",
+});
 
 const landingPages: IWorkItem[] = [
   {
