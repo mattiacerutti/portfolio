@@ -1,63 +1,61 @@
 import React from "react";
 import {CustomLink} from "@/components/ui/typography/link";
+import Image from "next/image";
 import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
-import {HiOutlineMail} from "react-icons/hi";
-
-import CometBackground from "../components/home/comet-background";
-import VerticalReveal from "../components/animations/vertical-reveal";
-import HorizontalReveal from "../components/animations/horizontal-reveal";
-import H1 from "../components/ui/typography/h1";
-import H3 from "@/components/ui/typography/h3";
-import P from "@/components/ui/typography/p";
-import Button from "@/components/ui/button";
-import Image from "next/image";
-import AgeDisplay from "@/components/home/age-display";
 
 export default function Hero() {
   return (
-    <CometBackground>
-      <div className="flex h-screen w-fit flex-col items-start justify-center gap-3 p-5">
-        <div className="flex flex-col gap-1">
-          <VerticalReveal>
-            <div className="flex flex-col sm:flex-row sm:items-end sm:gap-3">
-              <H1 className="!text-5xl text-nowrap">hey! i&apos;m</H1>
-              <H1 className="!text-5xl text-nowrap">
-                Mattia&nbsp;
-                <span className="hover:animate-wave inline-block origin-[70%_70%] transition-transform duration-300">
-                  <Image src={"/wave.png"} alt="Wave" className="h-12 w-12" draggable={false} width={48} height={48} />
-                </span>
-              </H1>
-            </div>
-          </VerticalReveal>
-          <VerticalReveal delay={0.1}>
-            <H3 className="!font-normal text-[var(--muted-foreground)]">
-              <AgeDisplay birthDate={new Date("2004-10-27")} />
-            </H3>
-          </VerticalReveal>
-          <VerticalReveal delay={0.2}>
-            <P className="!font-semibold text-[var(--muted-foreground)]">📍 Italy</P>
-          </VerticalReveal>
+    <header className="w-full px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20">
+      <div className="mx-auto flex max-w-4xl flex-col items-start gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
+        <div className="max-w-xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl">Mattia Cerutti</h1>
+
+          <p className="mt-4 text-lg leading-relaxed text-[var(--muted-foreground)]">
+            21yo swe @{" "}
+            <CustomLink
+              href="https://aws.amazon.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--foreground)] underline decoration-[var(--muted-foreground)]/30 underline-offset-4"
+            >
+              AWS
+            </CustomLink>{" "}
+            building{" "}
+            <CustomLink href="/projects/" className="font-semibold text-[var(--foreground)] underline decoration-[var(--muted-foreground)]/30 underline-offset-4">
+              cool stuff
+            </CustomLink>
+            . I enjoy shipping products that solve real problems, learning new technologies along the way, and occasionally writing about what I build.
+          </p>
+
+          <div className="mt-6 flex items-center gap-6 text-base font-semibold">
+            <CustomLink
+              href="https://github.com/mattiacerutti"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit my GitHub profile"
+              className="flex items-center gap-2 text-[var(--foreground)] transition-opacity hover:opacity-60"
+            >
+              <TbBrandGithub className="h-5 w-5" />
+              GitHub
+            </CustomLink>
+            <CustomLink
+              href="https://www.linkedin.com/in/mattiacerutti/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit my LinkedIn profile"
+              className="flex items-center gap-2 text-[var(--foreground)] transition-opacity hover:opacity-60"
+            >
+              <LiaLinkedinIn className="h-5 w-5" />
+              LinkedIn
+            </CustomLink>
+          </div>
         </div>
 
-        <HorizontalReveal className="flex items-center gap-3">
-          <CustomLink href="https://github.com/mattiacerutti" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile (opens in new tab)">
-            <Button className="h-9 w-9 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
-              <TbBrandGithub className="h-full w-full" />
-            </Button>
-          </CustomLink>
-          <CustomLink href="https://www.linkedin.com/in/mattiacerutti/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile (opens in new tab)">
-            <Button className="h-9 w-9 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
-              <LiaLinkedinIn className="h-full w-full" />
-            </Button>
-          </CustomLink>
-          <CustomLink href="mailto:mattiacerutti04@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Send me an email">
-            <Button className="h-9 w-9 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
-              <HiOutlineMail className="h-full w-full" />
-            </Button>
-          </CustomLink>
-        </HorizontalReveal>
+        <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full border-2 border-[var(--button-border)] sm:h-32 sm:w-32">
+          <Image src="/face.png" alt="Mattia Cerutti" fill className="object-cover" priority />
+        </div>
       </div>
-    </CometBackground>
+    </header>
   );
 }
