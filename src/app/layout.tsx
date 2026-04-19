@@ -4,6 +4,7 @@ import Header from "@/sections/header";
 import {ThemeProvider} from "../components/theme-provider";
 import Footer from "@/sections/footer";
 import {DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL} from "@/lib/seo";
+import CometBackground from "@/components/home/comet-background";
 import "./globals.css";
 
 const inter = Inter({
@@ -43,9 +44,11 @@ export default function RootLayout({
       <body className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
-          <Header />
-          <main className="flex w-full flex-1 justify-center">{children}</main>
-          <Footer />
+          <CometBackground className="min-h-screen" contentClassName="flex min-h-screen flex-col items-center" canvasClassName="opacity-20">
+            <Header />
+            <main className="flex w-full flex-1 justify-center">{children}</main>
+            <Footer />
+          </CometBackground>
         </ThemeProvider>
       </body>
     </html>

@@ -5,6 +5,9 @@ import {useTheme} from "next-themes";
 
 interface ICometBackgroundProps {
   children: React.ReactNode;
+  className?: string;
+  contentClassName?: string;
+  canvasClassName?: string;
 }
 
 interface IComet {
@@ -132,7 +135,7 @@ function toRGBA(rgb: {r: number; g: number; b: number}, alpha: number) {
   return `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
 }
 
-export default function CometBackground({children}: ICometBackgroundProps) {
+export default function CometBackground({children, className = "", contentClassName = "", canvasClassName = ""}: ICometBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const readyDispatchedRef = useRef(false);
   const {resolvedTheme} = useTheme();
@@ -344,9 +347,9 @@ export default function CometBackground({children}: ICometBackgroundProps) {
   }, [resolvedTheme]);
 
   return (
-    <section className="relative flex h-[100lvh] w-full flex-col items-center justify-center overflow-hidden">
-      <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-0 h-full w-full" />
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">{children}</div>
+    <section className={`relative w-full overflow-hidden ${className}`.trim()}>
+      <canvas ref={canvasRef} className={`pointer-events-none absolute inset-0 z-0 h-full w-full ${canvasClassName}`.trim()} />
+      <div className={`relative z-10 w-full ${contentClassName}`.trim()}>{children}</div>
     </section>
   );
 }
