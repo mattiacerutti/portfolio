@@ -1,8 +1,6 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import H3 from "@/components/ui/typography/h3";
 import P from "@/components/ui/typography/p";
-import WorkTimeline from "@/components/work/work-timeline";
-import {WORK_EXPERIENCES} from "@/data/work";
 import Hero from "@/sections/hero";
 import {CustomLink} from "@/components/ui/typography/link";
 import {PROJECTS} from "@/data/projects";
@@ -18,29 +16,27 @@ export const metadata = createPageMetadata({
 });
 
 export default function Home() {
-  const relevantExperiences = WORK_EXPERIENCES.filter((experience) => experience.relevant);
-
   return (
     <div className="flex w-full flex-col">
       <Hero />
       <div className="mt-8 flex w-full justify-center px-6">
         <div className="flex w-4xl flex-col gap-20">
           <div className="flex flex-col gap-12">
-            <VerticalReveal trigger="scroll" startY={50} duration={2}>
+            <div>
               <div className="flex flex-row items-center justify-between">
                 <H3>Projects</H3>
-                <CustomLink href="/projects" className="group relative flex items-center underline decoration-[var(--muted-foreground)]/30">
+                <CustomLink href="/projects" native className="group relative flex items-center underline decoration-[var(--muted-foreground)]/30">
                   <P className="transition-transform duration-300 group-hover:-translate-x-6">All projects</P>
                   <HiOutlineArrowRight className="absolute -right-6 h-4 w-4 opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100" />
                 </CustomLink>
               </div>
               <P className="text-[var(--muted-foreground)]">Stuff i&apos;ve been doing lately.&nbsp;</P>
-            </VerticalReveal>
+            </div>
             <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
               {PROJECTS.map(
                 (project, index) =>
                   project.relevant && (
-                    <VerticalReveal key={index} trigger="scroll" startY={30} duration={1.5}>
+                    <VerticalReveal key={index} trigger="instant" startY={30} duration={1.2} delay={index * 0.12}>
                       <ProjectCard project={project} />
                     </VerticalReveal>
                   )

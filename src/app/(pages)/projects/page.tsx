@@ -17,28 +17,18 @@ export default function Projects() {
 
   return (
     <div className="flex flex-col gap-12">
-      <VerticalReveal>
+      <div>
         <H3>Projects</H3>
-        <P className="text-[var(--muted-foreground)]">All my projects.</P>
-      </VerticalReveal>
+        <P className="text-(--muted-foreground)">All my projects.</P>
+      </div>
 
-      <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
-        {PROJECTS.filter((project) => project.relevant).map((project, idx) => (
-          <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)}>
+      <div className="ml-0 flex flex-col gap-10 border-l-2 border-(--button-border) pl-6 sm:ml-4 sm:pl-8">
+        {PROJECTS.map((project, idx) => (
+          <VerticalReveal key={project.id} trigger="instant" delay={baseDelay * idx} duration={1.5}>
             <ProjectCard project={project} />
           </VerticalReveal>
         ))}
       </div>
-
-      {/* Additional projects - hidden for now
-      <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
-        {PROJECTS.filter((project) => !project.relevant).map((project, idx) => (
-          <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)}>
-            <ProjectCard project={project} />
-          </VerticalReveal>
-        ))}
-      </div>
-      */}
     </div>
   );
 }
