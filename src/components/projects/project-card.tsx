@@ -39,7 +39,7 @@ function ProjectCard(props: IProjectCardProps) {
                 <span className="text-(--muted-foreground)">·</span>
               </>
             )}
-            <span className="text-sm text-(--muted-foreground)">{readTime}</span>
+            <span className="shrink-0 text-sm whitespace-nowrap text-(--muted-foreground)">{readTime}</span>
           </div>
         </div>
       </article>
