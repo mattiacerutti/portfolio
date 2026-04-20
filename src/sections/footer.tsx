@@ -45,7 +45,7 @@ export default function Footer() {
         >
           <span className="relative block h-5 w-5 shrink-0">
             <FiSun className="pointer-events-none absolute inset-0 h-5 w-5 origin-center scale-100 rotate-0 opacity-100 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] in-data-[theme=dark]:scale-90 in-data-[theme=dark]:rotate-[-60deg] in-data-[theme=dark]:opacity-0" />
-            <FiMoon className="pointer-events-none absolute inset-0 h-5 w-5 origin-center scale-90 rotate-[60deg] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] in-data-[theme=dark]:scale-100 in-data-[theme=dark]:rotate-0 in-data-[theme=dark]:opacity-100" />
+            <FiMoon className="pointer-events-none absolute inset-0 h-5 w-5 origin-center scale-90 rotate-60 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] in-data-[theme=dark]:scale-100 in-data-[theme=dark]:rotate-0 in-data-[theme=dark]:opacity-100" />
             <span className="sr-only">Toggle theme</span>
           </span>
         </button>

@@ -25,14 +25,14 @@ export default function Home() {
             <div>
               <div className="flex flex-row items-center justify-between">
                 <H3>Projects</H3>
-                <CustomLink href="/projects" native className="group relative flex items-center underline decoration-[var(--muted-foreground)]/30">
+                <CustomLink href="/projects" native className="group relative flex items-center underline decoration-(--muted-foreground)/30">
                   <P className="transition-transform duration-300 group-hover:-translate-x-6">All projects</P>
                   <HiOutlineArrowRight className="absolute -right-6 h-4 w-4 opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100" />
                 </CustomLink>
               </div>
-              <P className="text-[var(--muted-foreground)]">Stuff i&apos;ve been doing lately.&nbsp;</P>
+              <P className="text-(--muted-foreground)">Stuff i&apos;ve been doing lately.&nbsp;</P>
             </div>
-            <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
+            <div className="ml-0 flex flex-col gap-10 border-l-2 border-(--button-border) pl-6 sm:ml-4 sm:pl-8">
               {PROJECTS.map(
                 (project, index) =>
                   project.relevant && (
