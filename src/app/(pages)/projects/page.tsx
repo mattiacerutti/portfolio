@@ -19,7 +19,7 @@ export default function Projects() {
     <div className="flex flex-col gap-12">
       <div>
         <H3>Projects</H3>
-        <P className="text-(--muted-foreground)">All my projects.</P>
+        <P className="text-(--muted-foreground)">A collection of things I&apos;ve shipped.</P>
       </div>
 
       <div className="ml-0 flex flex-col gap-10 border-l-2 border-(--button-border) pl-6 sm:ml-4 sm:pl-8">

@@ -12,7 +12,7 @@ export default function Hero() {
           <h1 className="text-4xl font-bold tracking-tight text-(--foreground) sm:text-5xl">Mattia Cerutti</h1>
 
           <p className="mt-4 text-lg leading-relaxed text-(--muted-foreground)">
-            SWE @ AWS. I spend the rest of my time making things I wish existed already, plus whatever random idea feels worth shipping (and probably overthinking the details a
+            SWE @ AWS. I spend the rest of my time making things I wish existed already, plus whatever random idea feels worth shipping (while probably overthinking the details a
             bit).
           </p>
 
