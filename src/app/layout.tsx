@@ -31,10 +31,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: [{url: "/favicon.ico", type: "image/x-icon"}],
-    shortcut: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
