@@ -1,3 +1,6 @@
+"use client";
+
+import {motion} from "framer-motion";
 import {IWorkExperience} from "@/data/work";
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import WorkExperience from "@/components/work/work-experience";
@@ -12,26 +15,28 @@ interface WorkTimelineProps {
 
 export default function WorkTimeline({experiences, trigger = "scroll", startY = 50, duration = 2, baseDelay = 0}: WorkTimelineProps) {
   return (
-    <div className="flex flex-col gap-10">
-      {experiences.map((experience, index) => {
-        const isFirst = index === 0;
-        const isLast = index === experiences.length - 1;
+    <div className="relative ml-0 flex flex-col gap-10 sm:ml-4">
+      <motion.div
+        className="absolute top-6 bottom-5 left-1 w-px bg-gradient-to-b from-(--muted-foreground)/25 via-(--muted-foreground)/20 to-transparent"
+        initial={{scaleY: 0}}
+        animate={{scaleY: 1}}
+        transition={{duration: 1.5, ease: [0.22, 1, 0.36, 1]}}
+        style={{transformOrigin: "top"}}
+      />
 
-        return (
-          <VerticalReveal key={index} trigger={trigger} delay={index * baseDelay} className="relative block w-full pl-8" startY={startY} duration={duration}>
-            {!isFirst && <span className="absolute -top-5 left-3 h-11 w-px -translate-x-1/2 bg-(--muted-foreground)/25" aria-hidden="true" />}
-            {!isLast && <span className="absolute top-6 -bottom-5 left-3 w-px -translate-x-1/2 bg-(--muted-foreground)/25" aria-hidden="true" />}
-            {isLast && (
-              <span
-                className="absolute top-6 -bottom-5 left-3 w-px -translate-x-1/2 bg-[linear-gradient(to_bottom,rgba(148,163,184,0.25)_0%,rgba(148,163,184,0.2)_55%,rgba(148,163,184,0)_100%)]"
-                aria-hidden="true"
-              />
-            )}
-            <span className="absolute top-6 left-3 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--muted-foreground)" aria-hidden="true" />
+      {experiences.map((experience, index) => (
+        <div key={index} className="relative block w-full pl-7 sm:pl-9">
+          <motion.span
+            className="absolute top-6 left-1 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--muted-foreground)"
+            initial={{scale: 0}}
+            animate={{scale: 1}}
+            transition={{delay: index * baseDelay, duration: 0.4, ease: [0.22, 1, 0.36, 1]}}
+          />
+          <VerticalReveal trigger={trigger} delay={index * baseDelay} startY={startY} duration={duration} className="block">
             <WorkExperience experience={experience} />
           </VerticalReveal>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 }
