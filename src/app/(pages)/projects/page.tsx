@@ -16,27 +16,29 @@ export default function Projects() {
   const baseDelay = 0.15;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-12">
       <VerticalReveal>
         <H3>Projects</H3>
         <P className="text-[var(--muted-foreground)]">All my projects.</P>
       </VerticalReveal>
-      <div className="flex flex-col gap-15">
-        <div className="flex flex-col gap-4">
-          {PROJECTS.filter((project) => project.relevant).map((project, idx) => (
-            <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)} className="w-full">
-              <ProjectCard project={project} relevant />
-            </VerticalReveal>
-          ))}
-        </div>
-        <div className="flex flex-col gap-4">
-          {PROJECTS.filter((project) => !project.relevant).map((project, idx) => (
-            <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)} className="w-full">
-              <ProjectCard project={project} />
-            </VerticalReveal>
-          ))}
-        </div>
+
+      <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
+        {PROJECTS.filter((project) => project.relevant).map((project, idx) => (
+          <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)}>
+            <ProjectCard project={project} />
+          </VerticalReveal>
+        ))}
       </div>
+
+      {/* Additional projects - hidden for now
+      <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
+        {PROJECTS.filter((project) => !project.relevant).map((project, idx) => (
+          <VerticalReveal key={project.id} delay={baseDelay * (idx + 1)}>
+            <ProjectCard project={project} />
+          </VerticalReveal>
+        ))}
+      </div>
+      */}
     </div>
   );
 }

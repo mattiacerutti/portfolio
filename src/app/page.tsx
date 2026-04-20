@@ -25,7 +25,7 @@ export default function Home() {
       <Hero />
       <div className="mt-8 flex w-full justify-center px-6">
         <div className="flex w-4xl flex-col gap-20">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-12">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <div className="flex flex-row items-center justify-between">
                 <H3>Projects</H3>
@@ -36,17 +36,18 @@ export default function Home() {
               </div>
               <P className="text-[var(--muted-foreground)]">Stuff i&apos;ve been doing lately.&nbsp;</P>
             </VerticalReveal>
-            <div className="grid [grid-auto-rows:1fr] grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="ml-0 flex flex-col gap-10 border-l-2 border-[var(--button-border)] pl-6 sm:ml-4 sm:pl-8">
               {PROJECTS.map(
                 (project, index) =>
                   project.relevant && (
-                    <VerticalReveal key={index} trigger="scroll" className="h-full w-full" startY={50} duration={2}>
-                      <ProjectCard project={project} hideTechStack />
+                    <VerticalReveal key={index} trigger="scroll" startY={30} duration={1.5}>
+                      <ProjectCard project={project} />
                     </VerticalReveal>
                   )
               )}
             </div>
           </div>
+          {/* Work section - hidden for now
           <div className="flex flex-col gap-8">
             <VerticalReveal trigger="scroll" startY={50} duration={2}>
               <div className="flex flex-row items-center justify-between">
@@ -60,6 +61,7 @@ export default function Home() {
             </VerticalReveal>
             <WorkTimeline experiences={relevantExperiences} trigger="scroll" startY={50} duration={2} />
           </div>
+          */}
         </div>
       </div>
     </div>
