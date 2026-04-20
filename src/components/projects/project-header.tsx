@@ -21,7 +21,7 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
 
   return (
     <div>
-      <P className="!text-base text-[var(--muted-foreground)]">{readTime} read</P>
+      <P className="text-base! text-(--muted-foreground)">{readTime} read</P>
       <div className="flex items-center gap-4">
         <ViewTransition name={`project-title-${id}`}>
           <H2 className="inline-block">{title}</H2>
@@ -45,7 +45,7 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
         </div>
       </div>
       <ViewTransition name={`project-description-${id}`}>
-        <P className="inline-block text-[var(--muted-foreground)]">{description}</P>
+        <P className="inline-block text-(--muted-foreground)">{description}</P>
       </ViewTransition>
       <div className="mt-3 inline-flex flex-wrap gap-2">
         {technologies.map((tech) => (

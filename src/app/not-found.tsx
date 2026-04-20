@@ -29,7 +29,7 @@ export default function NotFound() {
     <div className="absolute flex h-full flex-col items-start justify-center gap-5">
       <div className="flex flex-col items-start gap-2">
         <H1>Oops.</H1>
-        <H4 className="font-normal text-[var(--muted-foreground)]">Looks like this page doesn&apos;t exist.</H4>
+        <H4 className="font-normal text-(--muted-foreground)">Looks like this page doesn&apos;t exist.</H4>
       </div>
     </div>
   );

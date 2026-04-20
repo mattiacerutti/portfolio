@@ -42,7 +42,7 @@ export default async function Code(props: ICodeProps) {
   return (
     <Tag
       className={twMerge(
-        "border border-[var(--muted-foreground)]/20 bg-[var(--foreground)]/2 font-mono text-sm shadow-sm",
+        "border border-(--muted-foreground)/20 bg-(--foreground)/2 font-mono text-sm shadow-sm",
         inline ? "inline-block rounded px-1 py-0.5" : "overflow-x-auto rounded p-3",
         className
       )}
