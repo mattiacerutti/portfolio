@@ -7,7 +7,7 @@
 :root {
   --foreground: #020202;
   --background: #ffffff;
-  --muted-foreground: #7f7f7f;
+  --muted-foreground: #6b7280;
   --button-bg: rgba(245, 245, 245, 0.8);
   --button-text: var(--muted-foreground);
   --button-hover-bg: rgba(0, 0, 0, 0.2);
@@ -28,7 +28,7 @@
 }
 
 [data-theme="dark"] {
-  --foreground: #e1e1e1;
+  --foreground: #f0efed;
   --background: #000000;
   --muted-foreground: #7f7f7f;
   --button-bg: rgba(10, 10, 10, 0.7);
