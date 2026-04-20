@@ -4,22 +4,18 @@ import React from "react";
 import {RiComputerLine} from "react-icons/ri";
 import {FiMoon, FiSun} from "react-icons/fi";
 import {useTheme} from "next-themes";
-import {useSound} from "@/hooks/useSound";
 import P from "@/components/ui/typography/p";
 
 export default function Footer() {
   const {setTheme, resolvedTheme, theme} = useTheme();
-  const {init, play} = useSound("/switch.mp3", 0.5);
 
   const toggleTheme = async () => {
-    changeTheme(resolvedTheme === "dark" ? "light" : "dark");
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
-  const changeTheme = async (newTheme: string) => {
+  const changeTheme = (newTheme: string) => {
     if (newTheme === theme) return;
 
-    await init();
-    play();
     setTheme(newTheme);
   };
 

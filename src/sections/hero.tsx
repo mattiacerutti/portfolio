@@ -1,5 +1,6 @@
 import React from "react";
 import {CustomLink} from "@/components/ui/typography/link";
+import faceImage from "@/assets/images/face.png";
 import Image from "next/image";
 import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
@@ -41,7 +42,7 @@ export default function Hero() {
         </div>
 
         <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-(--button-border) sm:h-32 sm:w-32">
-          <Image src="/face.png" alt="Mattia Cerutti" fill className="object-cover" priority />
+          <Image src={faceImage} alt="Mattia Cerutti" fill className="object-cover" priority />
         </div>
       </div>
     </header>
