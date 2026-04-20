@@ -3,6 +3,7 @@ import H3 from "@/components/ui/typography/h3";
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import P from "@/components/ui/typography/p";
 import ProjectCard from "@/components/projects/project-card";
+import AnimatedBorder from "@/components/animations/animated-border";
 import {PROJECTS} from "@/data/projects";
 import {createPageMetadata} from "@/lib/seo";
 
@@ -22,13 +23,13 @@ export default function Projects() {
         <P className="text-(--muted-foreground)">A collection of things I&apos;ve shipped.</P>
       </div>
 
-      <div className="ml-0 flex flex-col gap-10 border-l-2 border-(--button-border) pl-6 sm:ml-4 sm:pl-8">
+      <AnimatedBorder className="ml-0 flex flex-col gap-10 sm:ml-4" lineClassName="bg-(--button-border)">
         {PROJECTS.map((project, idx) => (
-          <VerticalReveal key={project.id} trigger="instant" delay={baseDelay * idx} duration={1.5}>
+          <VerticalReveal key={project.id} trigger="instant" delay={baseDelay * idx} duration={1.5} className="block pl-6 sm:pl-8">
             <ProjectCard project={project} />
           </VerticalReveal>
         ))}
-      </div>
+      </AnimatedBorder>
     </div>
   );
 }

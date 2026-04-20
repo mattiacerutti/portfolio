@@ -1,4 +1,5 @@
 import VerticalReveal from "@/components/animations/vertical-reveal";
+import AnimatedBorder from "@/components/animations/animated-border";
 import H3 from "@/components/ui/typography/h3";
 import P from "@/components/ui/typography/p";
 import Hero from "@/sections/hero";
@@ -32,16 +33,16 @@ export default function Home() {
               </div>
               <P className="text-(--muted-foreground)">Things I&apos;ve been building lately.</P>
             </div>
-            <div className="ml-0 flex flex-col gap-10 border-l-2 border-(--button-border) pl-6 sm:ml-4 sm:pl-8">
+            <AnimatedBorder className="ml-0 flex flex-col gap-10 sm:ml-4" lineClassName="bg-(--button-border)">
               {PROJECTS.map(
                 (project, index) =>
                   project.relevant && (
-                    <VerticalReveal key={index} trigger="instant" startY={30} duration={1.2} delay={index * 0.12}>
+                    <VerticalReveal key={index} trigger="instant" startY={30} duration={1.2} delay={index * 0.12} className="block pl-6 sm:pl-8">
                       <ProjectCard project={project} />
                     </VerticalReveal>
                   )
               )}
-            </div>
+            </AnimatedBorder>
           </div>
         </div>
       </div>
