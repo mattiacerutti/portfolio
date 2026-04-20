@@ -20,7 +20,7 @@ function ProjectCard(props: IProjectCardProps) {
   const {id, title, description, technologies} = project;
 
   return (
-    <CustomLink href={`/projects/${id}/`} className="group cursor-pointer">
+    <CustomLink href={`/projects/${id}`} className="group cursor-pointer">
       <Button className="relative flex h-full flex-col items-start gap-4 overflow-hidden !rounded-2xl p-5 transition-transform duration-300 group-hover:-translate-y-0.5">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-16 -right-16 h-44 w-44 rounded-full bg-[var(--button-hover-bg)] opacity-20 blur-3xl transition-opacity duration-300 group-hover:opacity-30" />

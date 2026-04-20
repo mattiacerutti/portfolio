@@ -4,11 +4,11 @@ import {absoluteUrl} from "@/lib/seo";
 
 export const dynamic = "force-static";
 
-const STATIC_PATHS = ["/", "/projects/", "/work/"] as const;
+const STATIC_PATHS = ["/", "/projects", "/work"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const paths = [...STATIC_PATHS, ...PROJECTS.map((project) => `/projects/${project.id}/`)];
+  const paths = [...STATIC_PATHS, ...PROJECTS.map((project) => `/projects/${project.id}`)];
 
   return paths.map((pathname) => ({
     url: absoluteUrl(pathname),

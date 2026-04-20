@@ -17,7 +17,7 @@ export default function NavLinks() {
   return (
     <div className="flex items-center gap-3 decoration-(--muted-foreground)/30">
       <Link
-        href="/work/"
+        href="/work"
         aria-current={isActive("/work") ? "page" : undefined}
         className={`relative transition-colors duration-600 ${isActive("/work") ? "text-(--foreground)" : "text-(--muted-foreground) hover:text-(--foreground)"}`}
       >
@@ -29,7 +29,7 @@ export default function NavLinks() {
         )}
       </Link>
       <Link
-        href="/projects/"
+        href="/projects"
         aria-current={isActive("/projects") ? "page" : undefined}
         className={`relative transition-colors duration-600 ${isActive("/projects") ? "text-(--foreground)" : "text-(--muted-foreground) hover:text-(--foreground)"}`}
       >

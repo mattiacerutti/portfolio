@@ -5,12 +5,7 @@ export const SITE_NAME = "Mattia Cerutti";
 export const DEFAULT_TITLE = "Mattia Cerutti - Software Engineer";
 export const DEFAULT_DESCRIPTION = "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.";
 
-const normalizePath = (pathname: string) => {
-  if (pathname === "/") return pathname;
-  return pathname.endsWith("/") ? pathname : `${pathname}/`;
-};
-
-export const absoluteUrl = (pathname: string) => new URL(normalizePath(pathname), SITE_URL).toString();
+export const absoluteUrl = (pathname: string) => new URL(pathname, SITE_URL).toString();
 
 interface IPageMetadataInput {
   title: string;

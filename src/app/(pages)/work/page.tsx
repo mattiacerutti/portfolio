@@ -9,7 +9,7 @@ import {createPageMetadata} from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Work",
   description: "My work experience and career so far.",
-  pathname: "/work/",
+  pathname: "/work",
 });
 
 export default function Work() {

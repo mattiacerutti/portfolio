@@ -40,7 +40,6 @@ NEVER run commands such as `bun run dev` that would result in starting a new pro
 ## Repo-Specific Conventions
 
 - Keep page metadata centralized through `createPageMetadata` in `src/lib/seo.ts`.
-- URLs are expected to have trailing slashes: `next.config.ts` sets `trailingSlash: true`, and `src/lib/seo.ts` / `src/app/sitemap.ts` normalize around that.
 - If you add, remove, or rename a project page, keep `src/data/projects.ts`, the route file under `src/app/(pages)/projects/(items)/`, and `src/app/sitemap.ts` aligned.
 - The app is fully static at build time: `next.config.ts` sets `output: "export"` and `images.unoptimized = true`. Avoid server-only/runtime-only Next features unless you also change the deployment model.
 
