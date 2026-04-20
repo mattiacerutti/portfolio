@@ -18,7 +18,7 @@ export default function Work() {
     <div className="flex flex-col gap-8">
       <div>
         <H3>Work</H3>
-        <P className="text-(--muted-foreground)">All my work experiences.</P>
+        <P className="text-(--muted-foreground)">My career path so far.</P>
       </div>
       <WorkTimeline experiences={WORK_EXPERIENCES} trigger="instant" baseDelay={baseDelay} duration={1.5} />
     </div>
