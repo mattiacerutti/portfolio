@@ -1,15 +1,20 @@
+"use client";
+
 import React from "react";
 import {CustomLink} from "@/components/ui/typography/link";
 import faceImage from "@/assets/images/face.png";
 import Image from "next/image";
 import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
+import {motion} from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   return (
     <header className="w-full px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20">
       <div className="mx-auto flex max-w-4xl flex-col items-start gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
-        <div className="max-w-xl">
+        <motion.div className="max-w-xl" initial={{opacity: 0, x: -10}} animate={{opacity: 1, x: 0}} transition={{duration: 0.9, ease}}>
           <h1 className="text-4xl font-bold tracking-tight text-(--foreground) sm:text-5xl">Mattia Cerutti</h1>
 
           <p className="mt-4 text-lg leading-relaxed text-(--muted-foreground)">
@@ -39,11 +44,16 @@ export default function Hero() {
               LinkedIn
             </CustomLink>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-(--button-border) sm:h-32 sm:w-32">
+        <motion.div
+          className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-(--button-border) sm:h-32 sm:w-32"
+          initial={{opacity: 0, x: 24, scale: 0.95}}
+          animate={{opacity: 1, x: 0, scale: 1}}
+          transition={{duration: 1, ease, delay: 0.1}}
+        >
           <Image src={faceImage} alt="Mattia Cerutti" fill className="object-cover" priority />
-        </div>
+        </motion.div>
       </div>
     </header>
   );
