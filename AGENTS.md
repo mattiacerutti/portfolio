@@ -40,12 +40,18 @@ NEVER run commands such as `bun run dev` that would result in starting a new pro
 ## Repo-Specific Conventions
 
 - Keep page metadata centralized through `createPageMetadata` in `src/lib/seo.ts`.
-- If you add, remove, or rename a project page, keep `src/data/projects.ts`, the route file under `src/app/(pages)/projects/(items)/`, and `src/app/sitemap.ts` aligned.
-- The app is fully static at build time: `next.config.ts` sets `output: "export"` and `images.unoptimized = true`. Avoid server-only/runtime-only Next features unless you also change the deployment model.
+- If you add, remove, or rename a project page, keep **three things aligned**:
+  1. `src/features/projects/data/projects.ts`
+  2. The route file under `src/app/(pages)/projects/(items)/`
+  3. `src/app/sitemap.ts`
 
 ## Architecture
 
 - `src/app/layout.tsx` owns the global shell: fonts, theme provider, comet background, header, footer, and `globals.css`.
 - `src/app/(pages)/layout.tsx` adds the shared centered content wrapper for non-home pages.
 - Project detail pages are file-based static routes under `src/app/(pages)/projects/(items)/<slug>/page.tsx`.
-- Project and work content is stored in `src/data/projects.ts` and `src/data/work.ts`; UI sections/components mostly consume those data modules directly.
+- **App Router** (`src/app/`) contains only route files: `page.tsx`, `layout.tsx`, `not-found.tsx`, `robots.ts`, `sitemap.ts`. Each `page.tsx` re-exports the corresponding feature page and defines `metadata` via `createPageMetadata`. No logic or JSX lives directly in `app/`.
+- **Feature folders** (`src/features/<feature>/`) own their own components, data, and pages. Components used by a single feature stay inside that feature. Components used by **multiple** features go under `src/features/shared/`.
+- **`src/components/ui/`** is for generic, reusable UI primitives (buttons, typography, glass-pane) that have no feature-specific knowledge.
+- **`src/components/animations/`** is for shared animation primitives.
+- **Data modules** (`projects.ts`, `work.ts`) live inside their feature's `data/` folder.
