@@ -3,10 +3,10 @@ import H2 from "@/components/ui/typography/h2";
 import TechCard from "@/components/ui/tech-card";
 import Button from "@/components/ui/button";
 import {CustomLink} from "@/components/ui/typography/link";
-import {ViewTransition} from "react";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {TbBrandGithub} from "react-icons/tb";
 import {IProject} from "@/data/projects";
+import {ViewTransition} from "react";
 
 // This component is needed instead of using a generic layout.tsx because we do not have access to the project name in the layout
 // and we do need project's data to render the header.
@@ -23,9 +23,11 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
     <div>
       <P className="text-base! text-(--muted-foreground)">{readTime} read</P>
       <div className="flex items-center gap-4">
-        <ViewTransition name={`project-title-${id}`}>
-          <H2 className="inline-block">{title}</H2>
-        </ViewTransition>
+        <H2 className="inline-block">
+          <ViewTransition name={`project-title-${id}`}>
+            <span className="inline-block">{title}</span>
+          </ViewTransition>
+        </H2>
 
         <div className="flex flex-row gap-1.5">
           {preview && (
@@ -44,9 +46,11 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
           )}
         </div>
       </div>
-      <ViewTransition name={`project-description-${id}`}>
-        <P className="inline-block text-(--muted-foreground)">{description}</P>
-      </ViewTransition>
+      <P className="text-(--muted-foreground)">
+        <ViewTransition name={`project-description-${id}`}>
+          <span className="inline-block">{description}</span>
+        </ViewTransition>
+      </P>
       <div className="mt-3 inline-flex flex-wrap gap-2">
         {technologies.map((tech) => (
           <TechCard key={tech} name={tech} />
