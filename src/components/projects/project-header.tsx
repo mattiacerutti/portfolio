@@ -7,6 +7,7 @@ import {HiOutlineExternalLink} from "react-icons/hi";
 import {TbBrandGithub} from "react-icons/tb";
 import {IProject} from "@/data/projects";
 import {ViewTransition} from "react";
+import {PROJECT_DETAIL_SHARE} from "@/lib/view-transition";
 
 // This component is needed instead of using a generic layout.tsx because we do not have access to the project name in the layout
 // and we do need project's data to render the header.
@@ -24,7 +25,7 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
       <P className="text-base! text-(--muted-foreground)">{readTime} read</P>
       <div className="flex items-center gap-4">
         <H2 className="inline-block">
-          <ViewTransition name={`project-title-${id}`}>
+          <ViewTransition name={`project-title-${id}`} default="none" share={PROJECT_DETAIL_SHARE}>
             <span className="inline-block">{title}</span>
           </ViewTransition>
         </H2>
@@ -47,7 +48,7 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
         </div>
       </div>
       <P className="text-(--muted-foreground)">
-        <ViewTransition name={`project-description-${id}`}>
+        <ViewTransition name={`project-description-${id}`} default="none" share={PROJECT_DETAIL_SHARE}>
           <span className="inline-block">{description}</span>
         </ViewTransition>
       </P>
