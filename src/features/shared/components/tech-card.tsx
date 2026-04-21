@@ -1,5 +1,4 @@
-import React from "react";
-import GlassPane from "./glass-pane";
+import GlassPane from "@/components/ui/glass-pane";
 
 interface ITechCardProps {
   name: string;

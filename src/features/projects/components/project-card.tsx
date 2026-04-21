@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import {IProject} from "@/data/projects";
-import TechCard from "@/components/ui/tech-card";
+import {IProject} from "@/features/projects/data/projects";
+import TechCard from "@/features/shared/components/tech-card";
 import {CustomLink} from "@/components/ui/typography/link";
 import {addTransitionType, startTransition, ViewTransition} from "react";
 import {PROJECT_DETAIL_SHARE, PROJECT_DETAIL_TRANSITION_TYPE} from "@/lib/view-transition";

@@ -1,6 +1,5 @@
 import {CustomLink} from "@/components/ui/typography/link";
-import React from "react";
-import NavLinks from "@/components/nav-links";
+import NavLinks from "@/features/shared/components/layout/nav-links";
 
 export default function Header() {
   return (

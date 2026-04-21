@@ -1,5 +1,5 @@
 import type {MetadataRoute} from "next";
-import {PROJECTS} from "@/data/projects";
+import {PROJECTS} from "@/features/projects/data/projects";
 import {absoluteUrl} from "@/lib/seo";
 
 export const dynamic = "force-static";

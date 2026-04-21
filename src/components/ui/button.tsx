@@ -1,5 +1,5 @@
 import React from "react";
-import GlassPane from "./glass-pane";
+import GlassPane from "@/components/ui/glass-pane";
 import {twMerge} from "tailwind-merge";
 
 interface IButtonProps {

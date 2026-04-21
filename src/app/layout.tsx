@@ -1,11 +1,12 @@
+import "./globals.css";
+
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
-import Header from "@/sections/header";
-import {ThemeProvider} from "../components/theme-provider";
-import Footer from "@/sections/footer";
+import Header from "@/features/shared/components/layout/header";
+import {ThemeProvider} from "@/components/providers/theme-provider";
+import Footer from "@/features/shared/components/layout/footer";
 import {DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL} from "@/lib/seo";
-import CometBackground from "@/components/home/comet-background";
-import "./globals.css";
+import CometBackground from "@/features/shared/components/comet-background";
 
 const inter = Inter({
   variable: "--font-inter",

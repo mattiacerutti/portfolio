@@ -1,11 +1,11 @@
 import P from "@/components/ui/typography/p";
 import H2 from "@/components/ui/typography/h2";
-import TechCard from "@/components/ui/tech-card";
+import TechCard from "@/features/shared/components/tech-card";
 import Button from "@/components/ui/button";
 import {CustomLink} from "@/components/ui/typography/link";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {TbBrandGithub} from "react-icons/tb";
-import {IProject} from "@/data/projects";
+import {IProject} from "@/features/projects/data/projects";
 import {ViewTransition} from "react";
 import {PROJECT_DETAIL_SHARE} from "@/lib/view-transition";
 

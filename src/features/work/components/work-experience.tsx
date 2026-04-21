@@ -1,8 +1,7 @@
-import React from "react";
-import H4 from "../ui/typography/h4";
-import P from "../ui/typography/p";
-import {IWorkExperience} from "@/data/work";
-import TechCard from "../ui/tech-card";
+import H4 from "@/components/ui/typography/h4";
+import P from "@/components/ui/typography/p";
+import {IWorkExperience} from "@/features/work/data/work";
+import TechCard from "@/features/shared/components/tech-card";
 import Image from "next/image";
 
 interface IWorkExperienceProps {

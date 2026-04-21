@@ -1,10 +1,9 @@
-import React from "react";
 import {CustomLink} from "@/components/ui/typography/link";
 import H4 from "@/components/ui/typography/h4";
 import P from "@/components/ui/typography/p";
-import TechCard from "@/components/ui/tech-card";
+import TechCard from "@/features/shared/components/tech-card";
 import {HiOutlineArrowUpRight} from "react-icons/hi2";
-import GlassPane from "./glass-pane";
+import GlassPane from "@/components/ui/glass-pane";
 
 export interface IWorkItem {
   name: string;

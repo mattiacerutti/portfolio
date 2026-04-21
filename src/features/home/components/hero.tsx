@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {CustomLink} from "@/components/ui/typography/link";
 import faceImage from "@/assets/images/face.png";
 import Image from "next/image";
