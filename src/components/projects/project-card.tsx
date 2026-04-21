@@ -49,7 +49,9 @@ function ProjectCard(props: IProjectCardProps) {
               <>
                 <div className="flex flex-row flex-wrap gap-2">
                   {technologies.map((tech, index) => (
-                    <TechCard key={index} name={tech} />
+                    <ViewTransition key={index} name={`project-tech-${id}-${tech}`} default="none" share={PROJECT_DETAIL_SHARE}>
+                      <TechCard name={tech} />
+                    </ViewTransition>
                   ))}
                 </div>
                 <span className="text-(--muted-foreground)">·</span>

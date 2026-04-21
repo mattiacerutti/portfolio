@@ -54,7 +54,9 @@ export default function ProjectHeader(props: IProjectHeaderProps) {
       </P>
       <div className="mt-3 inline-flex flex-wrap gap-2">
         {technologies.map((tech) => (
-          <TechCard key={tech} name={tech} />
+          <ViewTransition key={tech} name={`project-tech-${id}-${tech}`} default="none" share={PROJECT_DETAIL_SHARE}>
+            <TechCard name={tech} />
+          </ViewTransition>
         ))}
       </div>
     </div>
