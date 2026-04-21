@@ -3,9 +3,8 @@
 import {IProject} from "@/features/projects/data/projects";
 import TechCard from "@/features/shared/components/tech-card";
 import {CustomLink} from "@/components/ui/typography/link";
-import {addTransitionType, startTransition, ViewTransition} from "react";
+import {ViewTransition} from "react";
 import {PROJECT_DETAIL_SHARE, PROJECT_DETAIL_TRANSITION_TYPE} from "@/lib/view-transition";
-import {useRouter} from "next/navigation";
 
 interface IProjectCardProps {
   project: IProject;
@@ -16,19 +15,9 @@ interface IProjectCardProps {
 function ProjectCard(props: IProjectCardProps) {
   const {project, hideTechStack = false} = props;
   const {id, title, description, technologies, readTime} = project;
-  const router = useRouter();
-
-  const handleNavigate = (event: {preventDefault: () => void}) => {
-    event.preventDefault();
-
-    startTransition(() => {
-      addTransitionType(PROJECT_DETAIL_TRANSITION_TYPE);
-      router.push(`/projects/${id}`);
-    });
-  };
 
   return (
-    <CustomLink href={`/projects/${id}`} onNavigate={handleNavigate} className="group block">
+    <CustomLink href={`/projects/${id}`} transitionTypes={[PROJECT_DETAIL_TRANSITION_TYPE]} className="group block">
       <article className="py-2 transition-opacity duration-200 hover:opacity-80">
         <div className="flex flex-col gap-1">
           <h3 className="text-lg font-semibold text-(--foreground) underline decoration-transparent underline-offset-4 transition-all duration-200 group-hover:decoration-(--muted-foreground)/40 sm:text-xl">

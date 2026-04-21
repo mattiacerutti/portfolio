@@ -46,12 +46,12 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-(--button-border) sm:h-32 sm:w-32"
+          className="shrink-0 overflow-hidden rounded-full border-2 border-(--button-border)"
           initial={{opacity: 0, x: 24, scale: 0.95}}
           animate={{opacity: 1, x: 0, scale: 1}}
           transition={{duration: 1, ease, delay: 0.1}}
         >
-          <Image src={faceImage} alt="Mattia Cerutti" fill className="object-cover" priority />
+          <Image src={faceImage} alt="Mattia Cerutti" width={128} height={128} className="h-28 w-28 object-cover sm:h-32 sm:w-32" priority />
         </motion.div>
       </div>
     </header>
