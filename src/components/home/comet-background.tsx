@@ -137,7 +137,6 @@ function toRGBA(rgb: {r: number; g: number; b: number}, alpha: number) {
 
 export default function CometBackground({children, className = "", contentClassName = "", canvasClassName = ""}: ICometBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const readyDispatchedRef = useRef(false);
   const {resolvedTheme} = useTheme();
   const cometRGBRef = useRef<{r: number; g: number; b: number}>({r: 255, g: 255, b: 255});
 
@@ -321,11 +320,6 @@ export default function CometBackground({children, className = "", contentClassN
     function animate(now: number) {
       const dt = Math.min(0.05, Math.max(0.001, (now - lastTime) / 1000));
       lastTime = now;
-      // Dispatch ready event
-      if (!readyDispatchedRef.current) {
-        readyDispatchedRef.current = true;
-        window.dispatchEvent(new Event("comets:ready"));
-      }
       update(dt);
       animationId = requestAnimationFrame(animate);
     }
@@ -338,7 +332,6 @@ export default function CometBackground({children, className = "", contentClassN
   }, []);
 
   useEffect(() => {
-    window.dispatchEvent(new Event("comets:ready"));
     const raf = requestAnimationFrame(() => {
       const rawColor = getComputedStyle(document.documentElement).getPropertyValue("--comet-color");
       cometRGBRef.current = parseColorToRGB(rawColor);
