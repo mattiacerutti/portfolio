@@ -1,0 +1,80 @@
+import ProjectMdxSection from "@/features/projects/components/project-mdx-section";
+
+<ProjectMdxSection delay={0.15}>
+### Why I Built It
+
+I recently switched from ISO to ANSI keyboard layout, and I needed to practice. I tried [Monkey Type](https://monkeytype.com/), but typing "the quick brown fox" just doesn't feel like typing code. When I'm actually programming, I'm dealing with braces, parentheses, indentation, and trying not to mess up syntax. None of that comes up when you're just typing words.
+
+I also wanted it to feel like a real IDE. That means auto-closing brackets, smart backspace behavior (deleting entire indentation levels), and syntax highlighting. If I'm going to practice typing code, I want it to feel like I'm actually coding.
+
+</ProjectMdxSection>
+
+<ProjectMdxSection delay={0.3}>
+### What It Does
+
+- Pulls actual code from real open-source projects on GitHub
+- Behaves like an IDE: auto-closing pairs, smart deletion, syntax highlighting
+- Currently supports all the popular languages like JavaScript, TypeScript, C++, Python, Java and more
+
+</ProjectMdxSection>
+
+<ProjectMdxSection delay={0.45}>
+### Tech Stack
+
+I went with **Next.js** because I wanted a single codebase for everything. The frontend, the API routes, all in one place. It makes deployment simple and I don't have to context switch between different parts of the project.
+
+For storage, I'm using **PostgreSQL** with **Prisma**. It stores the GitHub file references, language metadata, and the snippets themselves. I've used Prisma on other projects and I just really like the developer experience.
+
+The heavy lifting for parsing is done by **Tree-sitter**. It's what lets me extract functions and classes from source files, figure out which parts are strings or comments so I know where not to trigger auto-closing brackets, and validate that a snippet is actually good enough to use.
+
+And of course, everything comes from the **GitHub API**. Had to be careful with rate limits there, but it's been working well with some tricks.
+
+</ProjectMdxSection>
+
+<ProjectMdxSection delay={0.6}>
+### How the Snippet Pipeline Actually Works
+
+My first approach was naive: when a user requests a snippet, fetch a random file from GitHub, parse it, extract snippets, and return one. But that had problems. It was unreliable due to the GitHub API rate limits, and I couldn't track snippets between users since everything was generated on the fly.
+
+So I changed the architecture. I've made everything **pre-fetched** and **pre-parsed** at **seed time**. Here's how it actually works:
+
+#### The Data Model
+
+- For each language, I maintain a list of tracked GitHub files
+- Each file can have multiple _versions_ tied to specific git commits
+- Each file version can produce multiple snippets
+
+This means snippets are **trackable** and **consistent**. If you get a snippet and share the link, someone else will get the exact same code. But it also means I have to deal with some interesting challenges.
+
+#### The Outdated Snippet Problem
+
+Since I'm pre-parsing everything, what happens when the source file changes on GitHub? I would end up serving old, outdated code forever. My solution is to **periodically re-fetch** tracked files. If the file's **SHA** has changed, I create a new **version**, re-parse it, and generate new snippets. The old snippets will now coexist with the fresh ones.
+
+#### Deduplication
+
+But here's a twist: if someone changes just one character in a 500-line file, the **SHA** changes, but 99% of the snippets are probably identical. I don't want to create a bunch of **duplicate snippets** every time someone fixes a typo, because it would increase the probability of serving those specific snippets.
+
+So I also calculate a **SHA** for each individual snippet after stripping **whitespace**, so formatting changes don't matter. If a newly parsed snippet has the same SHA as an existing one, I skip it. This keeps the **database** clean while still allowing new snippets to be added when meaningful changes happen.
+
+#### The Filtering Tradeoff
+
+I also have to think about snippet **filtering**. Right now, I can set rules like "only snippets between 10-50 lines" or "snippets with lines not longer than 70 characters". But if I change those filters later, existing snippets won't magically disappear. I have two options:
+
+- Leave old snippets in place and accept that the database will have snippets from different filter "eras".
+- Wipe the entire snippet database and regenerate everything. This would mean losing all data tied to a specific snippet, but right now that consists only of shareable links, which are meant to be short-lived anyway, so it's not a big deal.
+
+I've not quite decided which approach I'll take yet, since for now i never had to change filters. I think i'm leaning towards the second option, since it keeps the database cleaner and I don't have any long-term data tied to snippets right now, but it's an interesting dilemma.
+
+</ProjectMdxSection>
+
+<ProjectMdxSection delay={0.75}>
+### What I Might Add Next
+
+It works pretty well right now and it's being used by some people, but there are a few things I'd like to tackle when I have time:
+
+- Better UI: I'm not a designer, and it shows. The current interface is functional but pretty bare-bones.
+- Progress tracking: I'd like to store your typing history over time so you can see if you're actually improving.
+- More detailed stats: right now you just get WPM and accuracy. I'd love to break that down by language, snippet complexity, and more.
+- Custom snippet importing: since different programmers have different coding styles, I'd like to allow users to import their own code snippets for practice.
+
+</ProjectMdxSection>

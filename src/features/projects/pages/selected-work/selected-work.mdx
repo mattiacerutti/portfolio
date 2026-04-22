@@ -1,0 +1,23 @@
+import ProjectMdxSection from "@/features/projects/components/project-mdx-section";
+import SelectedWorkGrid from "@/features/projects/components/selected-work/selected-work-grid";
+import {configurators, landingPages} from "@/features/projects/data/selected-work";
+
+<ProjectMdxSection delay={0.15} contentClassName="gap-4">
+I started working with [Novaidea](https://novaidea.it/) when I was 18, during high school. Since then I've built everything from simple landing pages to complex product configurators for clients like *Abert* and *Broggi*, both big names in the Italian tableware world.
+
+Everything uses **GSAP** and **LocomotiveScroll** for animations, **Tailwind** for styling, and a custom JSON-based **multi-language CMS** I built so clients can manage their own content without bothering me every time they need a text change.
+</ProjectMdxSection>
+
+<SelectedWorkGrid
+  delay={0.3}
+  title="Landing Pages"
+  description="Simple sites that showcase brands and actually convert visitors into customers."
+  items={landingPages}
+/>
+
+<SelectedWorkGrid
+  delay={0.45}
+  title="Product Configurators"
+  description="Interactive tools where customers mix and match products in real time. The CMS manages hundreds of combinations behind the scenes, way more complex than it looks on the surface."
+  items={configurators}
+/>

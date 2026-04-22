@@ -1,4 +1,4 @@
-import CodeTyperPage from "@/features/projects/pages/projects/code-typer";
+import CodeTyperPage from "@/features/projects/pages/code-typer/code-typer";
 import {createPageMetadata} from "@/lib/seo";
 
 export const metadata = createPageMetadata({

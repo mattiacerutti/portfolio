@@ -1,4 +1,4 @@
-import SelectedWorkPage from "@/features/projects/pages/projects/selected-work";
+import SelectedWorkPage from "@/features/projects/pages/selected-work/selected-work";
 import {createPageMetadata} from "@/lib/seo";
 
 export const metadata = createPageMetadata({
