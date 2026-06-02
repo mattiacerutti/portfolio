@@ -35,7 +35,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     endDate: new Date("2025-01"),
     technologies: ["React", "TailwindCSS", "MySQL", "PHP", "CI/CD"],
     description:
-      "Built 8+ production websites with React, PHP and Tailwind: everything from landing pages to 3D product configurators with AR previews. Set up CI/CD that cut deployment time by 90%. Mentored 2 developers and designed database schemas that made multi-language support actually manageable.",
+      "Built 8 production websites for 6 clients with React, PHP, Tailwind and MySQL, from e-commerce pages to interactive product experiences. Worked on custom CMS flows, multilingual content, 3D rendering pages and AR previews. Set up CI/CD so deployments were streamlined, while reviewing code and mentoring 3 developers along the way.",
     relevant: true,
     logo: newArtVanguardLogo,
   },
@@ -47,7 +47,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     endDate: new Date("2022-06"),
     technologies: ["Python", "MySQL"],
     description:
-      "Built a Python/MySQL tool that automated document formatting and printing for 15+ people across 4 departments. Cut down errors and inconsistent output while fixing 10+ legacy bugs in the existing automation system.",
+      "Built a Python/MySQL tool that automated document formatting and printing for 15+ people across 4 departments. Cut down errors and inconsistent output while fixing some legacy bugs in the existing automation system.",
     relevant: false,
     logo: estilosLogo,
   },
