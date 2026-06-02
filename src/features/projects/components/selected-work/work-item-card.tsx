@@ -8,7 +8,6 @@ import GlassPane from "@/components/ui/glass-pane";
 export interface IWorkItem {
   name: string;
   href: string;
-  client: string;
   description: string;
   tags: string[];
   year?: string;
@@ -19,7 +18,7 @@ interface IWorkItemCardProps {
 }
 
 function WorkItemCard({item}: IWorkItemCardProps) {
-  const {name, href, client, description, tags, year} = item;
+  const {name, href, description, tags, year} = item;
 
   return (
     <CustomLink href={href} target="_blank" className="group block">

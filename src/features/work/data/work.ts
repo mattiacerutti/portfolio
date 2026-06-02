@@ -1,7 +1,7 @@
 import type {StaticImageData} from "next/image";
 import awsLogo from "@/assets/images/work/aws.png";
 import estilosLogo from "@/assets/images/work/estilos.png";
-import novaideaLogo from "@/assets/images/work/novaidea.png";
+import newArtVanguardLogo from "@/assets/images/work/new_art_vanguard.png";
 
 export interface IWorkExperience {
   title: string;
@@ -28,7 +28,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     logo: awsLogo,
   },
   {
-    title: "Novaidea Creative Resources",
+    title: "New Art Vanguard",
     role: "Fullstack Developer, Contractor",
     location: "Remote",
     startDate: new Date("2023-03"),
@@ -37,7 +37,7 @@ export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
     description:
       "Built 8+ production websites with React, PHP and Tailwind: everything from landing pages to 3D product configurators with AR previews. Set up CI/CD that cut deployment time by 90%. Mentored 2 developers and designed database schemas that made multi-language support actually manageable.",
     relevant: true,
-    logo: novaideaLogo,
+    logo: newArtVanguardLogo,
   },
   {
     title: "Estilos SRL",
