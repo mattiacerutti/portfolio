@@ -4,6 +4,7 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import Header from "@/features/shared/components/layout/header";
 import {ThemeProvider} from "@/components/providers/theme-provider";
+import MotionProvider from "@/components/providers/motion-provider";
 import Footer from "@/features/shared/components/layout/footer";
 import {DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL} from "@/lib/seo";
 import CometBackground from "@/features/shared/components/comet-background";
@@ -45,11 +46,13 @@ export default function RootLayout({
       <body className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
-          <CometBackground className="min-h-screen" contentClassName="flex min-h-screen flex-col items-center" canvasClassName="opacity-20">
-            <Header />
-            <main className="flex w-full flex-1 justify-center">{children}</main>
-            <Footer />
-          </CometBackground>
+          <MotionProvider>
+            <CometBackground className="min-h-screen" contentClassName="flex min-h-screen flex-col items-center" canvasClassName="opacity-20">
+              <Header />
+              <main className="flex w-full flex-1 justify-center">{children}</main>
+              <Footer />
+            </CometBackground>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

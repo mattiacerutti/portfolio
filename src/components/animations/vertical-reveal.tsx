@@ -1,7 +1,7 @@
 "use client";
 
-import {PropsWithChildren} from "react";
-import {motion} from "framer-motion";
+import type {PropsWithChildren} from "react";
+import {m} from "framer-motion";
 
 interface IVerticalRevealProps {
   delay?: number;
@@ -11,7 +11,8 @@ interface IVerticalRevealProps {
   trigger?: "instant" | "scroll";
 }
 
-export default function VerticalReveal({children, delay = 0, className = "", trigger = "instant", startY = 32, duration = 1}: PropsWithChildren<IVerticalRevealProps>) {
+export default function VerticalReveal(props: PropsWithChildren<IVerticalRevealProps>) {
+  const {children, delay = 0, className = "", trigger = "instant", startY = 32, duration = 1} = props;
   const revealTransition = {
     duration,
     delay,
@@ -19,7 +20,7 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
   };
 
   return (
-    <motion.span
+    <m.span
       className={className}
       initial={{y: startY, opacity: 0}}
       transition={revealTransition}
@@ -33,6 +34,6 @@ export default function VerticalReveal({children, delay = 0, className = "", tri
           })}
     >
       {children}
-    </motion.span>
+    </m.span>
   );
 }

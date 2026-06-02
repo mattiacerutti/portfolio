@@ -1,7 +1,7 @@
 "use client";
 
-import {motion} from "framer-motion";
-import {PropsWithChildren} from "react";
+import {m} from "framer-motion";
+import type {PropsWithChildren} from "react";
 
 interface IAnimatedBorderProps {
   className?: string;
@@ -9,10 +9,12 @@ interface IAnimatedBorderProps {
   duration?: number;
 }
 
-export default function AnimatedBorder({children, className = "", lineClassName = "", duration = 1.5}: PropsWithChildren<IAnimatedBorderProps>) {
+export default function AnimatedBorder(props: PropsWithChildren<IAnimatedBorderProps>) {
+  const {children, className = "", lineClassName = "", duration = 1.5} = props;
+
   return (
     <div className={`relative ${className}`}>
-      <motion.div
+      <m.div
         className={`absolute top-0 bottom-0 left-0 w-0.5 ${lineClassName}`}
         initial={{scaleY: 0}}
         animate={{scaleY: 1}}

@@ -5,7 +5,7 @@ import {WORK_EXPERIENCES} from "@/features/work/data/work";
 import P from "@/components/ui/typography/p";
 import VerticalReveal from "@/components/animations/vertical-reveal";
 import WorkExperience from "../components/work-experience";
-import {motion} from "framer-motion";
+import {m} from "framer-motion";
 
 export default function WorkPage() {
   const baseDelay = 0.15;
@@ -17,7 +17,7 @@ export default function WorkPage() {
         <P className="text-(--muted-foreground)">My career path so far.</P>
       </div>
       <div className="relative ml-0 flex flex-col gap-10 sm:ml-4">
-        <motion.div
+        <m.div
           className="absolute top-6 bottom-5 left-1 w-px bg-linear-to-b from-(--muted-foreground)/25 via-(--muted-foreground)/20 to-transparent"
           initial={{scaleY: 0}}
           animate={{scaleY: 1}}
@@ -27,7 +27,7 @@ export default function WorkPage() {
 
         {WORK_EXPERIENCES.map((experience, index) => (
           <div key={index} className="relative block w-full pl-7 sm:pl-9">
-            <motion.span
+            <m.span
               className="absolute top-6 left-1 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--muted-foreground)"
               initial={{scale: 0}}
               animate={{scale: 1}}

@@ -1,7 +1,8 @@
 "use client";
 
-import {Children, PropsWithChildren} from "react";
-import {motion} from "framer-motion";
+import {Children} from "react";
+import type {PropsWithChildren} from "react";
+import {m} from "framer-motion";
 
 interface IHorizontalRevealProps {
   delay?: number;
@@ -9,7 +10,20 @@ interface IHorizontalRevealProps {
   className?: string;
 }
 
-export default function HorizontalReveal({children, delay = 0, stagger = 0.15, className = ""}: PropsWithChildren<IHorizontalRevealProps>) {
+const itemVariants = {
+  hidden: {opacity: 0, scale: 0.6},
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+export default function HorizontalReveal(props: PropsWithChildren<IHorizontalRevealProps>) {
+  const {children, delay = 0, stagger = 0.15, className = ""} = props;
   const childrenArray = Children.toArray(children);
 
   const containerVariants = {
@@ -22,25 +36,13 @@ export default function HorizontalReveal({children, delay = 0, stagger = 0.15, c
     },
   };
 
-  const itemVariants = {
-    hidden: {opacity: 0, scale: 0.6},
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
-    },
-  };
-
   return (
-    <motion.div className={className} variants={containerVariants} initial="hidden" animate="visible">
+    <m.div className={className} variants={containerVariants} initial="hidden" animate="visible">
       {childrenArray.map((child, i) => (
-        <motion.span key={i} variants={itemVariants}>
+        <m.span key={i} variants={itemVariants}>
           {child}
-        </motion.span>
+        </m.span>
       ))}
-    </motion.div>
+    </m.div>
   );
 }
