@@ -3,9 +3,8 @@ import {createPageMetadata} from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Code Typer",
-  description: "A closer look at Code Typer, what it does, how I built it.",
+  description: "Code typing game for developers. Practice real syntax, not lorem ipsum.",
   pathname: "/projects/code-typer",
-  type: "article",
 });
 
 export default CodeTyperPage;

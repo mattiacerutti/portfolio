@@ -1,14 +1,15 @@
 import type {MetadataRoute} from "next";
+import {POSTS} from "@/features/posts/data/posts";
 import {PROJECTS} from "@/features/projects/data/projects";
 import {absoluteUrl} from "@/lib/seo";
 
 export const dynamic = "force-static";
 
-const STATIC_PATHS = ["/", "/projects", "/work"] as const;
+const STATIC_PATHS = ["/", "/projects", "/posts", "/work"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const paths = [...STATIC_PATHS, ...PROJECTS.map((project) => `/projects/${project.id}`)];
+  const paths = [...STATIC_PATHS, ...PROJECTS.map((project) => `/projects/${project.id}`), ...POSTS.map((post) => `/posts/${post.id}`)];
 
   return paths.map((pathname) => ({
     url: absoluteUrl(pathname),

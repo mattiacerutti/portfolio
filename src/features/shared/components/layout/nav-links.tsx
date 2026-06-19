@@ -40,6 +40,18 @@ export default function NavLinks() {
           </ViewTransition>
         )}
       </Link>
+      <Link
+        href="/posts"
+        aria-current={isActive("/posts") ? "page" : undefined}
+        className={`relative transition-colors duration-600 ${isActive("/posts") ? "text-(--foreground)" : "text-(--muted-foreground) hover:text-(--foreground)"}`}
+      >
+        posts
+        {isActive("/posts") && (
+          <ViewTransition name={ACTIVE_NAV_INDICATOR}>
+            <span aria-hidden className="pointer-events-none absolute right-0 -bottom-1 left-0 h-0.5 rounded bg-(--foreground)" />
+          </ViewTransition>
+        )}
+      </Link>
     </div>
   );
 }

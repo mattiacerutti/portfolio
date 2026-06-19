@@ -1,6 +1,6 @@
-import CodeTyperContent from "@/features/projects/pages/code-typer/code-typer.mdx";
 import ProjectHeader from "@/features/projects/components/project-header";
 import {getProjectById} from "@/features/projects/data/projects";
+import CodeTyperContent from "@/features/projects/pages/code-typer/code-typer.mdx";
 
 export default function CodeTyperPage() {
   const project = getProjectById("code-typer");

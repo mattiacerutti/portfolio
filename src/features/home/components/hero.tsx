@@ -17,8 +17,8 @@ export default function Hero() {
           <h1 className="text-4xl font-bold tracking-tight text-(--foreground) sm:text-5xl">Mattia Cerutti</h1>
 
           <p className="mt-4 text-lg leading-relaxed text-(--muted-foreground)">
-            SWE @ AWS. I spend the rest of my time making things I wish existed already, plus whatever random idea feels worth shipping (while probably overthinking the details a
-            bit).
+            SWE @ AWS. I spend the rest of my time <CustomLink href="/projects" underline>making things</CustomLink> I wish existed already, plus whatever random idea feels worth shipping
+            (while probably overthinking the details a bit).
           </p>
 
           <div className="mt-6 flex items-center gap-6 text-base font-semibold">
