@@ -29,7 +29,7 @@ export const POSTS: Post[] = [
   {
     id: "scaling-code-typer-to-1000-users",
     title: "Scaling Code Typer to 1,000 Users",
-    description: "How a Reddit traffic spike exposed a naive GitHub API dependency and broke everything.",
+    description: "How a Reddit post took down my entire project.",
     readTime: "7 min",
     publishedAt: "2026-01-10",
     projectId: "code-typer",
