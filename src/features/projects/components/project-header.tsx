@@ -46,7 +46,7 @@ export default function ProjectHeader(props: ProjectHeaderProps) {
           )}
         </div>
       </div>
-      <P className="text-(--muted-foreground)">
+      <P className="mt-0.5 text-(--muted-foreground)">
         <ViewTransition name={`project-description-${id}`} default="none" share={PROJECT_DETAIL_SHARE}>
           <span className="inline-block">{description}</span>
         </ViewTransition>

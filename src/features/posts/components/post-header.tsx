@@ -24,7 +24,7 @@ export default function PostHeader(props: PostHeaderProps) {
           <span className="inline-block">{title}</span>
         </ViewTransition>
       </H2>
-      <P className="text-(--muted-foreground)">
+      <P className="mt-0.5 text-(--muted-foreground)">
         <ViewTransition name={`post-description-${id}`} default="none" share={POST_DETAIL_SHARE}>
           <span className="inline-block">{description}</span>
         </ViewTransition>
