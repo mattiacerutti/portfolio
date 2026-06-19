@@ -13,7 +13,7 @@ interface ProjectCardProps {
 
 function ProjectCard(props: ProjectCardProps) {
   const {project, hideTechStack = false} = props;
-  const {id, title, description, technologies, readTime} = project;
+  const {id, title, description, technologies} = project;
 
   return (
     <CustomLink href={`/projects/${id}`} transitionTypes={[PROJECT_DETAIL_TRANSITION_TYPE]} className="group block">
@@ -41,10 +41,8 @@ function ProjectCard(props: ProjectCardProps) {
                     </ViewTransition>
                   ))}
                 </div>
-                <span className="text-(--muted-foreground)">·</span>
               </>
             )}
-            <span className="shrink-0 text-sm whitespace-nowrap text-(--muted-foreground)">{readTime}</span>
           </div>
         </div>
       </article>

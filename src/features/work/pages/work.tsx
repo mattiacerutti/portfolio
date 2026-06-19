@@ -18,7 +18,7 @@ export default function WorkPage() {
       </div>
       <div className="relative ml-0 flex flex-col gap-10 sm:ml-4">
         <m.div
-          className="absolute top-6 bottom-5 left-1 w-px bg-linear-to-b from-(--muted-foreground)/25 via-(--muted-foreground)/20 to-transparent"
+          className="absolute top-6 bottom-5 left-1 w-px -translate-x-1/2 bg-linear-to-b from-(--muted-foreground)/25 from-0% via-(--muted-foreground)/20 via-90% to-transparent to-100%"
           initial={{scaleY: 0}}
           animate={{scaleY: 1}}
           transition={{duration: 1.5, ease: [0.22, 1, 0.36, 1]}}

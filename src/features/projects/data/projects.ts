@@ -5,7 +5,6 @@ export interface Project {
   technologies: string[];
   github?: string;
   preview?: string;
-  readTime: string;
 }
 
 export function getProjectById(id: string) {
@@ -23,7 +22,6 @@ export const PROJECTS: (Project & {relevant: boolean})[] = [
     github: "https://github.com/mattiacerutti/code-typer",
     preview: "https://codetyper.mattiacerutti.com/",
     relevant: true,
-    readTime: "5 min",
   },
   {
     id: "selected-work",
@@ -31,6 +29,5 @@ export const PROJECTS: (Project & {relevant: boolean})[] = [
     description: "Landing pages and product configurators I've built for clients. Real stuff that's actually live and being used.",
     technologies: ["React", "Tailwind", "PHP", "MySQL"],
     relevant: true,
-    readTime: "1 min",
   },
 ];

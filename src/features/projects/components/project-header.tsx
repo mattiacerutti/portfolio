@@ -18,13 +18,12 @@ interface ProjectHeaderProps {
 
 export default function ProjectHeader(props: ProjectHeaderProps) {
   const {project} = props;
-  const {id, title, description, technologies, github, preview, readTime} = project;
+  const {id, title, description, technologies, github, preview} = project;
 
   return (
     <div>
-      <P className="text-base! text-(--muted-foreground)">{readTime} read</P>
       <div className="flex items-center gap-4">
-        <H2 className="inline-block">
+        <H2 className="inline-block leading-none">
           <ViewTransition name={`project-title-${id}`} default="none" share={PROJECT_DETAIL_SHARE}>
             <span className="inline-block">{title}</span>
           </ViewTransition>
