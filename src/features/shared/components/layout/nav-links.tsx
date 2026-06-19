@@ -28,6 +28,7 @@ export default function NavLinks() {
           </ViewTransition>
         )}
       </Link>
+      <span aria-hidden className="text-(--muted-foreground)/50">/</span>
       <Link
         href="/projects"
         aria-current={isActive("/projects") ? "page" : undefined}
@@ -40,6 +41,7 @@ export default function NavLinks() {
           </ViewTransition>
         )}
       </Link>
+      <span aria-hidden className="text-(--muted-foreground)/50">/</span>
       <Link
         href="/posts"
         aria-current={isActive("/posts") ? "page" : undefined}
