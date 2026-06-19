@@ -1,17 +1,17 @@
 import H3 from "@/components/ui/typography/h3";
 import P from "@/components/ui/typography/p";
-import type {IWorkItem} from "@/features/projects/components/selected-work/work-item-card";
+import type {WorkItem} from "@/features/projects/data/selected-work";
 import WorkItemCard from "@/features/projects/components/selected-work/work-item-card";
 import ProjectMdxSection from "@/features/projects/components/project-mdx-section";
 
-interface ISelectedWorkGridProps {
+interface SelectedWorkGridProps {
   delay: number;
   title: string;
   description: string;
-  items: IWorkItem[];
+  items: WorkItem[];
 }
 
-export default function SelectedWorkGrid(props: ISelectedWorkGridProps) {
+export default function SelectedWorkGrid(props: SelectedWorkGridProps) {
   const {delay, title, description, items} = props;
 
   return (

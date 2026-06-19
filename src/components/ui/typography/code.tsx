@@ -1,14 +1,14 @@
 import {getHighlighter} from "@/lib/highlighter";
 import {twMerge} from "tailwind-merge";
 
-interface ICodeProps {
+interface CodeProps {
   language: string;
   inline?: boolean;
   className?: string;
   children: string;
 }
 
-export default async function Code(props: ICodeProps) {
+export default async function Code(props: CodeProps) {
   const {language, children, className = "", inline = false} = props;
 
   if (typeof children !== "string") {

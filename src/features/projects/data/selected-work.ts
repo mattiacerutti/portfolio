@@ -1,6 +1,12 @@
-import type {IWorkItem} from "@/features/projects/components/selected-work/work-item-card";
+export interface WorkItem {
+  name: string;
+  href: string;
+  description?: string;
+  tags: string[];
+  year?: string;
+}
 
-export const landingPages: IWorkItem[] = [
+export const landingPages: WorkItem[] = [
   {
     name: "Novaidea",
     href: "https://novaidea.it/",
@@ -27,40 +33,35 @@ export const landingPages: IWorkItem[] = [
   },
 ];
 
-export const configurators: IWorkItem[] = [
+export const configurators: WorkItem[] = [
   {
     name: "Abert Lighting",
     href: "https://tool.abert.it/lighting/?lang=eng",
     year: "2024",
-    description: "",
     tags: [],
   },
   {
     name: "Abert Logo",
     href: "https://tool.abert.it/logo/?lang=eng",
     year: "2024",
-    description: "",
     tags: [],
   },
   {
     name: "Abert Industrial",
     href: "https://tool.abert.it/industrial/?lang=eng",
     year: "2025",
-    description: "",
     tags: [],
   },
   {
     name: "Broggi Foscari",
     href: "https://tool.broggi.it/foscari/?lang=eng",
     year: "2025",
-    description: "",
     tags: [],
   },
   {
     name: "Broggi Living",
     href: "https://tool.broggi.it/living/?lang=eng",
     year: "2025",
-    description: "",
     tags: [],
   },
 ];

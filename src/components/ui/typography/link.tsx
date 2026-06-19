@@ -2,14 +2,14 @@ import Link, {LinkProps} from "next/link";
 import * as React from "react";
 import {twMerge} from "tailwind-merge";
 
-type ICustomLinkProps = LinkProps &
+type CustomLinkProps = LinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     className?: string;
     underline?: boolean;
     children: React.ReactNode;
   };
 
-export function CustomLink(props: ICustomLinkProps) {
+export function CustomLink(props: CustomLinkProps) {
   const {className, children, underline = false, href, ...extraProps} = props;
 
   return (

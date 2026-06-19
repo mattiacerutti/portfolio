@@ -3,13 +3,13 @@
 import {m} from "framer-motion";
 import type {PropsWithChildren} from "react";
 
-interface IAnimatedBorderProps {
+interface AnimatedBorderProps {
   className?: string;
   lineClassName?: string;
   duration?: number;
 }
 
-export default function AnimatedBorder(props: PropsWithChildren<IAnimatedBorderProps>) {
+export default function AnimatedBorder(props: PropsWithChildren<AnimatedBorderProps>) {
   const {children, className = "", lineClassName = "", duration = 1.5} = props;
 
   return (

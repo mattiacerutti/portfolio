@@ -3,7 +3,7 @@
 import type {PropsWithChildren} from "react";
 import {m} from "framer-motion";
 
-interface IVerticalRevealProps {
+interface VerticalRevealProps {
   delay?: number;
   startY?: number;
   duration?: number;
@@ -11,7 +11,7 @@ interface IVerticalRevealProps {
   trigger?: "instant" | "scroll";
 }
 
-export default function VerticalReveal(props: PropsWithChildren<IVerticalRevealProps>) {
+export default function VerticalReveal(props: PropsWithChildren<VerticalRevealProps>) {
   const {children, delay = 0, className = "", trigger = "instant", startY = 32, duration = 1} = props;
   const revealTransition = {
     duration,

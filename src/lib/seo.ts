@@ -7,7 +7,7 @@ export const DEFAULT_DESCRIPTION = "Software Engineer with 4+ years of experienc
 
 export const absoluteUrl = (pathname: string) => new URL(pathname, SITE_URL).toString();
 
-interface IPageMetadataInput {
+interface PageMetadataInput {
   title: string;
   description: string;
   pathname: string;
@@ -15,7 +15,7 @@ interface IPageMetadataInput {
   keywords?: string[];
 }
 
-export function createPageMetadata({title, description, pathname, type = "website", keywords}: IPageMetadataInput): Metadata {
+export function createPageMetadata({title, description, pathname, type = "website", keywords}: PageMetadataInput): Metadata {
   const url = absoluteUrl(pathname);
 
   return {

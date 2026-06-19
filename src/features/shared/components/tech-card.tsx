@@ -1,10 +1,10 @@
 import GlassPane from "@/components/ui/glass-pane";
 
-interface ITechCardProps {
+interface TechCardProps {
   name: string;
 }
 
-function TechCard(props: ITechCardProps) {
+function TechCard(props: TechCardProps) {
   const {name} = props;
 
   return <GlassPane className="px-2 py-1.5 text-xs font-semibold">{name}</GlassPane>;

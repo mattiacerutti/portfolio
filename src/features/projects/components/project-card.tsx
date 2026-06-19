@@ -1,18 +1,17 @@
 "use client";
 
-import {IProject} from "@/features/projects/data/projects";
+import type {Project} from "@/features/projects/data/projects";
 import TechCard from "@/features/shared/components/tech-card";
 import {CustomLink} from "@/components/ui/typography/link";
 import {ViewTransition} from "react";
 import {PROJECT_DETAIL_SHARE, PROJECT_DETAIL_TRANSITION_TYPE} from "@/lib/view-transition";
 
-interface IProjectCardProps {
-  project: IProject;
+interface ProjectCardProps {
+  project: Project;
   hideTechStack?: boolean;
-  relevant?: boolean;
 }
 
-function ProjectCard(props: IProjectCardProps) {
+function ProjectCard(props: ProjectCardProps) {
   const {project, hideTechStack = false} = props;
   const {id, title, description, technologies, readTime} = project;
 

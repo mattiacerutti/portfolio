@@ -3,14 +3,14 @@
 import React, {useRef, useEffect} from "react";
 import {useTheme} from "next-themes";
 
-interface ICometBackgroundProps {
+interface CometBackgroundProps {
   children: React.ReactNode;
   className?: string;
   contentClassName?: string;
   canvasClassName?: string;
 }
 
-interface IComet {
+interface Comet {
   x: number;
   y: number;
   length: number;
@@ -50,7 +50,7 @@ function randomInRange([min, max]: [number, number]) {
   return min + Math.random() * (max - min);
 }
 
-function createComet(width: number, height: number, location: "anywhere" | "edges" = "anywhere"): IComet {
+function createComet(width: number, height: number, location: "anywhere" | "edges" = "anywhere"): Comet {
   let x = Math.random() * width;
   let y = Math.random() * height;
 
@@ -135,7 +135,8 @@ function toRGBA(rgb: {r: number; g: number; b: number}, alpha: number) {
   return `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
 }
 
-export default function CometBackground({children, className = "", contentClassName = "", canvasClassName = ""}: ICometBackgroundProps) {
+export default function CometBackground(props: CometBackgroundProps) {
+  const {children, className = "", contentClassName = "", canvasClassName = ""} = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const {resolvedTheme} = useTheme();
   const cometRGBRef = useRef<{r: number; g: number; b: number}>({r: 255, g: 255, b: 255});
@@ -153,7 +154,7 @@ export default function CometBackground({children, className = "", contentClassN
     canvas.height = Math.floor(initialH * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    const comets: IComet[] = Array.from({length: COMET_COUNT}, () => createComet(initialW, initialH, "anywhere"));
+    const comets: Comet[] = Array.from({length: COMET_COUNT}, () => createComet(initialW, initialH, "anywhere"));
 
     // Mouse position to influence comet direction
     const mouseRef = {x: initialW / 2, y: initialH / 2, has: false} as {x: number; y: number; has: boolean};
@@ -174,7 +175,7 @@ export default function CometBackground({children, className = "", contentClassN
     const BIAS_STRENGTH = 0.15; // base blend strength at full deflection
     const NOISE_STRENGTH = 2; // scales the effect of per-comet noise
 
-    function drawComet(comet: IComet, displayHeight: number, dirX: number, dirY: number) {
+    function drawComet(comet: Comet, displayHeight: number, dirX: number, dirY: number) {
       // Fade out as comet approaches the bottom edge
       const fadeStart = displayHeight * 0.75;
       const fadeEnd = displayHeight;
@@ -228,7 +229,7 @@ export default function CometBackground({children, className = "", contentClassN
       ctx.restore();
     }
 
-    function updateComet(comet: IComet, displayWidth: number, displayHeight: number, dx: number, dy: number) {
+    function updateComet(comet: Comet, displayWidth: number, displayHeight: number, dx: number, dy: number) {
       comet.x += dx;
       comet.y += dy;
 

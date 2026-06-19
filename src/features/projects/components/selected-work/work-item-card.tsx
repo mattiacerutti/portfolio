@@ -4,20 +4,14 @@ import P from "@/components/ui/typography/p";
 import TechCard from "@/features/shared/components/tech-card";
 import {HiOutlineArrowUpRight} from "react-icons/hi2";
 import GlassPane from "@/components/ui/glass-pane";
+import type {WorkItem} from "@/features/projects/data/selected-work";
 
-export interface IWorkItem {
-  name: string;
-  href: string;
-  description: string;
-  tags: string[];
-  year?: string;
+interface WorkItemCardProps {
+  item: WorkItem;
 }
 
-interface IWorkItemCardProps {
-  item: IWorkItem;
-}
-
-function WorkItemCard({item}: IWorkItemCardProps) {
+function WorkItemCard(props: WorkItemCardProps) {
+  const {item} = props;
   const {name, href, description, tags, year} = item;
 
   return (

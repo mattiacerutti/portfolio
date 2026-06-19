@@ -1,4 +1,4 @@
-export interface IProject {
+export interface Project {
   id: string;
   title: string;
   description: string;
@@ -14,7 +14,7 @@ export function getProjectById(id: string) {
   return project;
 }
 
-export const PROJECTS: (IProject & {relevant: boolean})[] = [
+export const PROJECTS: (Project & {relevant: boolean})[] = [
   {
     id: "code-typer",
     title: "Code Typer",

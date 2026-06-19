@@ -3,7 +3,7 @@ import awsLogo from "@/assets/images/work/aws.png";
 import estilosLogo from "@/assets/images/work/estilos.png";
 import newArtVanguardLogo from "@/assets/images/work/new_art_vanguard.png";
 
-export interface IWorkExperience {
+export interface WorkExperience {
   title: string;
   role: string;
   location: string;
@@ -14,7 +14,7 @@ export interface IWorkExperience {
   logo: StaticImageData;
 }
 
-export const WORK_EXPERIENCES: (IWorkExperience & {relevant: boolean})[] = [
+export const WORK_EXPERIENCES: (WorkExperience & {relevant: boolean})[] = [
   {
     title: "Amazon Web Services (AWS)",
     role: "Software Engineer, Internship",

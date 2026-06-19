@@ -3,13 +3,13 @@ import {twMerge} from "tailwind-merge";
 
 import VerticalReveal from "@/components/animations/vertical-reveal";
 
-interface IProjectMdxSectionProps {
+interface ProjectMdxSectionProps {
   delay: number;
   className?: string;
   contentClassName?: string;
 }
 
-export default function ProjectMdxSection(props: PropsWithChildren<IProjectMdxSectionProps>) {
+export default function ProjectMdxSection(props: PropsWithChildren<ProjectMdxSectionProps>) {
   const {children, delay, className, contentClassName} = props;
 
   return (

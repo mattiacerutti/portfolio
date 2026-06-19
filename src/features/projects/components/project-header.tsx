@@ -5,18 +5,18 @@ import Button from "@/components/ui/button";
 import {CustomLink} from "@/components/ui/typography/link";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {TbBrandGithub} from "react-icons/tb";
-import {IProject} from "@/features/projects/data/projects";
+import type {Project} from "@/features/projects/data/projects";
 import {ViewTransition} from "react";
 import {PROJECT_DETAIL_SHARE} from "@/lib/view-transition";
 
 // This component is needed instead of using a generic layout.tsx because we do not have access to the project name in the layout
 // and we do need project's data to render the header.
 
-interface IProjectHeaderProps {
-  project: IProject;
+interface ProjectHeaderProps {
+  project: Project;
 }
 
-export default function ProjectHeader(props: IProjectHeaderProps) {
+export default function ProjectHeader(props: ProjectHeaderProps) {
   const {project} = props;
   const {id, title, description, technologies, github, preview, readTime} = project;
 

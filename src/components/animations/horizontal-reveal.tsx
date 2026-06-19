@@ -4,7 +4,7 @@ import {Children} from "react";
 import type {PropsWithChildren} from "react";
 import {m} from "framer-motion";
 
-interface IHorizontalRevealProps {
+interface HorizontalRevealProps {
   delay?: number;
   stagger?: number;
   className?: string;
@@ -22,7 +22,7 @@ const itemVariants = {
   },
 };
 
-export default function HorizontalReveal(props: PropsWithChildren<IHorizontalRevealProps>) {
+export default function HorizontalReveal(props: PropsWithChildren<HorizontalRevealProps>) {
   const {children, delay = 0, stagger = 0.15, className = ""} = props;
   const childrenArray = Children.toArray(children);
 

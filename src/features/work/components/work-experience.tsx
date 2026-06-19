@@ -1,14 +1,14 @@
 import H4 from "@/components/ui/typography/h4";
 import P from "@/components/ui/typography/p";
-import {IWorkExperience} from "@/features/work/data/work";
+import type {WorkExperience as WorkExperienceData} from "@/features/work/data/work";
 import TechCard from "@/features/shared/components/tech-card";
 import Image from "next/image";
 
-interface IWorkExperienceProps {
-  experience: IWorkExperience;
+interface WorkExperienceProps {
+  experience: WorkExperienceData;
 }
 
-export default function WorkExperience(props: IWorkExperienceProps) {
+export default function WorkExperience(props: WorkExperienceProps) {
   const {experience} = props;
   const {title, role, location, startDate, endDate, technologies, description} = experience;
 
