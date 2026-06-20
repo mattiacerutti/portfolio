@@ -2,14 +2,14 @@
 
 ## Language, typing, and naming
 
-- TypeScript is strict; prefer `interface` for object shapes and prefix with `I` (e.g., `IComponentProps`, `IAuthStatus`). Reach for `type` only when you need unions/intersections or literal unions.
+- TypeScript is strict; prefer `interface` for object shapes. Reach for `type` only when you need unions/intersections or literal unions.
 - Use `import type` for types; keep strings double-quoted and favor `const` over `let`.
 - Components/hooks are PascalCase; files stay kebab-case (`auth-wrapper.tsx`, `text-field.tsx`).
-- Destructure props inside the body: `function Component(props: IComponentProps) { const {foo} = props; }`.
+- Destructure props inside the body: `function Component(props: ComponentProps) { const {foo} = props; }`.
 
 ## Components and hooks conventions
 
-- Default-export UI components as `export default function Component(props: IProps) { ... }`; define handlers as `const handleX = () => {}` inside the component.
+- Default-export UI components as `export default function Component(props: ComponentProps) { ... }`; define handlers as `const handleX = () => {}` inside the component.
 - When you need to render conditional UI, prefer `condition && <Component />` over `condition ? <Component /> : null`.
 
 ## Styling

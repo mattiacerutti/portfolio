@@ -4,14 +4,14 @@ import type {ReactNode} from "react";
 import {useEffect, useRef} from "react";
 import {useTheme} from "next-themes";
 
-interface ICometBackgroundProps {
+interface CometBackgroundProps {
   children: ReactNode;
   className?: string;
   contentClassName?: string;
   canvasClassName?: string;
 }
 
-interface IComet {
+interface Comet {
   x: number;
   y: number;
   length: number;
@@ -20,7 +20,7 @@ interface IComet {
   radius: number;
 }
 
-interface ICometColor {
+interface CometColor {
   solid: string;
   rgb: string;
 }
@@ -41,7 +41,7 @@ function randomInRange(range: readonly [number, number]) {
   return min + Math.random() * (max - min);
 }
 
-function createComet(width: number, height: number, startVisible = false): IComet {
+function createComet(width: number, height: number, startVisible = false): Comet {
   const edgePosition = Math.random() * (width + height);
   const fromTop = edgePosition < width;
 
@@ -55,7 +55,7 @@ function createComet(width: number, height: number, startVisible = false): ICome
   };
 }
 
-function parseCometColor(color: string): ICometColor {
+function parseCometColor(color: string): CometColor {
   const solid = color.trim() || "#ffffff";
 
   if (solid.startsWith("#")) {
@@ -80,10 +80,10 @@ function getContentWidth() {
   return CONTENT_WIDTH_REM * Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-export default function CometBackground(props: ICometBackgroundProps) {
+export default function CometBackground(props: CometBackgroundProps) {
   const {children, className = "", contentClassName = "", canvasClassName = ""} = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const colorRef = useRef<ICometColor>({solid: "#ffffff", rgb: "255,255,255"});
+  const colorRef = useRef<CometColor>({solid: "#ffffff", rgb: "255,255,255"});
   const {resolvedTheme} = useTheme();
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function CometBackground(props: ICometBackgroundProps) {
 
     const comets = Array.from({length: COMET_COUNT}, () => createComet(displayWidth, displayHeight, true));
 
-    const drawComet = (comet: IComet) => {
+    const drawComet = (comet: Comet) => {
       const fadeStart = displayHeight * 0.75;
       const fade = comet.y > fadeStart ? Math.max(0, 1 - (comet.y - fadeStart) / (displayHeight - fadeStart)) : 1;
       const tailOffset = comet.length * DIAGONAL;
@@ -146,7 +146,7 @@ export default function CometBackground(props: ICometBackgroundProps) {
       ctx.shadowBlur = 0;
     };
 
-    const updateComet = (comet: IComet, dt: number) => {
+    const updateComet = (comet: Comet, dt: number) => {
       const step = comet.speed * dt * DIAGONAL;
       comet.x += step;
       comet.y += step;
