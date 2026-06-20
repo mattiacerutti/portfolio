@@ -24,7 +24,8 @@ export default function PostHeader(props: PostHeaderProps) {
           <span className="inline-block">{title}</span>
         </ViewTransition>
       </H2>
-      <P className="mt-0.5 text-(--muted-foreground)">
+      {/* Match the list description width so the view transition keeps the same line wraps and avoids a visual glitch. */}
+      <P className="mt-0.5 max-w-[calc(100%-1.5rem)] text-(--muted-foreground) sm:max-w-[calc(100%-3rem)]">
         <ViewTransition name={`post-description-${id}`} default="none" share={POST_DETAIL_SHARE}>
           <span className="inline-block">{description}</span>
         </ViewTransition>
