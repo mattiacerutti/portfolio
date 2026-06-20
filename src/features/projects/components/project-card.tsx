@@ -35,8 +35,8 @@ function ProjectCard(props: ProjectCardProps) {
             {!hideTechStack && technologies && technologies.length > 0 && (
               <>
                 <div className="flex flex-row flex-wrap gap-2">
-                  {technologies.map((tech, index) => (
-                    <ViewTransition key={index} name={`project-tech-${id}-${tech}`} default="none" share={PROJECT_DETAIL_SHARE}>
+                  {technologies.map((tech) => (
+                    <ViewTransition key={tech} name={`project-tech-${id}-${tech}`} default="none" share={PROJECT_DETAIL_SHARE}>
                       <TechCard name={tech} />
                     </ViewTransition>
                   ))}

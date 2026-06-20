@@ -8,16 +8,18 @@ interface WorkExperienceProps {
   experience: WorkExperienceData;
 }
 
+const workDateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+});
+
+function formatDate(date: Date) {
+  return workDateFormatter.format(date);
+}
+
 export default function WorkExperience(props: WorkExperienceProps) {
   const {experience} = props;
   const {title, role, location, startDate, endDate, technologies, description} = experience;
-
-  const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "long",
-    }).format(date);
-  };
 
   return (
     <div className="grid grid-cols-1 gap-1 md:grid-cols-[1fr_auto] md:gap-2">
@@ -38,8 +40,8 @@ export default function WorkExperience(props: WorkExperienceProps) {
 
       <div className="mt-1 flex flex-col gap-3.5 md:col-span-2 md:gap-5">
         <div className="flex flex-row flex-wrap gap-2 decoration-(--foreground)/20">
-          {technologies.map((tech, index) => (
-            <TechCard key={index} name={tech} />
+          {technologies.map((tech) => (
+            <TechCard key={tech} name={tech} />
           ))}
         </div>
 

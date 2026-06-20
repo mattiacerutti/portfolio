@@ -17,12 +17,14 @@ export function getPostsByProjectId(projectId: string) {
   return POSTS.filter((post) => post.projectId === projectId);
 }
 
+const postDateFormatter = new Intl.DateTimeFormat("en", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+
 export function formatPostDate(date: string) {
-  return new Intl.DateTimeFormat("en", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date(date));
+  return postDateFormatter.format(new Date(date));
 }
 
 export const POSTS: Post[] = [
@@ -36,4 +38,4 @@ export const POSTS: Post[] = [
   },
 ];
 
-export const LATEST_POSTS = [...POSTS].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+export const LATEST_POSTS = POSTS.toSorted((a, b) => b.publishedAt.localeCompare(a.publishedAt));

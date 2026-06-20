@@ -5,6 +5,8 @@ import {FiMoon, FiSun} from "react-icons/fi";
 import {useTheme} from "next-themes";
 import P from "@/components/ui/typography/p";
 
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
   const {setTheme, resolvedTheme, theme} = useTheme();
 
@@ -20,9 +22,10 @@ export default function Footer() {
 
   return (
     <footer className="mt-25 mb-5 flex w-full max-w-4xl items-center justify-between text-gray-500 max-lg:px-6 md:mt-35 md:mb-10">
-      <P>&copy; {new Date().getFullYear()}</P>
+      <P suppressHydrationWarning>&copy; {currentYear}</P>
       <div className="flex items-center justify-end gap-4">
         <button
+          type="button"
           suppressHydrationWarning
           className={`transition duration-400 ${theme === "system" ? "cursor-default opacity-50" : "cursor-pointer hover:text-(--foreground)"}`}
           onClick={() => changeTheme("system")}
@@ -33,6 +36,7 @@ export default function Footer() {
           <RiComputerLine className="h-5 w-5" />
         </button>
         <button
+          type="button"
           className="inline-flex cursor-pointer items-center justify-center leading-none transition duration-400 hover:text-(--foreground)"
           onClick={toggleTheme}
           aria-label="Toggle theme"
