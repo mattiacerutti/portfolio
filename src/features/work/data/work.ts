@@ -29,8 +29,8 @@ export const WORK_EXPERIENCES: (WorkExperience & {relevant: boolean})[] = [
   },
   {
     title: "New Art Vanguard",
-    role: "Fullstack Developer, Contractor",
-    location: "Remote",
+    role: "Software Engineer, Contractor",
+    location: "Miami, FL (Remote)",
     startDate: new Date("2023-03"),
     endDate: new Date("2025-01"),
     technologies: ["React", "TailwindCSS", "MySQL", "PHP", "CI/CD"],
