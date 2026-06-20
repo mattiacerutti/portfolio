@@ -53,6 +53,26 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.os-theme-page {
+  --os-size: 10px;
+  --os-padding-perpendicular: 2px;
+  --os-padding-axis: 4px;
+  --os-track-bg: transparent;
+  --os-track-bg-hover: transparent;
+  --os-track-bg-active: transparent;
+  --os-handle-border-radius: 9999px;
+  --os-handle-bg: rgba(2, 2, 2, 0.25);
+  --os-handle-bg-hover: rgba(2, 2, 2, 0.45);
+  --os-handle-bg-active: rgba(2, 2, 2, 0.6);
+  --os-handle-min-size: 48px;
+}
+
+[data-theme="dark"] .os-theme-page {
+  --os-handle-bg: rgba(240, 239, 237, 0.28);
+  --os-handle-bg-hover: rgba(240, 239, 237, 0.48);
+  --os-handle-bg-active: rgba(240, 239, 237, 0.64);
+}
+
 ::view-transition-old(*),
 ::view-transition-new(*) {
   animation-duration: 0.6s;
