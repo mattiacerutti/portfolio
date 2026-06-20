@@ -1,7 +1,7 @@
 "use client";
 
 import {CustomLink} from "@/components/ui/typography/link";
-import faceImage from "@/assets/images/face.png";
+import faceImage from "@/assets/images/face.webp";
 import Image from "next/image";
 import {TbBrandGithub} from "react-icons/tb";
 import {LiaLinkedinIn} from "react-icons/lia";
