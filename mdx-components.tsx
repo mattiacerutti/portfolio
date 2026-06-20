@@ -14,7 +14,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h2: (props) => <H2 {...props} />,
     h3: (props) => <H3 {...props} />,
-    h4: (props) => <H4 className="mt-4" {...props} />,
+    h4: (props) => <H4 {...props} />,
     p: (props) => <P {...props} />,
     ul: (props) => <Ul {...props} />,
     ol: (props) => <Ol {...props} />,

@@ -14,7 +14,7 @@ export default function MdxSection(props: PropsWithChildren<MdxSectionProps>) {
 
   return (
     <VerticalReveal delay={delay} className={className}>
-      <div className={twMerge("flex flex-col gap-6 [&_p]:leading-relaxed", contentClassName)}>{children}</div>
+      <div className={twMerge("flex flex-col gap-1.5 [&_p]:leading-relaxed [&>p+p]:mt-5", contentClassName)}>{children}</div>
     </VerticalReveal>
   );
 }
