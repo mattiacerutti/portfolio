@@ -1,4 +1,3 @@
-import "overlayscrollbars/overlayscrollbars.css";
 import "./globals.css";
 
 import type {Metadata} from "next";
@@ -6,7 +5,6 @@ import {Inter} from "next/font/google";
 import Header from "@/features/shared/components/layout/header";
 import {ThemeProvider} from "@/components/providers/theme-provider";
 import MotionProvider from "@/components/providers/motion-provider";
-import OverlayScrollbarsProvider from "@/components/providers/overlay-scrollbars-provider";
 import Footer from "@/features/shared/components/layout/footer";
 import {DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL} from "@/lib/seo";
 import CometBackground from "@/features/shared/components/comet-background";
@@ -44,9 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-overlayscrollbars-initialize suppressHydrationWarning>
-      <body data-overlayscrollbars-initialize className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
-        <OverlayScrollbarsProvider />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
           <MotionProvider>
