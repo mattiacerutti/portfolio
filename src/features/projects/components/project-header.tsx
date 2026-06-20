@@ -23,7 +23,7 @@ export default function ProjectHeader(props: ProjectHeaderProps) {
   return (
     <div>
       <div className="flex items-center gap-4">
-        <H2 className="inline-block leading-none">
+        <H2 className="inline-block">
           <ViewTransition name={`project-title-${id}`} default="none" share={PROJECT_DETAIL_SHARE}>
             <span className="inline-block">{title}</span>
           </ViewTransition>
