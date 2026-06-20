@@ -1,7 +1,6 @@
 import P from "@/components/ui/typography/p";
 import H2 from "@/components/ui/typography/h2";
 import TechCard from "@/features/shared/components/tech-card";
-import Button from "@/components/ui/button";
 import {CustomLink} from "@/components/ui/typography/link";
 import {HiOutlineExternalLink} from "react-icons/hi";
 import {TbBrandGithub} from "react-icons/tb";
@@ -29,19 +28,15 @@ export default function ProjectHeader(props: ProjectHeaderProps) {
           </ViewTransition>
         </H2>
 
-        <div className="flex flex-row gap-1.5">
+        <div className="mt-1 flex flex-row gap-3">
           {preview && (
             <CustomLink href={preview} target="_blank" aria-label="View live preview (opens in new tab)">
-              <Button className="h-7 w-7 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
-                <HiOutlineExternalLink className="h-full w-full" />
-              </Button>
+              <HiOutlineExternalLink className="h-5 w-5" />
             </CustomLink>
           )}
           {github && (
             <CustomLink href={github} target="_blank" aria-label="View source code on GitHub (opens in new tab)">
-              <Button className="h-7 w-7 p-1.5 transition-transform duration-300 hover:-translate-y-0.5">
-                <TbBrandGithub className="h-full w-full" />
-              </Button>
+              <TbBrandGithub className="h-5 w-5" />
             </CustomLink>
           )}
         </div>

@@ -18,7 +18,7 @@ export function CustomLink(props: CustomLinkProps) {
       href={href}
       className={twMerge(
         "text-(--muted-foreground) transition-colors duration-600 hover:text-(--foreground)",
-        underline && "underline decoration-(--muted-foreground)/30",
+        underline && "underline decoration-(--muted-foreground)/60",
         className
       )}
     >
