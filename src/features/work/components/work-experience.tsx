@@ -24,7 +24,7 @@ export default function WorkExperience(props: WorkExperienceProps) {
   return (
     <div className="grid grid-cols-1 gap-1 md:grid-cols-[1fr_auto] md:gap-2">
       <div className="flex flex-row items-start gap-4 sm:items-center">
-        <Image src={experience.logo} alt={`${title} logo`} width={60} height={60} className="h-12 w-12 rounded-md object-cover" draggable="false" />
+        <Image src={experience.logo} alt={`${title} logo`} width={48} height={48} className="h-12 w-12 rounded-md object-cover" draggable="false" />
         <div className="flex flex-col max-sm:gap-1">
           <H4 className="leading-[1.15] text-balance sm:leading-normal">{title}</H4>
           <span className="leading-[1.15] text-balance text-(--muted-foreground) sm:leading-normal">{role}</span>

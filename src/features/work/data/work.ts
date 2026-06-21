@@ -1,7 +1,7 @@
 import type {StaticImageData} from "next/image";
-import awsLogo from "@/assets/images/work/aws.png";
-import estilosLogo from "@/assets/images/work/estilos.png";
-import newArtVanguardLogo from "@/assets/images/work/new_art_vanguard.png";
+import awsLogo from "@/assets/images/work/aws.webp";
+import estilosLogo from "@/assets/images/work/estilos.webp";
+import newArtVanguardLogo from "@/assets/images/work/new_art_vanguard.webp";
 
 export interface WorkExperience {
   title: string;
