@@ -2,8 +2,8 @@ import type {Metadata} from "next";
 
 export const SITE_URL = "https://mattiacerutti.com";
 export const SITE_NAME = "Mattia Cerutti";
-export const DEFAULT_TITLE = "Mattia Cerutti - Software Engineer";
-export const DEFAULT_DESCRIPTION = "Software Engineer with 4+ years of experience, building cool stuff and sharing my work.";
+export const DEFAULT_TITLE = "Mattia Cerutti";
+export const DEFAULT_DESCRIPTION = "I build things I wish existed and write about the parts worth remembering.";
 
 export const absoluteUrl = (pathname: string) => new URL(pathname, SITE_URL).toString();
 
