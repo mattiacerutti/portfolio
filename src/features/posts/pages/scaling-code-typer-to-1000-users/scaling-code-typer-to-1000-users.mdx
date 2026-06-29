@@ -1,141 +1,140 @@
 import PostMdxSection from "@/features/posts/components/post-mdx-section";
 
 <PostMdxSection delay={0.15}>
-[Code Typer](/projects/code-typer)&apos;s first backend was exactly what you would build if nobody was using it yet.
+### Intro
+[Code Typer](/projects/code-typer)&apos;s first backend was exactly what you would expect from a side project that nobody was really using yet.
 
-When a user asked for a snippet, the server would hit the GitHub API to get a random file, download it, parse it, extract a snippet, and send that back to the client. If anything went wrong along the way, the server would just try again until it got something good.
+When a user asked for a snippet, the server would call the GitHub API, find a random file, download it, parse it with [Tree-sitter](https://tree-sitter.github.io/tree-sitter/), extract something that looked fun to type, and send it back to the browser. If anything failed along the way, the server would just try again until it found something good.
 
-That was the right thing to build at the time, since I was mainly building it just for me (and probably also was too naive to understand the future implications). Then I posted it on Reddit, and everything went sideways.
+Honestly, for the version of the project I had at the time, this was fine. I was mostly building it for myself, and I also probably did not fully think through what would happen if more than five people used it at the same time. A very normal amount of product planning.
+
+Then I posted it on Reddit, and the architecture started looking a little less cute.
 
 </PostMdxSection>
 
 <PostMdxSection delay={0.3}>
-### The Naive Approach
+### The Naive Version
 
-The first version leaned **_hard_** on the GitHub API. It didn't even have a database. It mostly just owned the logic that turned source files into something the user could type.
+The first version leaned very hard on the GitHub API. It did not even have a database. The backend mostly existed to turn real source files into typing snippets.
 
-The whole flow looked roughly like this:
+The flow was roughly:
 
-1. Pick a language
-2. Find a candidate GitHub file
-3. Download it
-4. Parse it with [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
-5. Extract a function or class
-6. Send it to the browser
+1. Pick a language.
+2. Find a candidate GitHub file.
+3. Download it.
+4. Parse it with Tree-sitter.
+5. Extract a function or class.
+6. Send it to the browser.
 
-For local testing this was working great: it was fast enough, it always had fresh code, and I didn't have to build any infrastructure at all. The GitHub API was effectively my database.
+For local testing, this felt great. The snippets were always fresh, I did not have to store anything, and GitHub was basically acting as my database. Obviously GitHub did not explicitly agree to this arrangement, but it worked well enough while I was the only real user.
 
-At some point, I did end up having some rate-limit issues even during development, since every time a user would request a new snippet (which was either done by loading the page, changing language, or completing it), it would call the GitHub API and parse the entire file just to end up returning a single snippet.
+I did hit some rate-limit issues even during development, because every new snippet request could mean another GitHub API call and another full file parse. Loading the page, changing language, or completing a snippet all had the potential to go through that path.
 
-I fixed this by always sending the entirety of the snippets extracted from the file to the client, and then letting the client randomly pick one of them for each new snippet request. This reduced the number of GitHub API calls by a lot, but it was a warning sign of a bigger underlying problem: **every session depended on GitHub**.
+The fix was very simple: whenever the server downloaded and parsed a file, it would send all the snippets from that file to the client. The client could then pick from those locally for a while instead of asking the server for a new one every time. This helped a lot, but it was also a pretty obvious warning sign. Every session still depended on GitHub being available, fast, and willing to keep answering my requests.
 
 </PostMdxSection>
 
 <PostMdxSection delay={0.45}>
-### The Reddit Boom
+### Then Reddit Found It
 
-All of this was back in summer 2024: I had just completed my second year of college, and I was looking for something fun to build and learn from over the summer. In true programmer fashion, I spent a few weeks obsessing over it, got it to a state that felt good, and then totally forgot about it.
+I built the first version of Code Typer in summer 2024, right after my second year of university. It was one of those summer projects where you tell yourself you are just going to build a small thing, then spend a few weeks obsessing over details nobody asked for.
 
-Then at some point, around a year and a half later, I randomly decided to post Code Typer on Reddit, with no big expectations and with just a basic description that sounded like: "hey, I made this thing, does anyone else find it useful?"
+After I got it to a point where it felt good enough, I mostly forgot about it. Then, around a year and a half later, I randomly decided to post it on Reddit. I did not have a launch plan or anything serious, it was basically just: "hey, I made this thing, maybe someone else finds it useful".
 
-A few posts got more attention than I expected. The traffic was still tiny compared to an actual product, but it was a lot for a side project that had mostly been exercised by me and a few friends and was hosted on a free server. At its peak, Code Typer reached around **1,000 users** in a day. Suddenly there were 150+ people landing on the site at the same time, turning my cute prototype into a very effective GitHub rate-limit burner.
+A few posts got more attention than I expected. This was still tiny compared to a real product, but it was a lot for a side project hosted on a free server and mostly tested by me and a few friends. At its peak, Code Typer reached around **1,000 users** in a day, with more than 150 people playing at the same time.
 
-Don't get me wrong, the app behaved exactly as designed. Unfortunately, the designer was really dumb.
-
-Every new user meant more GitHub API calls. More sessions meant more parsing. More retries meant even more GitHub API calls. Eventually the GitHub budget ran out, and once that happened everything was down.
+That was enough to turn my cute prototype into a very efficient GitHub rate-limit burner. To be fair, the app was doing exactly what I had told it to do. Unfortunately, I was really dumb. Every new user meant more GitHub API calls. More sessions meant more parsing. More retries meant even more GitHub API calls. Eventually the GitHub limits ran out, and once that happened everything was down.
 
 _Damn, that's a bad first impression._
 
 </PostMdxSection>
 
 <PostMdxSection delay={0.6}>
-### GitHub Was in the Hot Path
+### The Actual Problem
 
-The bug was not "GitHub has rate limits". Of course it does. The bug was that I had put a rate-limited third-party API directly in the most important user path.
+The real problem was not that GitHub has rate limits. Of course it does. The problem was that I had put a rate-limited third-party API directly in the main user flow.
 
-When the app needed a snippet, it needed GitHub to answer. If GitHub was slow, Code Typer was slow. If GitHub rejected the request, Code Typer failed. If parsing found nothing useful after the fetch, the app had to try again, which made the rate-limit problem worse.
+When Code Typer needed a snippet, it needed GitHub to answer. If GitHub was slow, Code Typer was slow. If GitHub rejected the request, Code Typer failed. If the parser did not find a good snippet after downloading the file, the app tried again, which made the rate-limit problem even worse.
 
-The goal became very simple: **GitHub could stay in the system, but it had to leave the request path.**
+So the goal became pretty simple: GitHub could stay in the system, but it had to leave the request path.
 
 </PostMdxSection>
 
 <PostMdxSection delay={0.75}>
-### Prefetching
+### Moving GitHub Out of the Way
 
-After thinking about it for a while, the fix was to make Code Typer boring.
+The fix was to make the backend less clever and more boring, which is usually a good sign.
 
-Instead of fetching source files while a user is waiting, the app now prefetches files ahead of time, parses them, extracts snippets, and stores those snippets in Postgres. When someone starts a typing session, the app reads from its own database.
+Instead of fetching source files while a user is waiting, Code Typer now fetches files ahead of time. It parses them, extracts snippets, filters out the bad ones, and stores the good ones in Postgres. When someone starts a typing session, the app reads from its own database.
 
-GitHub became an input to an ingestion pipeline instead of a runtime dependency for every user request.
+So GitHub went from being a runtime dependency for every user request to being an input for an ingestion pipeline. That sounds less exciting, but it is much nicer when people are actually using the app.
 
 </PostMdxSection>
 
 <PostMdxSection delay={0.9}>
-### What I Gave Up
+### The Tradeoff
 
-The naive version had some nice properties.
+The naive version had some nice properties. It always looked at current source files, required almost no storage, and had no separate ingestion job to run. If I changed the parser, I could deploy the change and the next request would use it immediately.
 
-It always looked at current source files. It required almost no storage. There was no separate seed step to run and no question of whether the snippet database was stale. If I changed the parser, I could just deploy the change and the next request would use it.
+Prefetching moved that complexity somewhere else. Now I need to track which files are being watched, when they were fetched, which version produced which snippets, and what should happen when the parser or filters change.
 
-Prefetching moved all of that complexity somewhere else. Now I need to track which files are being watched, when they were fetched, which version produced which snippets, and what should happen when the parser or filters change.
-
-That is a real cost. But it buys the things that matter more for this app:
+That is a real cost, but it buys the things that matter more for this app:
 
 - Starting a typing session is fast.
 - GitHub rate limits do not break normal usage.
 - Snippets can be stable and shareable.
 - Traffic spikes hit Postgres, not GitHub.
 
-I like that trade. More complexity in the part of the system I control. Less drama in the part users touch.
+I like that trade. More complexity in the part of the system I control, and less drama in the part users touch.
 
 </PostMdxSection>
 
 <PostMdxSection delay={1.05}>
-### File Versions
+#### File Versions
 
-Once snippets live in the database, freshness becomes explicit.
+Once snippets live in the database, freshness becomes something I have to think about explicitly.
 
-If I fetch a file once and keep the snippets forever, Code Typer slowly turns into a museum of old code. That's not catastrophic for a typing game, but it does feel wrong. The whole premise is that you are practicing on real code from real projects.
+If I fetch a file once and keep the snippets forever, Code Typer slowly becomes a museum of old code. That is not the end of the world for a typing game, but it does feel a little wrong. The whole point is that you are practicing on real code from real projects.
 
-So files are versioned. A tracked GitHub file can have multiple versions, usually tied to a commit or file `SHA`. When the ingestion job checks a file and sees that the `SHA` changed, it stores a new file version and parses that version into snippets.
+So tracked files are versioned. A GitHub file can have multiple versions, usually tied to a commit or file `SHA`. When the ingestion job checks a file and sees that the `SHA` changed, it stores a new file version and parses that version into snippets.
 
-This gives me a nice property: old share links can keep pointing to the exact snippet someone typed, while new sessions can gradually use newer code. It's not real-time freshness. I don't need real-time freshness. I need **predictable freshness** that does not make the app fall over when a Reddit post does well.
+This gives me a nice property: old share links can keep pointing to the exact snippet someone typed, while new sessions can gradually use newer code. It is not real-time freshness, but I do not need real-time freshness. I need predictable freshness that does not make the app fall over when a Reddit post does better than expected.
 
 </PostMdxSection>
 
 <PostMdxSection delay={1.2}>
-### Deduplication
+#### Deduplication
 
-Versioning creates another small trap. A changed file does not mean every snippet inside that file changed.
+Versioning creates another small problem: a changed file does not mean every snippet inside that file changed.
 
 Maybe someone reformatted the file. Maybe they fixed one comment. Maybe one function changed in a large file and the other twenty functions stayed exactly the same. If I insert every snippet from every new file version, the database fills with duplicates.
 
-That is not just untidy. It changes product behavior. A snippet that appears in five file versions is now five times more likely to be selected than a snippet that appears once.
+That is not just messy, it also changes product behavior. A snippet that appears in five file versions becomes five times more likely to be selected than a snippet that appears once, which is not what I want.
 
 So snippets get their own hash. Before hashing, I strip whitespace so formatting-only changes do not create new snippets. If a newly parsed snippet has a hash that already exists, I skip it.
 
 </PostMdxSection>
 
 <PostMdxSection delay={1.35}>
-### Filtering Is the Product
+#### Filtering Is the Product
 
-Parsing code is the easy part. Choosing what is worth typing is harder.
+Parsing code is the easy part. Choosing what is actually worth typing is harder.
 
 A valid function can still be a terrible typing test. It might be too short, too long, full of generated-looking noise, or made of lines that wrap badly on a laptop screen. The parser only knows that the code is syntactically interesting. It does not know if it feels good to type.
 
 So the ingestion pipeline applies filters: line count, maximum line length, supported language, and a few heuristics around what counts as a useful snippet.
 
-The annoying bit is that these filters are product decisions, which means they change. If I decide tomorrow that the line-length limit was too strict, what happens to the snippets already in the database? Do I keep them? Mark which filter version created them? Delete everything and regenerate?
+The annoying part is that these filters are product decisions, which means they change. If I decide tomorrow that the line-length limit was too strict, what happens to the snippets already in the database? Do I keep them? Mark which filter version created them? Delete everything and regenerate?
 
 For now, regeneration is the least annoying answer. Code Typer does not have important long-term user data tied to individual snippets, besides share links. If that changes, this becomes a migration problem. Until then, keeping the snippet pool good matters more than preserving every old row.
 
 </PostMdxSection>
 
 <PostMdxSection delay={1.5}>
-### The Good Ending
+### Where It Ended Up
 
-Since the fix, Code Typer has been stable and sits at roughly **100 daily active users**, which is honestly more than enough for something I built for myself. It also still costs me basically nothing to run, because it lives on a free Oracle VPS.
+Since the change, Code Typer has been stable and sits at roughly **100 daily active users**, which is honestly more than enough for something I originally built for myself. It also still costs me basically nothing to run, because it lives on a free Oracle VPS.
 
-I definetely learned a valuable lesson in this case: **stop treating someone else's API as my database.**
+The main lesson was pretty simple: stop treating someone else&apos;s API as my database. Which is obvious in hindsight, but most useful lessons are. The annoying part is usually needing a small production fire to finally learn them.
 
 </PostMdxSection>
