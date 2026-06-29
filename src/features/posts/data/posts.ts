@@ -29,6 +29,13 @@ export function formatPostDate(date: string) {
 
 export const POSTS: Post[] = [
   {
+    id: "from-ai-slop-to-my-first-npm-packages",
+    title: "From AI Slop to My First NPM Packages",
+    description: "How rewriting a mobile app made me care a bit too much about backwards-compatible tRPC contracts.",
+    readTime: "10 min",
+    publishedAt: "2026-06-29",
+  },
+  {
     id: "scaling-code-typer-to-1000-users",
     title: "Scaling Code Typer to 1,000 Users",
     description: "How a Reddit post took down my entire project.",

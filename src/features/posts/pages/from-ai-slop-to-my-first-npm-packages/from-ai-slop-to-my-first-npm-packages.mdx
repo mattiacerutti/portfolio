@@ -1,0 +1,135 @@
+import PostMdxSection from "@/features/posts/components/post-mdx-section";
+
+<PostMdxSection delay={0.15}>
+### Intro
+Around October 2025, a friend asked me to help with a mobile app he had been building in his free time. It started as a normal side project, but then it started gaining some traction, which is both *the dream* and the beginning of the problems. He suddenly needed to ship faster, so he started using coding agents a lot. Very understandable. If you have people waiting for new features, and there is a _thing_ willing to write them at 2am, you are probably going to use it. The problem was that the clanker cooked a bit too much.
+
+By the time I saw the codebase, he probably understood around 10% of it. There was duplicated logic everywhere, almost no structure, and some files had more than 10,000 lines. It was one of those projects where everything technically works until you need to change **literally anything**. This was also before Opus 4.5, which I think was a pretty big step forward for programming agents. There were good models before that, but this codebase had the very specific smell of months of unsupervised AI changes stacked on top of each other. I initially thought I would help clean it up, but after looking at it properly, the answer was much less elegant: we had to rebuild it.
+
+</PostMdxSection>
+
+<PostMdxSection delay={0.3}>
+### The Rewrite
+
+The original app was a Flutter frontend with a small vanilla TypeScript backend. I basically decided to completely throw it out a window and rewrite it in React Native, partly because I know TypeScript and React much better than Flutter, and partly because [Expo](https://expo.dev/) makes a lot of mobile development feel less like a punishment from God. But the bigger reason was that I wanted the whole thing in one **TypeScript monorepo**: frontend, backend, shared types, everything.
+
+Small detour: I think this setup is also where coding agents make the most sense. If the frontend, backend, schemas, and shared utilities all live in the same repo, the agent has the context it needs without me having to manually explain half the system every time. It can see the contract, the caller, and the implementation together, which is basically the dream version of _"please change this without breaking everything"_.
+
+That also meant I could use [tRPC](https://trpc.io/), which I really like for this kind of project. You define your backend procedures, call them from the client, and TypeScript keeps the two sides connected. If I change an input, the frontend complains. If I change an output, the frontend complains. It is also becoming increasingly more useful now that agents are writing most of the code, since it provides a really good feedback loop. During development, this felt great: I could change a mutation, follow the type errors, fix the client, and move on. It was exactly the kind of feedback loop I wanted after seeing what happened in the previous codebase. Then I started thinking about deployment, and the fun stopped for a bit.
+
+</PostMdxSection>
+
+<PostMdxSection delay={0.45}>
+### Mobile Apps Are Annoying in a Special Way
+
+The rewrite took a few months. At the same time I was also finishing my last university exams, which I really had to pass because I had an offer at AWS tied to me graduating. So obviously this was the perfect moment to also learn mobile deployment properly.
+
+I had deployed a ton of webapps before, but mobile apps are different in one very annoying way: **old clients keep existing**. With a website, you deploy a new frontend and most users get it fairly instantly. With a mobile app, someone can keep version `1.0` installed for weeks while someone else has version `1.1`, and both of them are talking to the same backend.
+
+This makes the nice local tRPC workflow a little suspicious. Locally, changing an API looked like this:
+
+1. Change the input or output schema.
+2. Update the backend logic.
+3. Let TypeScript show me where the frontend broke.
+4. Fix those places.
+5. Done.
+
+In production, that same change has timing problems. If I deploy the backend first, old clients might break. If I ship the client first, new clients might call something the backend does not support yet. And this is not even only a mobile app thing. A rolling deploy in a distributed system has a similar shape. If two backend instances are behind a load balancer and only one has the new code, users can hit either version for a while. Basically, software does not update all at once just because i pushed the code.
+
+</PostMdxSection>
+
+<PostMdxSection delay={0.6}>
+### The Boring Answer
+
+The answer is the usual boring engineering answer: **make changes backwards compatible**. If you want to rename a field from `name` to `displayName`, you do not just delete one and add the other in the same deploy. You expand first:
+
+- Keep accepting `name`;
+- Add support for `displayName`;
+- Ship a client that starts using `displayName`;
+- Wait until old clients are gone, or at least not worth supporting anymore;
+- Then remove `name` later.
+
+Same thing for response fields. If an old client still expects a field, the backend keeps returning it until that client is no longer supported. This is not a new idea, it is just the usual expand-and-contract pattern. The issue is that it relies on people remembering to do the right thing every time, and I do not really like relying on that.
+
+I don't trust myself, and I trust an AI agent even less when it is touching API boundaries and confidently changing things it does not have to maintain afterwards. So I wanted a check in CI that could say: _this PR changes the tRPC contract in a breaking way_. I assumed a library for this already existed, because the JavaScript ecosystem has eleven packages for checking if a number is odd. Apparently, for tRPC, not really.
+
+</PostMdxSection>
+
+<PostMdxSection delay={0.75}>
+### The Shape of the Solution
+
+I found that a common way to solve this in other setups is to generate an OpenAPI spec before and after a change, then diff the two specs with rules for backwards compatibility. That seemed reasonable. The only small problem was that tRPC does not start as OpenAPI, it starts as a router.
+
+So I made [trpc-diff](https://github.com/mattiacerutti/trpc-diff). The first part of it takes a tRPC router and turns it into a contract object. It walks the router procedures and creates synthetic OpenAPI paths for them. A query like `user.byId` becomes something like `/query/user/byId`, a mutation becomes `/mutation/...`, and so on. This is not meant to pretend that the tRPC API is suddenly a REST API. The paths are just a stable format for diffing. I only care about the important bits: **what input does this procedure accept, and what output does it return?**
+
+For schemas, I started with Zod, because that is what I was using. The library uses [zod-openapi](https://github.com/samchungy/zod-openapi) to turn Zod schemas into OpenAPI schemas. But tRPC can use other validators too, so I did not want the whole library to be secretly called `zod-diff`. The contract generator takes parser adapters. An adapter knows how to recognize a schema, merge chained `.input()` calls, and convert that schema to OpenAPI. Right now I only ship the Zod adapter, but if someone needs another one, the shape is there.
+
+</PostMdxSection>
+
+<PostMdxSection delay={0.9}>
+#### Why Not a CLI
+
+One choice I made pretty early was to keep `trpc-diff` as a library instead of a CLI that magically finds your router. This is mostly because tRPC routers are runtime values. To inspect one, you need to import the file that defines it. That means dealing with the user&apos;s TypeScript setup, path aliases, environment variables, module system, runtime, and probably three other things that would break at the worst possible moment.
+
+I did not want to build a tiny cursed TypeScript runner inside the package, so the user imports their own router in their own project, with their own runtime, and calls `generateContract`. Then they can write that contract to disk or pass it directly to the diff function. It is less magical, but I think it is the correct kind of boring.
+
+</PostMdxSection>
+
+<PostMdxSection delay={1.05}>
+#### The ESLint Rule
+
+There was one tRPC detail that made this slightly awkward. tRPC can infer output types from resolver return values, which is great when TypeScript is checking your app, but `trpc-diff` runs at runtime. By then, those inferred types are gone. So if a procedure does not explicitly declare `.output(...)`, there is no response schema for me to put in the contract.
+
+The solution was not fancy. `trpc-diff` ships an ESLint rule called `trpc-diff/require-output`. It looks for procedures that end in `.query()`, `.mutation()`, or `.subscription()` without an `.output()` somewhere in the chain. If a procedure returns nothing, you write `.output(z.void())`. A little annoying, yes, but it's necessary (also, let&apos;s be honest: nowdays a human probably isn&apos;t going to write the procedure by hand anyway).
+
+</PostMdxSection>
+
+<PostMdxSection delay={1.2}>
+### Then I Needed the Diff
+
+Once I could generate contracts, I still had to compare them. I wanted a diff that understood backwards compatibility, not just _"these two JSON files are different"_. Adding a response field is usually safe. Removing one is usually not. Adding a required input field is usually not safe. Removing an input field may or may not be safe depending on how the server handles unknown properties.
+
+For my tRPC + Zod case, removing a request property is usually fine because Zod object schemas are non-strict by default. If an old client sends an extra property, the new backend normally ignores it. So I needed default rules, but I also needed the ability to override them. I eventually found [oasdiff](https://github.com/oasdiff/oasdiff), which already does a lot of this for OpenAPI specs. It is a Go CLI, and it has a good set of breaking-change checks. The issue was that I wanted to call it from TypeScript code, not shell out manually in every project.
+
+So the side quest began: [oasdiff-js](https://github.com/mattiacerutti/oasdiff-js).
+
+</PostMdxSection>
+
+<PostMdxSection delay={1.35}>
+### The Side Quest
+
+`oasdiff-js` is just TypeScript bindings around the `oasdiff` binary. It just exports functions that build the CLI arguments, execute the binary, and parse the output. There are also `FromSpecs` versions, which accept JavaScript objects directly. Those write temporary JSON files, run `oasdiff`, then clean up after themselves. Really nothing fancy, which is exactly how it should be.
+
+The part that took more thought was shipping the binary. My first idea was a postinstall script: detect the platform, download the right `oasdiff` binary, done. The problem with this is that postinstall scripts are becoming increasingly less welcome, and honestly for good reason. Bun does not run them by default, CI can disable them. And as a user, if I install `trpc-diff`, I do not want some nested dependency suddenly downloading a binary from the internet and asking me to please not worry about it.
+
+</PostMdxSection>
+
+<PostMdxSection delay={1.5}>
+#### The Native Packages
+
+The solution was to copy the pattern used by tools like esbuild. The main package, `@oasdiff-js/oasdiff-js`, has platform-specific packages as optional dependencies:
+
+- `@oasdiff-js/oasdiff-darwin-arm64`
+- `@oasdiff-js/oasdiff-darwin-x64`
+- `@oasdiff-js/oasdiff-linux-arm64`
+- `@oasdiff-js/oasdiff-linux-x64`
+- `@oasdiff-js/oasdiff-windows-arm64`
+- `@oasdiff-js/oasdiff-windows-x64`
+
+Each one contains the binary for that platform. The package manager installs the one that matches the current OS and architecture and ignores the rest. At runtime, `oasdiff-js` checks `process.platform` and `process.arch`, imports the matching optional package, and gets the binary path from it. This avoided the postinstall download completely. It was a bit tedious to set up, but it works and it's a one-time thing anyways, so it's fine.
+
+</PostMdxSection>
+
+<PostMdxSection delay={1.65}>
+### Where This Ended Up
+
+After setting everything up, the final flow for my app CI was pretty straightforward:
+
+1. Generate the old tRPC contract.
+2. Generate the new tRPC contract.
+3. Run the breaking-change diff (through `oasdiff-js` under the hood).
+4. Fail CI if something is accidentally breaking.
+
+This does not mean breaking changes are forbidden forever. Sometimes a breaking change is the right thing to do, especially during the contract phase of an expand-and-contract migration. The point is that it should be **intentional**.
+
+</PostMdxSection>
