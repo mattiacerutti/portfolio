@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${inter.variable} ovicking-wide flex min-h-screen flex-col items-center justify-between antialiased`}>
+      <body className={`${inter.className} ${inter.variable} flex min-h-screen flex-col items-center justify-between antialiased`}>
         <div aria-hidden className="top-glow" />
         <ThemeProvider>
           <MotionProvider>
