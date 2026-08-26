@@ -26,7 +26,10 @@ export default function WorkPage() {
         />
 
         {WORK_EXPERIENCES.map((experience, index) => (
-          <div key={experience.title} className="relative block w-full pl-7 sm:pl-9">
+          <div
+            key={`${experience.title}-${experience.startDate.getTime()}`}
+            className="relative block w-full pl-7 sm:pl-9"
+          >
             <m.span
               className="absolute top-6 left-1 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--muted-foreground)"
               initial={{scale: 0.95, opacity: 0}}

@@ -17,6 +17,16 @@ export interface WorkExperience {
 export const WORK_EXPERIENCES: (WorkExperience & {relevant: boolean})[] = [
   {
     title: "Amazon Web Services (AWS)",
+    role: "Software Engineer",
+    location: "Dublin, Ireland",
+    startDate: new Date("2026-07"),
+    technologies: ["Java", "AWS RDS", "Distributed Systems"],
+    description: "Working on the RDS Platform.",
+    relevant: true,
+    logo: awsLogo,
+  },
+  {
+    title: "Amazon Web Services (AWS)",
     role: "Software Engineer, Internship",
     location: "Dublin, Ireland",
     startDate: new Date("2025-06"),
